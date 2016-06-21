@@ -26,13 +26,11 @@ import org.apache.commons.logging.LogFactory;
 import org.dom4j.Document;
 import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
-import org.json.simple.JSONArray;
 
 import cn.com.nciic.www.SimpleCheckByJson;
 import cn.com.nciic.www.SimpleCheckByJsonResponse;
 import cn.com.nciic.www.service.IdentifierServiceStub;
 
-import com.allinpay.ets.client.StringUtil;
 import com.shove.Convert;
 import com.shove.data.DataException;
 import com.shove.security.Encrypt;
@@ -827,7 +825,7 @@ public class HomeInfoSettingAction extends BaseFrontAction {
 			}
 
 			List<Map<String, Object>> values = changeList2List(notes, lists);
-			String jsonStr = JSONArray.toJSONString(values);
+			String jsonStr = JSONUtils.toJSONString(values);
 			JSONUtils.printStr(jsonStr);
 		} catch (Exception e) {
 			log.error(e);
@@ -2024,7 +2022,7 @@ public class HomeInfoSettingAction extends BaseFrontAction {
 		String checkCode = paramMap.get("checkCode");
 		String dealpwd = paramMap.get("edealpwd");
 		String scode = (String) session().getAttribute("emailSetRadom");
-		if (StringUtil.isEmpty(checkCode) || StringUtil.isEmpty(scode)) {
+		if (StringUtils.isEmpty(checkCode) || StringUtils.isEmpty(scode)) {
 			// 绑定失败  
 			paramMap.put("msg", "数据错误");
 			JSONUtils.printStr("1");
