@@ -1,0 +1,877 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<link id="skin" rel="stylesheet" href="css/jbox/Gray/jbox.css" />
+   
+    <title>宝贝钱庄--网贷乐园、宝贝贷、金融超市</title>
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="expires" content="0">    
+	<meta http-equiv="keywords" content="宝贝钱庄--网贷乐园、宝贝贷、金融超市、涨薪宝、个人贷款、企业融资、小贷、代发工资">
+	<meta http-equiv="description" content="宝贝钱庄--网贷乐园、宝贝贷、金融超市、涨薪宝、个人贷款、企业融资、小贷、代发工资">
+	<link href="css/css.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+      ul,li{margin:0;padding:0}
+      #scrollDiv{height:182px;overflow:hidden}
+      .load{width:18px;height:18px;margin:10px;}
+    </style>
+  <link href="css/Site2.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="script/jquery-2.0.js"></script>
+	<script type="text/javascript" src="script/front.js"></script>
+	<script type="text/javascript" src="script/yui-min.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/site.css" />
+	<style type="text/css">
+#slide-index {
+	height: 224px;
+	width: 980px;
+	margin-top: 0px;
+	margin-right: auto;
+	margin-left: auto;
+	position: relative;
+	overflow: hidden;
+}
+#slide-index .slides {
+	min-width: 980px;
+	width: auto;
+	height:224px
+}
+#slide-index .slide {
+	position: relative;
+	min-width: 980px;
+	float: left;
+	height:224px
+}
+#slide-index .image {
+	z-index: 1;
+	position: absolute
+}
+#slide-index .button {
+	width: 138px;
+	display: none
+}
+		.slider{width:1000px;margin:0 auto;overflow:hidden;position:relative;}
+		.slider ul{width:200%;position:relative;}
+		.slider ul li{width:1000px;}
+		.slider ul li{float:left;}
+		.lights{width:100%;margin:0 auto;text-align:center;position:absolute;top:260px;}
+		.lights a{cursor:pointer;display:inline-block;height:18px;width:18px;margin:5px;border:1px solid #ccc;text-align:center;line-height:18px;}
+		.clear{clear:both;}
+		.lights_active{background:red !important;color:#fff;cursor:pointer;display:inline-block;height:18px;width:18px;margin:5px;border:1px solid #ccc;text-align:center;line-height:18px;}
+		.inner_wrap{width:1000px;overflow:hidden;margin:0 auto;}
+
+</style>
+</head>
+<body>
+	<div class="xn_h_index_1_header">
+		<link rel="shortcut icon" href="favicon.ico">  <!-- 网站ICO文件  -->
+<link rel="stylesheet" type="text/css" href="css/site.css" />
+<script type="text/javascript" src="script/jquery.shove-1.0.js"></script>
+<script type="text/javascript" src="script/jbox/jquery.jBox-2.3.min.js"></script>
+<script type="text/javascript" src="script/jbox/jquery.jBox-zh-CN.js"></script>
+<script type="text/javascript">
+
+//初始化
+function switchCode_top(){
+	var timenow = new Date();
+		$("#codeNum_top").attr("src","admin/imageCode.do?pageId=userlogin&d="+timenow);
+	};
+//===验证数据
+$(document).ready(function(){
+		//===========input失去焦点
+		     $("form :input").blur(function(){
+		       //email
+	                 if($(this).is("#email")){   
+		            if(this.value==""){   
+		                $("#s_email").attr("class", "formtips onError");
+		                $("#s_email").html("*请输入用户名或邮箱地址");
+		            }else if(/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/.test(this.value)){ //判断用户输入的是否是邮箱地址
+		            	checkRegister('email');
+		            }else if((/^1[3,5,8]\d{9}$/.test(this.value))){
+		                checkRegister('cellphone');
+		            }else{ 
+		            	checkRegister('userName');
+		            	  $("#s_email").attr("class", "formtips");
+		            }   
+		        }  
+		     //password
+		   	   if($(this).attr("id")=="password"){
+		   	    pwd=this.value; 
+		     if(this.value==""){
+		      	$("#s_password").attr("class", "formtips onError");
+		        $("#s_password").html("*请輸入您的密码");  
+		     }else if(this.value.length<6){ 
+		      	$("#s_password").attr("class", "formtips onError");
+		      $("#s_password").html("*密码长度为6-20个字符"); 
+		     }else{
+		     $("#s_password").html(""); 
+		      	$("#s_password").attr("class", "formtips");
+		     }
+		   }
+		   
+		   	  //验证码
+		   	   if($(this).attr("id")=="code_top"){
+		     if(this.value==""){
+		     $("#s_code").attr("class", "formtips onError");
+		      $("#s_code").html("*请输入验证码"); 
+		     }else{   
+		        		$("#s_code").attr("class", "formtips");
+		                $("#s_code").html(""); 
+		            } 
+		   }
+		       
+		      });
+    });
+
+
+
+function checkRegister(str){
+   var param = {};
+   	if(str == "userName"){
+			param["paramMap.email"]  = "";
+			param["paramMap.userName"] = $("#email").val();
+		}else if(str=="email"){
+			param["paramMap.email"] = $("#email").val();
+			param["paramMap.userName"] = "";
+		}else{
+			param["paramMap.email"] = "";
+			param["paramMap.userName"] = "";
+			param["paramMap.cellphone"] = $("#email").val();
+		}
+		$.post("ajaxCheckLog.do",param,function(data){
+		    $("#email_").hide();
+           if(data == 2 && str == "userName"){
+              $("#s_email").html("*无效用户！");
+           }else if(data == 3 && str == "userName"){
+              $("#s_email").html("*该用户还没激活！");
+              //add by houli
+              $("#email_").show();
+           }else if(data == 4&& str == "userName"){
+           	$("#s_email").attr("class", "formtips");
+         	$("#s_email").html("");
+           }
+           if(data == 0 && str == "email"){
+              $("#s_email").html("*无效邮箱！");
+           }else if(data == 1 && str == "email"){
+              $("#s_email").html("*该邮箱用户还没激活！");
+              //add by houli
+              $("#email_").show();
+           }else if(data == 4&& str == "email"){
+           	$("#s_email").attr("class", "formtips");
+         	$("#s_email").html("");
+           } 
+	          if(data == 5 && str == "cellphone"){
+              $("#s_email").html("*用户不存在！");
+           }else if(data == 4 && str == "cellphone"){
+             $("#s_email").html("");
+           }
+		});
+		
+}
+
+function login(){
+	 $(this).attr('disabled',true);
+	 $('#btn_login').attr('value','登录中...');
+       var param = {};
+		param["paramMap.pageId"] = "userlogin";
+		param["paramMap.email"] = $("#email").val();
+		param["paramMap.password"] = $("#password").val();
+		param["paramMap.code"] = $("#code_top").val();
+		param["paramMap.afterLoginUrl"]="";
+      $.post("logining.do",param,function(data){
+     		if(data == 1){
+				   window.location.href='index.jsp';
+			}else if (data == 2) {
+			     $('#btn_login').attr('value','登录');
+				alert("验证码错误!");
+               switchCode();
+                $("#btn_login").attr('disabled',false); 
+			} else if (data == 3) {
+				 $('#btn_login').attr('value','登录');
+               alert("用户名或密码错误!");
+                switchCode();
+                $("#btn_login").attr('disabled',false); 
+			} else if (data == 4) {
+				$('#btn_login').attr('value','登录');
+				$("#s_email").attr("class", "formtips onError");
+				alert("该用户已被禁用!");
+				 switchCode();
+                $("#btn_login").attr('disabled',false); 
+			} else if (data == 5) {
+				 $('#btn_login').attr('value','登录');
+					$("#s_email").attr("class", "formtips onError");
+					 switchCode();
+	                $("#s_email").html("*该用户已被限制登录，请于三小时以后登录！"); 
+	                 $("#btn_login").attr('disabled',false); 
+			}else if (data == 7) {
+				$('#btn_login').attr('value','登录');
+				$("#s_email").attr("class", "formtips onError");
+				alert("*该用户账号出现异常，请速与管理员联系！");
+               switchCode(); 
+               $("#btn_login").attr('disabled',false); 
+			}
+      });
+
+	};
+
+	$("#code").bind('keyup', function(event){
+		   if (event.keyCode=="13"){
+		      login();  
+		   }
+		});	
+	$("#email").focus(function(){
+		$("#email").val("");
+	});
+	$("#code").focus(function(){
+		$("#code").val("");
+	});
+	
+	
+</script>
+<!--顶部状态栏 开始-->
+<div class="l_top_top">
+	<div class="l_top_top_center">
+		<div class="l_top_top_center_left">
+			<!-- <a href="update.jsp"><img src="images/mobile_01.png" />手机版</a>
+			<span>|</span> -->
+			<a href="javascript:addCookie();">设为首页</a>
+			<span>|</span>
+			<a href="javascript:setHomepage();">加入收藏</a>
+			<span>|</span>
+			<a href="callcenter.do">帮助中心</a>
+		</div>
+		<div class="l_top_top_center_right">
+             <a href="login.do">登录</a><span>|</span><a href="reg.do">注册</a>&nbsp;
+				   <span> | </span><a href="callkfs.do" class="kf">客服</a>
+			<!-- <img src="images/weibo.png" /><a href="javascript:void(0);">新浪共享</a>
+			<img src="images/qq_gx_img.png" /><a href="javascript:void(0);">QQ共享</a> 
+				  -->			
+		</div>
+	</div>
+</div>
+<div class="top">
+<!-- 
+<script type="text/javascript" src="script/gg.js"></script> -->
+  <div class="logo"> <a href=""><img src="images/index9_03.png"/></a></div>
+  <div class="top-right">
+  	<div class="login-information">
+    <div class="login-informationstp1">
+    <div class="login-informationstpn"> 
+           <!-- Baidu Button BEGIN -->
+				<span id="bdshare" class="bdshare_t bds_tools get-codes-bdshare">
+				<a class="bds_tsina"></a>
+				<span class="bds_more"></span>
+				</span>
+				<script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=6638061" ></script>
+				<script type="text/javascript" id="bdshell_js"></script>
+				<script type="text/javascript">
+				document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+				</script> &nbsp;分享
+				<!-- Baidu Button END -->
+    </div></div>
+  <div class="login-informationstp1">
+  <div class="login-informationstpn">您好！
+  <span class="red"></span>| <a href="home.do">&nbsp;登&nbsp;录&nbsp;</a> | <a href="reg.do">&nbsp;注&nbsp;册&nbsp;</a>  | <a href="cellPhoneinit.do">手机注册</a></div></div>
+    </div>
+    <div class="top-tel"><img src="images/tel_08.png" /><a href="callkfs.do"><img src="images/tel_09.jpg" /></a></div>
+  </div>
+
+</div>
+<div style="">
+<div class="nav-zdh">
+  <div class="bar"><!--这是下拉背景--></div>
+  <div class="nav_main">
+    <ul>
+      <li id="sy_hover"><a href="index.jsp">首页</a>
+      	<!--  删除20140628
+        <div class="h_menu none" id="sy_menu">
+          <ul>
+            <li class="first"><a href="getMessageBytypeId.do?typeId=3">平台原理</a></li>
+            <li class="s-line2"></li>
+            <li><a href="frontTeam.do">团队介绍</a></li>
+            <li class="s-line2"></li>            
+            <li><a href="getMessageBytypeId.do?typeId=5">法律政策</a></li>
+            <li class="s-line2"></li>
+            <li class="s-line2"></li>
+            <li><a href="download.do">下载专区</a></li>
+          </ul>
+        </div>
+        -->
+      </li>
+      <li id="licai_hover"><a href="finance.do">理财频道</a>
+      <div class="h_menu none" id="licai_menu">
+          <ul>
+            <li class="first"><a href="finance.do">我要投资</a></li>
+            <li class="s-line2"></li>
+            <li class="two"><a href="financetool.do">工具箱</a></li>
+            <li></li>
+            <!--  <li class="three" ><a href="become2FinanceInit.do">成为理财人</a></li>-->
+          </ul>
+        </div>
+      </li>
+      <li id="jk_hover"><a href="borrow.do">融资频道</a>
+      <div class="h_menu none" id="jk_menu">
+          <ul>
+            <li class="first"><a href="borrow.do">个人借款</a></li>
+            <li class="s-line2"></li>
+            <li class="two" ><a href="borrowb.do">企业融资</a></li>
+            <li></li>                        
+          </ul>
+        </div>
+      </li>
+      <li id="zq_hover"><a href="queryFrontAllDebt.do">转让专区</a></li>
+      <li id="bj_hover"><a href="capitalEnsure.do">本金保障</a></li>              
+      <li id="kf_hover"><a href="callcenter.do?cid=1">帮助中心</a>
+        <div class="h_menu none" id="sy_menu">
+          <ul>
+          	<li class="first"><a href="callcenter.do?type=true&cid=1">新手入门</a></li>
+            <li class="s-line2"></li>          	
+            <li class="two"><a href="callcenter.do?type=true&cid=3">如何理财</a></li>
+            <li class="s-line2"></li>
+            <li><a href="callcenter.do?type=true&cid=2">如何融资</a></li>
+            <li class="s-line2"></li>            
+            <li><a href="callcenter.do?type=true&cid=4">会员中心</a></li>
+            <li class="s-line2"></li>
+            <li><a href="callcenter.do?type=true&cid=5">债权转让</a></li>
+            <li></li>
+          </ul>
+        </div>  
+      </li>
+      <li id="zh_hover"><a href="home.do">会员中心</a></li>
+      <!--
+      <li id="lt_hover" style="background:none;"><a target="_self"  href="getMessageBytypeId.do?typeId=4">关于我们</a>
+        <div class="h_menu none" id="sy_menu">
+          <ul>
+          	<li class="first"><a href="getMessageBytypeId.do?typeId=4">关于我们</a></li>
+            <li class="s-line2"></li>          	
+            <li class="two"><a href="getMessageBytypeId.do?typeId=3">平台原理</a></li>
+            <li class="s-line2"></li>
+            <li><a href="frontTeam.do">团队介绍</a></li>
+            <li class="s-line2"></li>            
+            <li><a href="getMessageBytypeId.do?typeId=5">法律政策</a></li>
+            <li class="s-line2"></li>
+            <li><a href="download.do">下载专区</a></li>
+            <li></li>
+          </ul>
+        </div>  
+      </li>
+      -->
+    </ul>
+  </div>
+<div class="nav-tzggz">
+  <div class="nav-tzgg">
+  	<div class="nav-tzggleft"><ul>
+    <li>宝贝投资总金额：35.57万元</li>
+    <li>宝贝待收总金额：28.50万元</li>
+    
+    <li>宝贝投资总金额：35.57万元</li>
+    <li>宝贝待收总金额：28.50万元</li>
+    
+    <li>宝贝投资总金额：35.57万元</li>
+    <li>宝贝待收总金额：28.50万元</li>
+    </ul>
+    </div>
+    <div class="nav-tzggright">
+    <ul>
+    <li>宝贝逾期总金额：1.39万元</li>
+    <li>宝贝逾期总金额：1.39万元</li>
+    </ul>
+    </div>
+  </div>
+</div>
+<!-- 删除横向用户登录框20140626
+<div class="user_ops" id="logCss">
+			<span class="userName">
+				用户名:<input name="paramMap.email" id = "email" type="text" value="" class="userName" />
+			</span>
+			<span class="userPwd">
+				密码:<input name="paramMap.password"  id="password" value=""  type="password" />
+				<a href="forgetpassword.do" class="fgpwd">忘记密码?</a>
+			</span>
+			<span class="userVerCode">
+				验证码:
+				<input name="paramMap.code" type="text" value="" id="code_top" class="" />
+				<span class="ver_code">
+				<img src="admin/imageCode.do?pageId=userlogin" title="点击更换验证码"
+		 id="codeNum_top" onclick="javascript:switchCode_top()" align="absmiddle"/>
+				</span>
+				<span class="refresh"><a href="javascript:void()" onclick="switchCode_top()" style="color: blue;"><img src="images/refresh.jpg" align="absmiddle"/></a></span>
+			</span>
+			<span class="userLogin">
+			<input name="btn_login" type="button"  id="btn_login" value="立即登录" onclick="login()" />
+			</span>
+		</div>  
+-->
+		</div>
+</div><!--顶部主导航 结束-->
+
+    <div class="slider-wrap">
+			<div class="slider">
+			<ul id="slider_ul">
+    	<li><img  width="1000px" src="upload/lists/b1.jpg" src="images/b1.jpg" /></li>
+    	<li><img  width="1000px" src="upload/lists/b2.jpg" src="images/b1.jpg" /></li>
+    	<li><img  width="1000px" src="upload/lists/b4.jpg" src="images/b1.jpg" /></li>
+    	</ul>
+       	<div class="clear"> </div>
+		  </div>
+		<div class="lights" id="slider_lights"></div>
+		
+		
+<!-- 增加大图顶层的登录框   -->
+    <div class="login-box">
+		<div class="pop-login-private" id="logCss">
+		  <div class="pop-login-wrap">
+		    <legend><span>登录宝贝钱庄</span></legend>
+        <div class="form-line">
+          <label class="label" for="login_uin">账　号：</label>
+          <div class="element show-text-tips">
+            <input name="paramMap.email" id="email" type="text" class="text ime-disabled" tabindex="1" autocomplete="off"   value="用户名/Email/手机号码"  onmouseover="this.style.borderColor='#FF6600'" onmouseout="this.style.borderColor=''" onFocus="if (value =='用户名/Email/手机号码'){value =''}" onBlur="if (value ==''){value='用户名/Email/手机号码'}"/>          
+          </div>
+        </div>		    
+
+        <div class="form-line">
+          <label class="label">密　码：</label>
+          <div id="pwd_wrap" class="element show-text-tips">
+            <!--label for="password" class="text-tips">登录密码</label-->
+            <input id="password" class="text ime-disabled" type="password" tabindex="2" name="paramMap.password" maxlength="16"  value="输入登录密码"  onmouseover="this.style.borderColor='#FF6600'" onmouseout="this.style.borderColor=''" onFocus="if (value =='输入登录密码'){value =''}" onBlur="if (value ==''){value='输入登录密码'}">
+          </div>
+        </div>
+         
+        <div class="form-line">
+          <label class="label" for="login_verifycode">验证码：</label>
+          <div class="element">
+            <div class="input-wrap show-text-tips">
+            	<span class="userVerCode">
+              <!--label for="login_verifycode" class="text-tips">验证码</label-->
+              <input id="code_top" class="textcode ime-disabled" type="text" name="paramMap.code" tabindex="3" maxlength="4" autocomplete="off"  value="验证码"  onmouseover="this.style.borderColor='#FF6600'" onmouseout="this.style.borderColor=''" onFocus="if (value =='验证码'){value =''}" onBlur="if (value ==''){value='验证码'}"/>
+              <span class="ver_code"><img src="admin/imageCode.do?pageId=userlogin" title="点击更换验证码"
+		 id="codeNum_top" onclick="javascript:switchCode_top()" align="absmiddle"/></span>
+		          <span class="refresh"><a href="javascript:void()" onclick="switchCode_top()" style="color: blue;"><img src="images/refresh.jpg" align="absmiddle"/></a></span>
+		          </span>
+            </div>
+          </div>
+        </div>       
+        
+        <div class="form-line">
+          <div class="element">
+            <span class="userLogin">
+            	<input class="button orange" name="btn_login" type="button"  id="btn_login" value="立即登录" onclick="login()" />
+            </span>
+          </div>
+        </div>
+
+        <div class="form-line">
+          <div class="element">
+            <span><a href="forgetpassword.do" class="forgetpwd">忘记密码?</a></span>
+           	<span><a class="forgetpwd" href="reg.do">免费注册</a></span>           
+          </div>
+        </div>
+
+ 		  </div>
+	  </div></div>
+	  </div>
+	  
+	
+	<div class="content">
+	<div class="main_content">
+		<div class="main_center_all">
+			<div class="main_third"><img src="upload/a3.jpg" width="238" height="240" border="0">
+			 <p style="float:right;"><a href="finance.do">了解更多… </a> </p>
+			</div>
+			<div class="main_center_space"></div>
+      <div class="main_third"><img src="upload/a1.jpg" width="238" height="240" border="0">
+       <p style="float:right;"><a href="capitalEnsure.do">了解更多… </a> </p>
+      </div>
+      <div class="main_center_space"></div>
+	    <div class="main_third"><img src="upload/a2.jpg" width="238" height="240" border="0">
+	     <p style="float:right;"><a href="finance.do">了解更多… </a> </p>
+	    </div>
+    </div>
+	</div>
+		
+		<div class="aside">
+			<div class="ofical_ad">
+				<div class="of_ad_bar">
+					<span class="left"><img src="images/aside_bar_01.jpg" align="absmiddle"/>&nbsp;<span class="aside_title">公告</span></span>					
+					<span class="right"><a href="getMessageBytypeId.do?typeId=35">更多>></a></span>
+					<span class="clear"></span>
+				</div>
+				<div class="ofical_content">
+					<ul>
+ 			<li style="overflow : hidden">
+               <span class="gfgg_left"><a href="frontNewsDetails.do?id=4" id="infotitle" title="银行系做电商的SWOT分析及模式分析" target="_blank"  >银行系做电商的SWOT分析及</a>
+               </span>
+               <span class="gfgg_right">06-18</span>
+               </li>
+           	<li style="overflow : hidden">
+               <span class="gfgg_left"><a href="frontNewsDetails.do?id=3" id="infotitle" title="sdvsdv" target="_blank"  >sdvsdv</a>
+               </span>
+               <span class="gfgg_right">05-29</span>
+               </li>
+           	<li style="overflow : hidden">
+               <span class="gfgg_left"><a href="frontNewsDetails.do?id=1" id="infotitle" title="2014-5-22" target="_blank"  >2014-5-22</a>
+               </span>
+               <span class="gfgg_right">05-22</span>
+               </li>
+           	</ul>
+					<div class="clear"></div>					
+				</div>		
+			</div>
+			
+			
+			<div class="ofical_ad">
+				<div class="of_ad_bar">
+					<span class="left"><img src="images/aside_bar_01.jpg" align="absmiddle"/>&nbsp;<span class="aside_title">新闻</span></span>
+					<span class="right"><a href="getMessageBytypeId.do?typeId=34">更多>></a></span>
+				</div>
+				<div class="ofical_content">
+					<ul>
+						<li class="mtbd"><a href="frontMedialinkId.do?id=3" target="_blank" title="无逾期，不网贷">
+   	         <h3>无逾期，不网贷</h3></a></li>
+          <li class="mtbd"><a href="frontMedialinkId.do?id=2" target="_blank" title="P2P网贷平台出现分化">
+           <h3>P2P网贷平台出现分化</h3></a></li>
+          <li class="mtbd"><a href="frontMedialinkId.do?id=2" target="_blank" title="P2P网贷将取代信用卡？">
+           <h3>P2P网贷将取代信用卡？</h3></a></li>
+          </ul>
+					<div class="clear"></div>
+				</div>				
+			</div>
+
+					<div class="clear"></div>						
+			</div>
+			
+  
+			<div class="clear"></div>
+			<div class="imgs"> 
+      
+      </div>
+      <div class="clear"></div>
+		</div>
+
+	
+	<div class="cooperators">
+			<div class="left cooper_img"><img src="images/cooperators_01.jpg" /></div>
+			<div class="left coopers" id="scrollleft">
+				<ul class="coopers_ul">
+          <li><a href="http://www.baidu.com" target="_blank" ><img  width="101px;" height="41px;" src="images/bank_11.jpg" src="images/bank_11.jpg" /></a></li>
+          <li><a href="#" target="_blank" ><img  width="101px;" height="41px;" src="images/bank_14.jpg" src="images/bank_11.jpg" /></a></li>
+          <li><a href="#" target="_blank" ><img  width="101px;" height="41px;" src="images/bank_16.jpg" src="images/bank_11.jpg" /></a></li>
+          <li><a href="#" target="_blank" ><img  width="101px;" height="41px;" src="images/bank_hz.gif" src="images/bank_11.jpg" /></a></li>
+          <li><a href="#" target="_blank" ><img  width="101px;" height="41px;" src="images/bank_js.gif" src="images/bank_11.jpg" /></a></li>
+          <li><a href="#" target="_blank" ><img  width="101px;" height="41px;" src="images/bank_bcom.gif" src="images/bank_11.jpg" /></a></li>
+          <li><a href="#" target="_blank" ><img  width="101px;" height="41px;" src="images/bank_pa.gif" src="images/bank_11.jpg" /></a></li>
+          
+       </ul>
+			</div>
+			<div class="clear"></div>
+	</div>
+
+<div class="footer">	<!--底部快捷导航 开始-->	
+<div class="footz">
+<div class="footer01">
+  <ul>
+    <li>
+      <dl>
+        <dt class="dt00">关于宝贝</dt>
+        <!--dd><a href="reg.do">免费注册</a></dd>
+        <dd><a href="home.do">我的账户</a></dd-->
+        <dd><a href="getMessageBytypeId.do?typeId=4">关于我们</a></dd>
+        <dd><a href="getMessageBytypeId.do?typeId=7">联系我们</a></dd>
+      </dl>
+    </li>
+    <li>
+      <dl>
+        <dt class="dt01">投资频道</dt>
+        <dd><a href="finance.do">我要投资</a></dd>
+        <dd><a href="financetool.do">工具箱</a></dd>
+      </dl>
+    </li>
+    <li>
+      <dl>
+        <dt class="dt02">融资频道</dt>
+        <dd><a href="borrow.do">个人借款</a></dd>
+        <dd><a href="borrowb.do">企业融资</a></dd>
+      </dl>
+    </li>
+    <li>
+      <dl>
+        <dt class="dt03">安全保障</dt>
+        <dd><a href="capitalEnsure.do">本金保障</a></dd>
+        <dd><a href="getMessageBytypeId.do?typeId=5">法律政策</a></dd>
+      </dl>
+    </li>
+    <li>
+      <dl>
+        <dt class="dt04">帮助信息</dt>
+        <dd><a href="callcenter.do">帮助中心</a></dd>
+        <dd><a href="callcenter.do?type=true&cid=1">新手入门</a></dd>
+      </dl>
+    </li>
+  </ul>
+</div>
+<div class="footer02">
+  <p><img src="images/maitl_bottom1.jpg" />	版权所有 ? 2013 深圳市易付通投资管理有限公司 &nbsp;&nbsp; www.baobeiqz.com &nbsp;&nbsp; 华融金融集团成员</span><br>
+  备案号：粤ICP备130333399号-6 &nbsp;&nbsp;&nbsp; 客服热线（9：00-18：00）: 400-106-0000
+    <div style=" clear:both;"> </div>
+</div></div></div>
+<!--底部footer 结束-->
+<script type="text/javascript" src="script/jqueryV172.js"></script>
+<script type="text/javascript" src="script/xl.js"></script>
+<script type="text/javascript">
+function addCookie()
+{
+ if (document.all){
+       window.external.addFavorite('http://www.baobeiqz.com/','宝贝钱庄'); 
+    }
+    else if (window.sidebar) {
+       window.sidebar.addPanel('宝贝钱庄', 'http://www.baobeiqz.com/', ""); 
+    }else{
+       alert('请手动设为首页');
+    }
+}
+
+function setHomepage(){
+    if (document.all){
+        document.body.style.behavior='url(#default#homepage)';
+        document.body.setHomePage('http://119.147.208.220:8080/');
+    }else if (window.sidebar){
+        if(window.netscape){
+         try{  
+            netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");  
+         }  
+         catch (e)  
+         {  
+            alert( "该操作被浏览器拒绝，如果想启用该功能，请在地址栏内输入 about:config,然后将项 signed.applets.codebase_principal_support 值该为true" );  
+         }
+    }else{
+        alert('请手动添加收藏');
+    }
+    var prefs = Components.classes['@mozilla.org/preferences-service;1'].getService(Components. interfaces.nsIPrefBranch);
+    prefs.setCharPref('browser.startup.homepage','http://119.147.208.220:8080/');
+ }
+}
+$(function(){
+	$(window).scroll(function(){
+		if($(window).scrollTop()>=109){
+			$(".nav-zdh").css("position","fixed")
+		}
+		else{
+		$(".nav-zdh").css("position","relative")
+		}
+	})
+})
+</script>
+</div>
+<!-- 引用底部公共部分-->
+<script type="text/javascript" src="script/jquery.shove-1.0.js"></script>
+<script type="text/javascript" src="script/jbox/jquery.jBox-2.3.min.js"></script>
+<script type="text/javascript" src="script/jbox/jquery.jBox-zh-CN.js"></script>
+<script type="text/javascript">
+//===验证数据
+
+$(function(){
+	
+	dqzt(0);
+		var tim;
+		$("#scrollleft ul").css("width",$("#scrollleft li").length*125);
+		function scrooatu(){
+			clearTimeout(tim);
+		$("#scrollleft").animate({scrollLeft:$("#scrollleft").scrollLeft()+122},"slow",function(){
+			$("#scrollleft").animate({scrollLeft:0},0);
+			$("#scrollleft li:first").appendTo($("#scrollleft ul"));
+			});
+		
+		tim = setTimeout(scrooatu,3000);
+		}
+		scrooatu();
+		$("#code").bind('keyup', function(event){
+			   if (event.keyCode=="13"){
+			      login();  
+			   }
+			});	
+		$("#scrollleft").hover(function(){
+			clearTimeout(tim);
+		},
+		function(){
+			setTimeout(scrooatu,1000);
+		});
+	
+	});
+		 function checkTime(num){			
+			 var param = {};
+			 
+			 param["paramMap.number"] = num;
+			 $.post("investRank.do",param,function(data){
+					$("#touzib").html(data);
+					var index;
+					$("#touzib li").each(function(){
+						index = $(this).index();
+						$(this).find(".top_loan_bg").text(index+1);
+						if(index==0){
+							$(this).find(".top_loan_bg").addClass("top1").removeClass("top_rest");
+							}	
+						if(index==1){
+							$(this).find(".top_loan_bg").addClass("top2").removeClass("top_rest");
+							}
+						if(index==2){
+							$(this).find(".top_loan_bg").addClass("top3").removeClass("top_rest");
+							}					
+						});	
+			});
+			 var index;
+				$("#touzib li").each(function(){
+					index = $(this).index();
+					$(this).find(".top_loan_bg").text(index+1);
+					if(index==0){
+						$(this).find(".top_loan_bg").addClass("top1").removeClass("top_rest");
+						}	
+					if(index==1){
+						$(this).find(".top_loan_bg").addClass("top2").removeClass("top_rest");
+						}
+					if(index==2){
+						$(this).find(".top_loan_bg").addClass("top3").removeClass("top_rest");
+						}					
+					});	
+		}
+		 function  checkTou(id,type){
+			 var param = {};
+			 param["id"] = id;
+		     $.shovePost('financeInvestInit.do',param,function(data){
+			   var callBack = data.msg;
+			   if(callBack !=undefined){
+			     alert(callBack);
+			   }else{
+				   if(type==2){
+					 		var url = "subscribeinit.do?borrowid="+id;
+					     	 $.jBox("iframe:"+url, {
+						    		title: "我要购买",
+						    		width: 450,
+						    		height: 450,
+						    		buttons: {  }
+						    		});
+					}else{
+						 window.location.href= 'financeInvestInit.do?id='+id;
+				   }
+			   }
+			 });
+		 }
+		  function closeMthod(){
+				window.jBox.close();
+		    	window.location.reload();
+		    }
+</script>
+
+ <script type="text/javascript">
+	$(function(){
+			var self=$("#scroll ul")
+			var sd=null;
+			var leng=parseInt($("#scroll ul").css("width",self.find("li").length*459).css("width"));
+			$("#scroll ul").css("width",self.find("li").length*459);
+				function scrollatuo(){
+				clearTimeout(sd);
+				if($("#scroll").scrollLeft()>=leng-490){
+					$("#scroll").animate({scrollLeft:0},"slow");
+					$(".control a").removeClass("cur")
+					$(".control a:first").addClass("cur")
+					sd=setTimeout(scrollatuo,3000);
+				}
+				else{
+				$("#scroll").animate({scrollLeft:$("#scroll").scrollLeft()+459},"slow",function(){
+						var insd=parseInt($("#scroll").scrollLeft()/459);
+				$(".control a").removeClass("cur")
+				$(".control a").eq(insd).addClass("cur")
+				});}		
+				sd=setTimeout(scrollatuo,3000);
+			
+				}
+			sd=setTimeout(scrollatuo,1000);
+			//控制区
+			$(".control a").hover(function(){
+				var sf=$(".control a").index(this);
+				$("#scroll").animate({scrollLeft:459*sf},"slow");
+				clearTimeout(sd);
+				$(".control a").not(this).removeClass("cur")
+				$(this).addClass("cur");
+			},function(){
+					sd=setTimeout(scrollatuo,3000);	
+			});
+			//选项卡
+			$("#second-tal li").click(function(){
+			var sd=$("#second-tal li").index(this);
+		
+			$(".job-list").hide();
+			$(".job-list").eq(sd).show();
+			$("#second-tal li").removeClass("cur");
+			$(this).addClass("cur");
+			});
+			
+			handleSlider();
+			 function handleSlider(){
+		            var $slider = $("#slider_ul").children(); 
+					var $lights = $("#slider_lights").children();
+		            var index = 1;    
+		            var light_index = 0;
+		            var wrap_width = $slider.outerWidth();			
+		            $slider.parent().css("width",$slider.length*100+"%"); //设置图片div宽度
+					var idx;			
+					//动态添加指示灯
+		            $slider.each(function(){					
+						if($lights.length==0){
+							 idx = $(this).index()+1;
+							$("#slider_lights").append("<a>"+idx+"</a>");
+						}				
+		            });  			
+				   $("#slider_lights a").first().addClass("lights_active");	//默认第一个指示灯亮起		   
+					//自动播放			
+					var scroll = function(){
+						if(index <=$slider.length-1){					
+							$slider.parent().animate({left:"-"+index*wrap_width+"px"},"slow");//左右滑动
+							$("#slider_lights a").eq(index).addClass("lights_active").siblings().removeClass("lights_active");					
+						}else{
+							index = 0;
+							$("#slider_lights a").first().addClass("lights_active").siblings().removeClass("lights_active");	
+							$slider.parent().animate({left:"-"+index*wrap_width+"px"},"slow");//左右滑动							
+						}					
+						index+=1;
+					};
+					var autoPlay = setInterval(scroll,3000);			
+					//点击指示灯切换图片		
+		            $("#slider_lights a").click(function(){ 
+						clearInterval(autoPlay);
+		                light_index = $(this).index();   
+		                $(this).addClass("lights_active").siblings().removeClass("lights_active");
+		                $slider.parent().animate({left:"-"+light_index*wrap_width+"px"},"800");//左右滑动				
+						index = light_index;
+						autoPlay = setInterval(scroll,"2000");
+		            }); 
+					//鼠标悬停			
+					$(".slider").hover(function(){
+						clearInterval(autoPlay);
+					},function(){
+						autoPlay = setInterval(scroll,"3000");
+					});		
+		        };         
+					
+		});
+</script>
+<script type="text/javascript">
+<!--
+var T = {};
+T.tbwidget = {};
+YUI({
+    modules:{
+        'yahoo-dom-event':{
+            fullpath:'http://a.tbcdn.cn/app/dp/eb/js/cubee/tbwidget/tblogin/yahoo-dom-event.js'
+        },
+        'tipInput':{
+            fullpath:'http://a.tbcdn.cn/app/dp/eb/js/cubee/tbwidget/tipinput/tipinput.js',
+            requires:['yahoo-dom-event']
+        }
+    }
+}).use('tipInput',function(Y){
+    new T.tbwidget.tipInput("email");
+});
+
+//-->
+</script>
+</body>
+</html>

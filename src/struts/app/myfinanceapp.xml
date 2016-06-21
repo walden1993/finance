@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+    <package name="myfinanceapp" extends="app-sign" namespace="/app">
+		<global-results>
+			<result name="error">/500.jsp</result>
+		</global-results>
+		<global-exception-mappings>
+			<exception-mapping result="error" exception="java.lang.Exception"></exception-mapping>
+		</global-exception-mappings>
+        <action name="quality_pro_list" class="myFinanceAction"
+			method="financeList">
+		</action>
+		
+		<action name="get_banner_img" class="myFinanceAction"  method="getHomeImg"></action>
+		
+		<action name="quality_pro_detail" class="myFinanceAction"
+			method="financeDetail">
+		</action>
+		<action name="borrowmessage" class="myFinanceAction"
+			method="borrowMSGInit">
+		</action>
+    </package>
+	<package name="financeapp" extends="app-default" namespace="/app">
+		<action name="financeLastestList" class="myFinanceAction"
+			method="financeLastestList">
+		</action>
+		<action name="investRank" class="myFinanceAction"
+			method="investRank">
+		</action>
+		<action name="index" class="myFinanceAction"
+			method="index">
+		</action>
+		<action name="queryDebtBorrowDetail" class="myFinanceAction"
+			method="queryDebtBorrowDetail">
+		</action>
+		
+		<action name="financeAudit" class="myFinanceAction"
+			method="financeAudit">
+		</action>
+		<action name="financeRepay" class="myFinanceAction"
+			method="financeRepay">
+		</action>
+		<action name="financeCollection" class="myFinanceAction"
+			method="financeCollection">
+		</action>
+		<action name="financetool" class="myFinanceAction" method="financeToolInit">
+		</action>
+		
+	    <action name="financeInvestInit" class="myFinanceAction" method="financeInvestInit">
+		</action>
+		<action name="financeInvestLoad" class="myFinanceAction" method="financeInvestLoad">
+		</action>
+		<action name="tender" class="myFinanceAction" method="financeInvest">
+		</action>
+		<action name="addBorrowMSG" class="myFinanceAction"
+			method="addBorrowMSG">
+		</action>
+		<action name="focusonBorrow" class="myFinanceAction" method="focusOnBorrow"/>
+		<action name="focusonUser" class="myFinanceAction" method="focusOnUser"/>
+	    <action name="mailInit" class="myFinanceAction"
+			method="mailInit">
+		</action>
+		<action name="mailAdd" class="myFinanceAction"
+			method="mailAdd">
+		</action>
+		<action name="reportInit" class="myFinanceAction"
+			method="reportInit">
+		</action>
+		<action name="reportAdd" class="myFinanceAction"
+			method="reportAdd">
+		</action>
+		<action name="showImg" class="myFinanceAction" method="showImg">
+		</action>
+		
+		<!-- 推荐标详情 -->
+		<action name="recommandBorrow"  class="myFinanceAction"  method="recommandBorrowMethod"></action>
+		
+		<!-- 借款方信息 -->
+		<action name="borrowInfoInverstor"  class="myFinanceAction"  method="borrowInfoInverstor"></action>
+		
+		<!-- 投资记录 -->
+		<action name="inversthistory"  class="myFinanceAction"  method="inversthistory"></action>
+		
+		<action name="queryProtocolApp"  class="myFinanceAction"  method="queryProtocol">
+		      <result name="jkxy">/WEB-INF/page/front/jkxy_index_load_show.jsp</result>
+		</action>
+	</package>
+</struts>

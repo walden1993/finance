@@ -1,0 +1,134 @@
+package com.sp2p.action.admin;
+
+import java.util.List;
+import java.util.Map;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
+import com.shove.Convert;
+import com.shove.web.action.BasePageAction;
+import com.sp2p.constants.IConstants;
+import com.sp2p.entity.Admin;
+import com.sp2p.service.admin.SMSInterfaceService;
+
+/**
+ * 短信接口
+ * 
+ * @author zhongchuiqing
+ * 
+ */
+@SuppressWarnings("unchecked")
+public class SMSAction extends BasePageAction {
+	private static final long serialVersionUID = 1L;
+	public static Log log = LogFactory.getLog(SMSAction.class);
+
+	private SMSInterfaceService sMSInterfaceService;
+	private List<Map<String, Object>> listSMS;
+
+	public SMSInterfaceService getSMSInterfaceService() {
+		return sMSInterfaceService;
+	}
+
+	public void setSMSInterfaceService(SMSInterfaceService interfaceService) {
+		sMSInterfaceService = interfaceService;
+	}
+
+	public List<Map<String, Object>> getListSMS() {
+		return listSMS;
+	}
+
+	public void setListSMS(List<Map<String, Object>> listSMS) {
+		this.listSMS = listSMS;
+	}
+
+	/**
+	 * 查询短信接口列表
+	 * 
+	 * @return
+	 * @throws Exception
+	 */
+	public String findSMSList() throws Exception {
+		log.info("className:" + this.getClass().getName() + ";methodName:" + Thread.currentThread().getStackTrace()[1].getMethodName());
+		try {
+			listSMS = sMSInterfaceService.findBySMS();
+
+		} catch (Exception e) {
+			log.error(e);
+			e.printStackTrace();
+			throw e;
+		}
+		return SUCCESS;
+	}
+
+	/**
+	 * 更新初始化，根据Id获取团队信息详情
+	 * 
+	 * @return
+	 * @throws Exception
+	 */
+	public String updateSMSInit() throws Exception {
+		log.info("className:" + this.getClass().getName() + ";methodName:" + Thread.currentThread().getStackTrace()[1].getMethodName());
+		Integer id = request.getInt("id", 0);
+		try {
+			paramMap = sMSInterfaceService.getSMSById(id);
+		} catch (Exception e) {
+			log.error(e);
+			e.printStackTrace();
+			throw e;
+		}
+
+		return findSMSList();
+	}
+
+	/**
+	 * 更新团队信息
+	 * 
+	 * @return
+	 * @throws Exception
+	 */
+	public String updateSMS() throws Exception {
+		log.info("className:" + this.getClass().getName() + ";methodName:" + Thread.currentThread().getStackTrace()[1].getMethodName());
+		Integer id = Convert.strToInt(paramMap.get("id"), -1);
+		String UserID = paramMap.get("UserID");
+		String Account = paramMap.get("Account");
+		String Password = paramMap.get("Password");
+		String status = paramMap.get("status_"+id);
+//		String status2 = paramMap.get("status_2");
+		String isMarket = paramMap.get("isMarket_"+id);
+//		String isMarket1 = paramMap.get("isMarket_1");
+//		String status = null;
+//		String isMarket = (isMarket0 == null ? isMarket1 : isMarket0);//是否营销短信1是
+//		if (status1 != null) {
+//			status = status1;
+//		} else {
+//			status = status2;
+//		}
+		String url = paramMap.get("url");
+		String message = "更新失败";
+
+		try {
+
+			long result = sMSInterfaceService.updateSMS(id, UserID, Account,
+					Password, status, url,isMarket);
+			Admin admin = (Admin) session().getAttribute(
+					IConstants.SESSION_ADMIN);
+			if (result > 0) {
+				operationLogService.addOperationLog("t_sms", admin
+						.getUserName(), IConstants.UPDATE, admin.getLastIP(),
+						0, "更新短信接口信息成功", 2);
+				message = "更新成功";
+			}
+			request().setAttribute("message", message);
+
+		} catch (Exception e) {
+			log.error(e);
+			e.printStackTrace();
+			throw e;
+		}
+
+		return findSMSList();
+
+	}
+
+}

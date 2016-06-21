@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+     <package name="statismanage" extends="admin-default" namespace="/master">
+		<global-results>
+			<result name="error">/500.jsp</result>
+		</global-results>
+		<global-exception-mappings>
+			<exception-mapping result="error" exception="java.lang.Exception"></exception-mapping>
+		</global-exception-mappings>
+        <!-- 网站统计记录 -->
+        <action name="webStatisInit" class="statisManageAction" method="webStatisInit">
+			<result name="success">/WEB-INF/page/admin/webstatis-index.jsp</result>
+		</action>
+		
+		  <!-- 导出网站统计记录 excle -->
+        <action name="exportwebStatis" class="statisManageAction" method="exportwebStatis">
+			
+		</action>
+		
+		<!-- 登录统计记录 -->
+        <action name="loginStatisInit" class="statisManageAction" method="loginStatisInit">
+			<result name="success">/WEB-INF/page/admin/loginstatis-index.jsp</result>
+		</action>
+		
+		<action name="loginStatisExcel" class="statisManageAction" method="loginStatisExcel">
+			
+		</action>
+		<action name="loginStatisList" class="statisManageAction" method="loginStatisList">
+			<result name="success">/WEB-INF/page/admin/loginstatis-list.jsp</result>
+		</action>
+		<!-- 用户统计  -->
+		<action name="userstatics" class="statisManageAction" method="userstatics">
+			<result name="success">/WEB-INF/page/admin/userstatis-index.jsp</result>
+		</action>
+		<action name="userstaticsList" class="statisManageAction" method="userstaticsList">
+			<result name="success">/WEB-INF/page/admin/userstatis-list.jsp</result>
+		</action>
+		<action name="userstaticsExcel" class="statisManageAction" method="userstaticsExcel">
+		</action>
+		
+		
+		<!-- 投资统计记录 -->
+        <action name="financeStatisInit" class="statisManageAction" method="financeStatisInit">
+			<result name="success">/WEB-INF/page/admin/financestatis-index.jsp</result>
+		</action>
+		<action name="financeStatisList" class="statisManageAction" method="financeStatisList">
+			<result name="success">/WEB-INF/page/admin/financestatis-list.jsp</result>
+		</action>
+		 <!-- 导出投资统计记录 excle -->
+        <action name="exportfinanceStatis" class="statisManageAction" method="exportfinanceStatis">
+			
+		</action>
+		
+		<!-- 投标统计记录 -->
+        <action name="investStatisInit" class="statisManageAction" method="investStatisInit">
+			<result name="success">/WEB-INF/page/admin/investstatis-index.jsp</result>
+		</action>
+		<action name="investStatisList" class="statisManageAction" method="investStatisList">
+			<result name="success">/WEB-INF/page/admin/investstatis-list.jsp</result>
+		</action>
+		<!-- 导出投标统计记录 excel -->
+	   <action name="exportinvestStatis" class="statisManageAction" method="exportinvestStatis">
+			
+		</action>
+		
+		<!-- 投标统计排名记录 -->
+        <action name="investStatisRankInit" class="statisManageAction" method="investStatisRankInit">
+			<result name="success">/WEB-INF/page/admin/investstatis-rank-index.jsp</result>
+		</action>
+		<action name="investStatisRankList" class="statisManageAction" method="investStatisRankList">
+			<result name="success">/WEB-INF/page/admin/investstatis-rank-list.jsp</result>
+		</action>
+		
+	<!-- 导出投标统计排名记录  excel -->
+	   <action name="exportinvestStatisRank" class="statisManageAction" method="exportinvestStatisRank">
+			
+		</action>
+		
+		<!-- 借款统计统计记录 -->
+        <action name="borrowStatisInit" class="statisManageAction" method="borrowStatisInit">
+			<result name="success">/WEB-INF/page/admin/borrowstatis-index.jsp</result>
+		</action>
+		
+		<action name="borrowStatisList" class="statisManageAction" method="borrowStatisList">
+			<result name="success">/WEB-INF/page/admin/borrowstatis-list.jsp</result>
+		</action>
+		<!-- 借款信息 -->
+		<action name="borrowInfoDetailInit"  class="statisManageAction"  method="borrowInfoDetailInitMethod">
+		      <result name="success">/WEB-INF/page/admin/borrowInfoDetailInit.jsp</result>
+		</action>
+		<action name="borrowInfoDeatil"  class="statisManageAction"  method="borrowInfoDeatilMethod" >
+		          <result name="success">/WEB-INF/page/admin/borrowInfoDeatil.jsp</result>
+		</action>
+		<action name="exportBorrowInfoDeatil"  class="statisManageAction"  method="exportBorrowInfoDeatilMethod" ></action>
+		<!-- 还款信息 -->
+		<action name="investInfoDetailInit"  class="statisManageAction"  method="investInfoDetailInitMethod">
+		      <result name="success">/WEB-INF/page/admin/investInfoDetailInit.jsp</result>
+		</action>
+		<action name="investInfoDetail"  class="statisManageAction"  method="investInfoDetailMethod">
+              <result name="success">/WEB-INF/page/admin/investInfoDetail.jsp</result>
+        </action>
+        <action name="exportInvestInfoDetail"  class="statisManageAction"  method="exportInvestInfoDetailMethod"></action>
+        
+        
+		<!-- 导出借款统计统计记录  excel -->
+	   <action name="exportborrowStatis" class="statisManageAction" method="exportborrowStatis">
+			
+		</action>
+		
+		<action name="borrowStatisInterestInit" class="statisManageAction" method="borrowStatisInterestInit">
+			<result name="success">/WEB-INF/page/admin/borrowstatis-interest-index.jsp</result>
+		</action>
+		
+		<action name="borrowStatisInterestList" class="statisManageAction" method="borrowStatisInterestList">
+			<result name="success">/WEB-INF/page/admin/borrowstatis-interest-list.jsp</result>
+		</action>
+				<!-- 导出投资利息管理费记录  excel -->
+	   <action name="exportborrowStatisInterest" class="statisManageAction" method="exportborrowStatisInterest">
+			
+		</action>
+		
+		<!-- 用户组统计 -->
+		<action name="queryborrowStatisUserGroupInit" class="statisManageAction" method="queryborrowStatisUserGroupInit">
+			<result name="success">/WEB-INF/page/admin/borrowstatis-usergroup-index.jsp</result>
+		</action>
+		
+		<action name="queryborrowStatisUserGroupPage" class="statisManageAction" method="queryborrowStatisUserGroupPage">
+			<result name="success">/WEB-INF/page/admin/borrowstatis-usergroup-list.jsp</result>
+		</action>
+				<!-- 导出投资利息管理费记录  excel -->
+	   <action name="exportUserGroup" class="statisManageAction" method="exportUserGroup">
+			
+		</action>
+		
+		
+		<!--员工统计  start -->
+		  <!-- 员工资金统计 start -->
+		  <action name="employeeFundInit"  class="statisManageAction"  method="employeeFundInitMethod">
+		          <result name="success">/WEB-INF/page/admin/employeeFundInit.jsp</result>
+		  </action>
+		  <action name="employeeFundInfo"  class="statisManageAction"  method="employeeFundInfoMethod">
+		          <result name="success">/WEB-INF/page/admin/employeeFundInfo.jsp</result>
+		  </action>
+		  <action name="exportEmployeeFundInfo"  class="statisManageAction"  method="exportEmployeeFundInfo"></action>
+		  <!-- 员工资金统计 end -->
+		  
+		  <!-- 部门资金统计 start -->
+		  <action name="departmentFundInit"  class="statisManageAction"  method="departmentFundInitMethod">
+		          <result name="success">/WEB-INF/page/admin/departmentFundInit.jsp</result>
+		  </action>
+          <action name="departmentFundInfo"  class="statisManageAction"  method="departmentFundInfoMethod">
+                   <result name="success">/WEB-INF/page/admin/departmentFundInfo.jsp</result>
+          </action>
+          <action name="exportDepartmentFundInfo"  class="statisManageAction"  method="exportDepartmentFundInfo"></action>
+          <!-- 部门资金统计 end -->
+          
+          <!-- 员工推荐明细统计 start -->
+          <action name="employeeRefInit"  class="statisManageAction"  method="employeeRefInitMethod">
+                    <result name="success">/WEB-INF/page/admin/employeeRefInit.jsp</result>
+          </action>
+          <action name="employeeRefInfo"  class="statisManageAction"  method="employeeRefInfoMethod">
+                    <result name="success">/WEB-INF/page/admin/employeeRefInfo.jsp</result>
+          </action>
+          <action name="exportEmployeeRefInfo"  class="statisManageAction"  method="exportEmployeeRefInfo"></action>
+          <!-- 员工推荐明细统计 end -->
+          
+          <!-- 员工推荐活跃度统计 start -->
+          <action name="employeeLivInit"  class="statisManageAction"  method="employeeLivInitMethod">
+                   <result name="success">/WEB-INF/page/admin/employeeLivInit.jsp</result>
+          </action>
+          <action name="employeeLivInfo"  class="statisManageAction"  method="employeeLivInfoMethod">
+                    <result name="success">/WEB-INF/page/admin/employeeLivInfo.jsp</result>
+          </action>
+          <action name="exportEmployeeLivInfo"  class="statisManageAction"  method="exportEmployeeLivInfo"></action>
+          <!-- 员工推荐活跃度统计 end -->
+          
+          <!-- 部门推荐活跃度统计 start -->
+          <action name="departmentLivInit"  class="statisManageAction"  method="departmentLivInitMethod">
+                 <result name="success">/WEB-INF/page/admin/departmentLivInit.jsp</result>
+          </action>
+          <action name="departmentLivInfo"  class="statisManageAction"  method="departmentLivInfoMethod">
+                 <result name="success">/WEB-INF/page/admin/departmentLivInfo.jsp</result>
+          </action>
+          <action name="exportDepartmentLivInfo"  class="statisManageAction"  method="exportDepartmentLivInfo"></action>
+          <!-- 部门推荐活跃度统计 end -->
+          
+          <!-- 员工绩效统计 start -->
+          <action name="employeePerformanceInit"  class="statisManageAction"  method="employeePerformanceInitMethod">
+                <result name="success">/WEB-INF/page/admin/employeePerformanceInit.jsp</result>
+          </action>
+          <action name="employeePerformanceInfo"  class="statisManageAction"  method="employeePerformanceInfoMethod">
+                <result name="success">/WEB-INF/page/admin/employeePerformanceInfo.jsp</result>
+          </action>
+          <action name="exportEmployeePerformanceInfo"  class="statisManageAction"  method="exportEmployeePerformanceInfo"></action>
+          <!-- 员工绩效统计 end -->
+		<!-- 员工统计 end -->
+		
+		<!-- 平台统计 -->
+		<action name="allUserStatics"  class="statisManageAction"  method="allUserStatics">
+                <result name="success">/WEB-INF/page/admin/alluserstatis-index.jsp</result>
+        </action>
+        <!-- 平台统计导出  -->
+        <action name="allUserStaticsExcel" class="statisManageAction" method="allUserStaticsExcel">
+		</action>
+		
+		<!-- 平台月报表 -->
+		<action name="monthUserStatics"  class="statisManageAction"  method="monthUserStatics">
+                <result name="success">/WEB-INF/page/admin/allmonthstatis-index.jsp</result>
+        </action>
+        <action name="amonthStaticsExcel" class="statisManageAction" method="amonthStaticsExcel">
+		</action>
+		
+		<!--  平台日统计alldaystatis-index.jsp  -->
+		<action name="alldayStatics" class="statisManageAction" method="alldayStatics">
+			<result name="success">/WEB-INF/page/admin/alldaystatis-index.jsp</result>
+		</action>
+		<action name="alldayStaticsList" class="statisManageAction" method="alldayStaticsList">
+			<result name="success">/WEB-INF/page/admin/alldaystatis-list.jsp</result>
+		</action>
+		
+		
+		
+		<!-- 推荐好友奖励 -->
+		<action name="recommendAward" class="statisManageAction" method="recommendAward">
+			<result name="success">/WEB-INF/page/admin/recommendAward.jsp</result>
+		</action>
+		<action name="recommendAwardList" class="statisManageAction" method="recommendAwardList">
+			<!-- 内部员工列表  -->
+			<result name="success">/WEB-INF/page/admin/recommendAward-rlist.jsp</result>
+			<!-- 外部会员列表  -->
+			<result name="successv2">/WEB-INF/page/admin/recommendAward-olist.jsp</result>
+		</action>
+		<!-- 推荐有效投资统计 -->
+		<action name="recommendAwardDetailInit"  class="statisManageAction" method="init">
+			<result name="success">/WEB-INF/page/admin/recommendAwardDetail.jsp</result>
+		</action>
+		<action name="recommendAwardDetail"  class="statisManageAction" method="recommendAwardDetialInfo">
+			<result name="success">/WEB-INF/page/admin/recommendAwardDetail-list.jsp</result>
+		</action>
+		<action name="recommendAwardDetailExcel" class="statisManageAction" method="recommendAwardDetailExcel"></action>
+		
+		<action name="redInvestAward" class="statisManageAction" method="redInvestAward">
+			<result name="success">/WEB-INF/page/admin/retInvestAward.jsp</result>
+		</action>
+		<action name="retInvestAwardList" class="statisManageAction" method="retInvestAwardList">
+			<result name="success">/WEB-INF/page/admin/redinvestAward-list.jsp</result>
+			<result name="successv2">/WEB-INF/page/admin/redinvestAward-olist.jsp</result>
+		</action>
+		<!-- 投资奖励导出 -->
+		<action name="redInvestAwardExcel" class="statisManageAction" method="redInvestAwardExcel">
+		</action>
+		
+		<!-- 注册奖励导出 -->
+		<action name="redregAwardExcel" class="statisManageAction" method="redregAwardExcel">
+		</action>
+		
+		
+		<action name="alldayStaticsExcel" class="statisManageAction" method="alldayStaticsExcel">
+		</action>
+		
+		
+		<!-- 涨薪宝 -->
+		<action name="paytreasureInit" class="statisManageAction" method="paytreasureInit">
+			<result name="success">/WEB-INF/page/admin/paytreasure/paytreasureInit.jsp</result>
+		</action>
+		<action name="paytreasureInfo" class="statisManageAction" method="paytreasureInfo">
+			<result name="success">/WEB-INF/page/admin/paytreasure/paytreasureInfo.jsp</result>
+		</action>
+		<action name="paytreasureExcel" class="statisManageAction" method="paytreasureExcel">
+		</action>
+		<action name="payInvestRecord" class="statisManageAction" >
+		<result name="success">/WEB-INF/page/admin/paytreasure/payInvestRecord.jsp</result>
+		</action>
+		<action name="payInvestRecordList" class="statisManageAction" method="payInvestRecord">
+		<result name="success">/WEB-INF/page/admin/paytreasure/payInvestRecordList.jsp</result>
+		</action>
+		<action name="profitRecord" class="statisManageAction" >
+		<result name="success">/WEB-INF/page/admin/paytreasure/profitRecord.jsp</result>
+		</action>
+		<action name="profitRecordList" class="statisManageAction" method="profitRecord">
+		<result name="success">/WEB-INF/page/admin/paytreasure/profitRecordList.jsp</result>
+		</action>
+		<action name="profitRecordExcel" class="statisManageAction" method="profitRecordExcel">
+		</action>
+		<action name="payInvestRecordExcel" class="statisManageAction" method="payInvestRecordExcel">
+		</action>
+		<!-- 转入转出记录 -->
+		<action name="payInvestRecordAll" class="statisManageAction">
+			<result name="success">/WEB-INF/page/admin/paytreasure/payInvestRecordAll.jsp</result>
+		</action>
+		<action name="payInvestRecordAllList" class="statisManageAction" method="payInvestRecordAllList">
+			<result name="success">/WEB-INF/page/admin/paytreasure/payInvestRecordAllList.jsp</result>
+		</action>
+		<action name="payInvestRecordAllExcel" class="statisManageAction" method="payInvestRecordAllExcel"></action>
+		
+		<!-- 收益记录 -->
+		<action name="profitRecordAll" class="statisManageAction">
+			<result name="success">/WEB-INF/page/admin/paytreasure/profitRecordAll.jsp</result>
+		</action>
+		<action name="profitRecordAllList" class="statisManageAction" method="profitRecordAllList">
+			<result name="success">/WEB-INF/page/admin/paytreasure/profitRecordAllList.jsp</result>
+		</action>
+		<action name="profitRecordAllExcel" class="statisManageAction" method="profitRecordAllExcel"></action>
+		
+		
+		<!-- 每日记录 -->
+		<action name="paydailyrecord" class="statisManageAction">
+			<result name="success">/WEB-INF/page/admin/paytreasure/paydailyrecord.jsp</result>
+		</action>
+		<action name="paydailyrecordList" class="statisManageAction" method="paydailyrecordList">
+			<result name="success">/WEB-INF/page/admin/paytreasure/paydailyrecordList.jsp</result>
+		</action>
+		<action name="paydailyrecordExcel" class="statisManageAction" method="paydailyrecordExcel"></action>
+    </package>
+</struts>

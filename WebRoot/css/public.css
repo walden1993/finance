@@ -1,0 +1,256 @@
+@charset "utf-8";
+/* CSS by seaou,seaou.com,qq:3026026 */
+
+html,body,h1,h2,h3,h4,h5,h6,p,a,blockquote,pre,dl,dt,dd,ol,ul,li,
+fieldset,form,label,legend,table,caption,thead,input,select{margin:0;
+                                                            padding:0;
+															border:0;															
+															outline:0;															
+															font-family:"Microsoft Yahei","微软雅黑","Helvetica Neue",Arial,Helvetica,sans-serif;
+															}
+html,body{font-size:13px;
+          color:#454748;
+		  }
+		  
+table {border-collapse:collapse; }
+
+caption,th,td{text-align:left;}
+
+img{vertical-align:top;
+    display:inline-block;
+	}
+			  
+input,textarea,select,button{font-size:100%;font-family:inherit;}
+			  
+a{text-decoration:none;color:#454748; }
+
+a:hover{color:#000;}
+
+p{line-height:1.7;text-align:justify;}
+
+ol,ul,li{list-style:none; }
+
+.clear{clear:both;}
+
+.top_wrap{height:32px;
+          border:1px solid #e1e4e8;
+		  padding:3px 0 0 0;
+		  color:#707273;
+		  line-height:30px;
+		  }
+	  
+.tools_bar{width:460px;
+           float:right;
+		   text-align:right;
+		   padding:0 10px;
+		   }
+		   
+.tools_bar span{display:inline-block;
+                padding:0 10px;
+				margin:0 0 0 10px;
+				}
+				
+.tools_bar a{color:#707273;
+             display:inline-block;
+			 }
+
+.tools_bar a:hover{color:#000;}
+				
+.tools_bar a.qq{             
+				display:inline-block;
+				padding:0 0 0 20px;
+				margin-left:70px;
+				background: url(../images/index/home_sprites.png) -436px -513px no-repeat;
+				}
+				
+.tools_bar a.qq:hover{ background-position:-436px -549px}
+		  
+.w1180{width:1180px;
+       margin:0 auto;
+	   }
+
+.top_nav{height:74px;         
+		 background-color:#fff;
+		 }
+   
+.logo_box{width:300px;
+          height:54px;
+		  float:left;
+		  overflow:hidden;
+		  padding-top: 10px;
+		  margin-right: 60px;
+		  }
+		  
+/* .logo_box a{width:165px;
+            height:115px;
+			display:inline-block;
+			vertical-align:middle;
+			margin:12px 0 0 10px;
+			background: url(../images/index/sanhao_logo.png) no-repeat;
+			} */
+			
+.top_nav ul{padding:20px 0 0 0;}
+		
+.top_nav li{float:left;            
+			margin:0 40px 0 10px;
+			 }
+			 
+.top_nav li a{color:#fff;
+			   font-size:16px;
+			   padding:5px 10px;
+			   height:30px;
+			   color:#454748;
+			   text-align:center;
+			   display:inline-block;
+			   }
+				 
+.top_nav li a:hover,.top_nav li a.current{color:#e84242;
+                      
+					  }
+				 
+						
+.footer{height:330px;
+        padding:4px 0 0 0;
+		background: url(../images/index/footer_bg.jpg) repeat-x;
+		font-size:14px;
+		}
+		
+.footer ul{padding:10px 0;       
+		   height:210px;
+		   
+		   }
+		   
+.footer li{width:150px;
+           float:left;
+		   position:relative;
+		   margin-right:80px;
+		   
+		   }
+		   
+.footer li.w340{width:380px;
+                 padding:8px 20px;
+				 margin:0;
+				 }				 
+		   
+.footer li.w340 p{padding:5px 0;
+                  margin-bottom:10px;
+				  }
+		   
+.footer li h3{height:39px;
+			 color:#42413e;
+			 font-size:16px;
+			 font-weight:400;
+			 line-height:40px; 
+			 padding:0 0 0 10px;
+			 margin:5px 0 10px 0;  
+			 border-bottom:1px solid #717275;
+			 }
+			 
+.footer li a{color:#42413e;}
+
+.footer li a:hover{color:#000;}
+
+.footer li p{padding:4px 10px;}
+
+.footer li.w340 h2 p{font-size:20px;
+                     color:#42413e;
+					  margin:0;
+					  }
+			 
+.footer h2{color:#ec4848;
+           font-size:28px;
+		   font-weight:400;
+		   }
+		   
+.footer a.weixin,
+.footer a.weibo{width:70px;
+                height:70px;
+				display:inline-block;
+				margin:10px 15px 10px 10px;
+				background: url(../images/index/home_sprites.png) no-repeat;
+				}
+				
+.footer a.weixin{background-position:-734px -365px;
+                 position:relative;
+				 z-index:999;
+				 }
+
+.footer a.weibo{background-position:-734px -489px;}
+
+.footer a.weixin:hover{background-position:-864px -365px;}
+
+.footer a.weibo:hover{background-position:-864px -489px;}
+
+
+.site_secruity{
+               text-align:center;
+			   padding:15px 0;
+			   margin-top:10px;
+			   border-top:1px solid #fff;
+			   }
+
+.site_secruity a{width:120px;
+                 height:50px;
+				 display:inline-block;
+				 background-color:#fff;
+				 margin:0 20px;
+				 background: url(../images/index/home_sprites.png) no-repeat;
+				 }
+				 
+.site_secruity a.norton{ background-position:-88px -628px;}
+
+.site_secruity a.cheng{ background-position:-246px -628px;}
+
+.site_secruity a.safe{ background-position:-408px -628px;}
+
+.site_secruity a.cfca{ background-position:-571px -628px;}
+
+.site_secruity a.norton:hover{ background-position:-88px -726px;}
+
+.site_secruity a.cheng:hover{ background-position:-246px -726px;}
+
+.site_secruity a.safe:hover{ background-position:-408px -726px;}
+
+.site_secruity a.cfca:hover{ background-position:-571px -726px;}
+
+#mobilelink{
+	position:relative;
+	z-index:99999;
+	background: url(../images/index/mobile_app.png) no-repeat;
+	background-position: -6px 0px;
+	padding-left:20px;
+}
+#mobilelink:HOVER{
+	background-position: -6px -51px;
+}
+.mobilelink_pop{width:140px;
+           height:130px;
+		   z-index:99999;
+		   position:absolute;
+		   background-color:white;
+		   top:100px;
+		   right:138px;
+		   opacity: 0;
+		   filter: alpha(opacity=0);
+		   box-shadow: 0 2px 8px 0 #041020;
+		 -moz-box-shadow: 0 2px 8px 0 #041020;
+		 -webkit-box-shadow: 0 2px 8px 0 #041020;
+		 padding: 20px;
+		   } 
+
+
+.weixin_pop{width:165px;
+           height:154px;
+		   z-index:100;
+		   position:absolute;
+		   top:58px;
+		   left:-138px;
+		   opacity: 0;
+		   filter: alpha(opacity=0);
+/*		   box-shadow: 0 2px 8px 0 #041020;
+		 -moz-box-shadow: 0 2px 8px 0 #041020;
+		 -webkit-box-shadow: 0 2px 8px 0 #041020;*/
+		   background: url(../images/index/weixin_code.png) no-repeat;
+		   } 
+
+		   

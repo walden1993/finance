@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+ 
+<!DOCTYPE mapper PUBLIC   
+   "-//mybatis.org//DTD Mapper 3.0//EN"  
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+ 
+<mapper namespace="advert">  
+  
+  <!-- 保存渠道信息  -->
+  <insert id="channelAdd" parameterType="java.util.HashMap">  
+  INSERT INTO t_ad_channel( channelName , channelDesc, sysCode,ctype ,channelCode,createBy ,createTime ,remark) 
+    VALUES(#{channelName} , #{channelDesc}, #{sysCode},#{ctype},#{channelCode} ,#{adminName} ,now() ,#{remark})
+  </insert>
+  <sql id="sqlCount">count(1) ct</sql>
+  <sql id="channelMsgListHead"> * </sql>
+  <sql id="limit">limit #{start}, #{pageSize}</sql>
+  
+  <!-- 根据条件查询渠道 -->
+  <select id="channelMsgList" parameterType="java.util.HashMap" resultType="java.util.HashMap">  
+	  select 
+	  <if test="detail != null">
+	   <include refid="channelMsgListHead"/>
+	  </if>
+	  <if test="count != null">
+	   <include refid="sqlCount"/>
+	  </if>
+	  from t_ad_channel a where 1=1
+	  <if test="channelName != null and channelName != ''">
+	  and channelName like CONCAT('%',#{channelName},'%')
+	  </if> 
+	  <if test="channelDesc != null and channelDesc != ''">
+	  and channelDesc like CONCAT('%',#{channelDesc},'%')
+	  </if> 
+	  <if test="sysCode != null and sysCode != ''">
+	  and sysCode like CONCAT('%',#{sysCode},'%')
+	  </if> 
+	  <if test="channelCode != null and channelCode != ''">
+	  and channelCode like CONCAT('%',#{channelCode},'%')
+	  </if> 
+	  <if test="ctype != null and ctype != ''">
+	  and ctype = #{ctype}
+	  </if> 
+	   order by id desc
+	  <if test="limit != null">
+	   <include refid="limit"/>
+	  </if>
+  </select>
+  
+  <!-- 查询渠道简称 -->
+  <select id="queryChannelSimpleName" parameterType="java.util.HashMap" resultType="java.util.HashMap">  
+  	  SELECT a.id,a.channelDesc FROM t_ad_channel a
+  </select>
+  
+  
+  <!-- 保存渠道信息  -->
+  <insert id="addAdvertPage" parameterType="java.util.HashMap">  
+  INSERT INTO t_ad_page (channelId, pageName,createBy) VALUES(#{channelId},#{pageName},#{adminName})
+  </insert>
+  
+  <sql id="channelPageListHead"> a.id,a.channelId,a.pageName,b.channelDesc,b.channelCode </sql>
+  <select id="advertPageList" parameterType="java.util.HashMap" resultType="java.util.HashMap">  
+  	select  <if test="detail != null">
+	   <include refid="channelPageListHead"/>
+	  </if>
+	  <if test="count != null">
+	   <include refid="sqlCount"/>
+	  </if> FROM t_ad_page a ,t_ad_channel b WHERE a.channelId=b.id
+	  <if test="channelDesc!= null and channelDesc != ''"> AND b.channelDesc LIKE CONCAT('%',#{channelDesc},'%')</if>
+	  <if test="channelCode!= null and channelCode != ''"> AND b.channelCode LIKE CONCAT('%',#{channelCode},'%')</if>
+	  order by a.id desc
+	  <if test="limit != null">
+	   <include refid="limit"/>
+	  </if>
+  </select>
+  
+  <select id="queryPageById" parameterType="java.util.HashMap" resultType="java.util.HashMap">  
+  	  SELECT * FROM t_ad_page a WHERE a.id=#{id}
+  </select>
+  
+  <update id="editAdvertPage" parameterType="java.util.HashMap" >  
+  	  UPDATE t_ad_page a SET a.channelId=#{channelId} ,a.pageName=#{pageName} WHERE a.id=#{id}
+  </update>
+  
+  <insert id="pageInfoAdd" parameterType="java.util.HashMap">  
+  INSERT INTO t_ad_info(channelId, pageId, advertName, pagePosition, dispalyStyle, advertStyle, url, infoName, 
+    ifee, feeType ,feeParam , feeParamCell ,coStartTime , coEndTime, ieffect, remark, createBy,createTime) VALUES(
+	#{channelId}, #{pageId}, #{advertName}, #{pagePosition}, #{dispalyStyle}, #{advertStyle}, #{url}, #{infoName}, #{ifee}, 
+	#{feeType} ,#{feeParam }, #{feeParamCell} ,#{coStartTime} , #{coEndTime}, #{ieffect}, #{remark}, #{createBy},now()
+	 )
+  </insert>
+  
+  
+  <select id="queryPageByChannel" parameterType="java.util.HashMap" resultType="java.util.HashMap">  
+  	  SELECT * FROM t_ad_page a WHERE a.channelId=#{channelId}
+  </select>
+  
+  <sql id="queryInvestRankHead"> SUM(a.investAmount)investSum, a.investor,b.usableSum,b.username,c.realName </sql>
+  <!-- 统计投资金额  -->
+  <select id="queryInvestRank" parameterType="java.util.HashMap" resultType="java.util.HashMap"> 
+  SELECT 
+  	  <if test="detail != null">
+	   d.investSum,d.investor,d.usableSum,d.username,d.realName
+	  </if>
+	  <if test="count != null">
+	   <include refid="sqlCount"/>
+	  </if>
+   FROM (
+  SELECT 
+	  <if test="detail != null">
+	   <include refid="queryInvestRankHead"/>
+	  </if>
+	  <if test="count != null">
+	   <include refid="sqlCount"/>
+	  </if>
+		from t_invest a,t_user b,t_person c WHERE a.investor=b.id AND c.userId=a.investor
+	  <if test="timeStart != null and timeStart != ''">
+	  and a.investTime &gt;= #{timeStart}
+	  </if>
+	  <if test="timeEnd != null and timeEnd != ''">
+	  and a.investTime &lt;= #{timeEnd}
+	  </if>
+	  <if test="deadlines != null and deadlines != ''">
+	  and a.deadline &gt;= #{deadlines}
+	  </if>  
+	  <if test="deadlinee != null and deadlinee != ''">
+	  and a.deadline &lt;= #{deadlinee}
+	  </if>
+	  <if test="investor != null and investor != ''">
+	  AND b.username=#{investor}
+	  </if>   
+	   
+	  GROUP BY a.investor 
+	  <if test="limit != null">order by investSum desc
+	   <include refid="limit"/>
+	  </if>
+	  )d
+  </select>
+  
+  <!-- 理财师申请 -->
+  <insert id="applyFinance" parameterType="java.util.HashMap">  
+  INSERT INTO t_finace_manager(myLevel,appRelation , appLevel, leader,userId , createBy, createTime,modifyTime ,remark )
+  VALUES(0, #{appRelation}, 1, #{leader},#{userId}, #{createBy}, now(),now() ,#{remark} )
+  </insert>
+  
+  <select id="queryFinanceAudit" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+  SELECT 
+  	  <if test="detail != null">
+	   d.*,f.sumMoney ,
+	(SELECT COUNT(1) FROM t_finace_manager g WHERE g.myLevel=1 AND g.leader=d.userId)ct1,
+	(SELECT COUNT(1) FROM t_finace_manager g WHERE g.myLevel=2 AND g.leader=d.userId)ct2
+	  </if>
+	  <if test="count != null">
+	   <include refid="sqlCount"/>
+	  </if>
+	 FROM (
+	SELECT a.*,b.username,c.realName FROM t_finace_manager a,t_user b,t_person c WHERE a.userId=b.id AND b.id=c.userId 
+	<if test="timeStart != null and timeStart != ''">
+	  and a.modifyTime &gt;= #{timeStart}
+	</if>
+	<if test="timeEnd != null and timeEnd != ''">
+	  and a.modifyTime &lt;= #{timeEnd}
+	</if>
+	<if test="userName != null and userName != ''">
+	  and b.username = #{userName}
+	</if>
+	<if test="appStatus != null and appStatus != ''">
+	  and a.appLevel=#{appStatus}
+	</if>
+	
+	)d 
+	LEFT JOIN 
+	(SELECT SUM(e.investAmount)sumMoney,e.investor FROM t_invest e GROUP BY e.investor) f ON f.investor = d.userId
+	
+	order by createTime desc
+	  <if test="limit != null">
+	   <include refid="limit"/>
+	  </if>
+  </select>
+  
+  <select id="queryFinancialRecord" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+  SELECT a.*,b.username leaderName FROM t_finace_manager a  LEFT JOIN t_user b ON a.leader=b.id
+	WHERE a.userId=#{userId}
+  </select>
+  <select id="queryFinancialRecord1" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+  SELECT a.* FROM t_finace_manager a WHERE   a.userId=#{userId}
+  </select>
+  
+  <update id="auditFinancial" parameterType="java.util.HashMap" >  
+  	  UPDATE t_finace_manager a SET  a.myLevel=a.myLevel+1, a.appLevel=0,a.modifyTime=now() WHERE a.id=#{id}
+  </update>
+  
+  <update id="auditFinancialNo" parameterType="java.util.HashMap" >  
+  	  UPDATE t_finace_manager a SET a.appLevel=0,a.modifyTime=now() WHERE a.id=#{id}
+  </update>
+  <update id="appFinancialAudit" parameterType="java.util.HashMap" >  
+  	  UPDATE t_finace_manager a SET 
+  	  <if test="nowLevel != null and nowLevel != '3'">
+  	  a.appLevel=1,
+  	  </if>
+  	  <if test="leader != null and leader != ''">
+	  a.leader = #{leader},
+	  </if>
+  	  a.modifyTime=NOW() WHERE a.userId=#{userId}
+  </update>
+  
+  <update id="auditFinancialDegrade" parameterType="java.util.HashMap" >  
+  	  UPDATE t_finace_manager a SET a.myLevel=a.myLevel-1,a.appLevel=0,a.modifyTime=NOW() WHERE a.id=#{id}
+  </update>
+  
+</mapper>

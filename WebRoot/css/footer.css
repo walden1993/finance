@@ -1,0 +1,193 @@
+@charset "utf-8";
+.footer {
+	width: 100%;
+	background: #434343 repeat;
+	color: #fff;
+	padding-top: 10px;
+	padding-bottom: 20px;
+	font-size: 12px;
+	height:auto;
+	font-family: Arial, 'Microsoft YaHei';
+	-webkit-box-shadow: #666 0px 0px 2px;
+	-moz-box-shadow: #666 0px 0px 2px;
+	box-shadow: #666 0px 0px 2px;
+	border-top: 1px solid  #434343 ;
+}
+.footer a {
+	color:#FFF;
+}
+.footer li {
+	list-style:none;
+}
+.footer .one {
+	margin: 0 auto;
+	height:150px;
+}
+.footer .one .link {
+	margin-left:0px auto;
+}
+.footer .one .link ul {
+	float: left;
+	line-height: 25px;
+	width: 160px;
+}
+.footer .one .link ul li {
+	color:#FFF
+}
+.footer .one .link ul h5 {
+	font-weight:500;
+	font-size:16px;
+}
+.footer .one .link ul h5 a {
+	font-size:15px;
+	color:#bfbfbf;
+}
+.footer .phone {
+	margin: 5px 20px 0 30px;
+	float:left;
+	width:250px;
+	line-height:25px;
+	background:url(../images/phone.png) top left no-repeat;
+}
+.footer .phone .info {
+	color: #bfbfbf;
+	font-size: 15px;
+}
+.footer .phone .content {
+	font-size: 14px;
+}
+.footer .phone ul {
+	margin-left:40px;
+	float:left;
+}
+.footer .weixin {
+	margin: 5px auto;
+	float:left;
+	background:url(../images/wx.png) top left no-repeat;
+}
+.footer .weixin ul {
+	margin-left:40px;
+	list-style:none
+}
+.footer .weixin ul .info {
+	color: #bfbfbf;
+	font-size: 15px;
+	line-height: 25px;
+}
+.footer .weixin ul li img {
+	margin-top:10px;
+}
+.footer .two {
+	margin:20px 0;
+	border-top:1px solid #434343;
+	margin-bottom:0;
+	padding-bottom:10px;
+	margin:5px 0;
+	height:169px;
+}
+
+.footer .two .qy {
+	width:910px;
+  background: #3e3e3e;
+    border-top: 1px solid #5D5959;
+}
+
+
+.footer .two .tt {
+	color:#a0a0a0;
+	font-size:12px;
+	padding-left:20px;
+	padding-top:10px;
+	padding-bottom:10px;
+}
+.footer .two li {
+	float:left;
+	text-align: center;
+	width:180px
+}
+.footer .two li p {
+	color:#707070;
+	font-size:12px;
+	line-height:30px;
+}
+
+.footer .three .link{
+	width:80%;
+}
+
+.footer .three .link a{
+	margin-right:15px;
+	float:left;
+	height:38px;
+	width:105px;
+	overflow:hidden;
+}
+
+.footer .three .copyright{
+	float:left;
+	line-height: 1.1;
+}
+.footer .three .copyright p{
+	color: #7a7a7a;
+}
+
+.footer .three .copyright p{
+	color: #bfbfbf;
+}
+.footer .three .link .ico1{
+	background:url(../images/u-spirits.png);
+	background-position:0px 0px;
+}
+.footer .three .link .ico2{
+	background:url(../images/u-spirits.png) ;
+	background-position:106px 0px;
+}
+.footer .three .link .ico3{
+	background:url(../images/u-spirits.png)   ;
+	background-position:214px 0px;
+}
+.footer .three .link .ico4{
+	background:url(../images/u-spirits.png) ;
+	background-position: 322px 0px;
+}
+.footer .three .link .ico5{
+	background:url(../images/u-spirits.png) ;
+	background-position: 428px 0px;
+}
+.footer .three .link .ico6{
+	background:url(../images/u-spirits.png) ;
+	background-position: 536px 0px;
+}
+.footer .three .link .ico7{
+	background:url(../images/u-spirits.png) ;
+	background-position: 640px 0px;
+}
+
+.footer .three .link .ico1:hover{
+	background:url(../images/u-spirits.png) ;
+	background-position:0px 38px;
+}
+.footer .three .link .ico2:hover{
+	background:url(../images/u-spirits.png) ;
+	background-position:106px 38px;
+}
+.footer .three .link .ico3:hover{
+	background:url(../images/u-spirits.png)   ;
+	background-position:214px 38px;
+}
+.footer .three .link .ico4:hover{
+	background:url(../images/u-spirits.png) ;
+	background-position: 322px 38px;
+}
+.footer .three .link .ico5:hover{
+	background:url(../images/u-spirits.png) ;
+	background-position: 428px 38px;
+}
+.footer .three .link .ico6:hover{
+	background:url(../images/u-spirits.png) ;
+	background-position: 536px 38px;
+}
+.footer .three .link .ico7:hover{
+	background:url(../images/u-spirits.png) ;
+	background-position: 640px 38px;
+}

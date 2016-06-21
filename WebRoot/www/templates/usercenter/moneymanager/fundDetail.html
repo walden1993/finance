@@ -1,0 +1,51 @@
+<div class="bar bar-header bar-calm">
+    <h1 class="title">资金记录</h1>
+</div>
+<ion-view title="资金记录">
+  <ion-content padding="true">
+        <table class="table table-bordered text-center">
+        		<tr>
+        			<td>账户总额(元)</td>
+	                <td>可用余额(元)</td>
+	                <td>冻结金额(元)</td>
+        		</tr>
+				<tr>
+					<td>{{map.handleSum }}</td>
+					<td>{{map.usableSum }}</td>
+					<td>{{map.freezeSum}}</td>
+				</tr>
+        </table>
+		<!--下拉刷新-->
+      <ion-refresher
+        pulling-text="下拉刷新"
+        pulling-icon="ion-loading-c"
+        refreshing-text="刷新成功"
+        refreshing-icon="ion-loading-c"
+        on-refresh="doRefresh()">
+      </ion-refresher>
+        <ion-list><!--href="#/tab/friend/{{page.id}}"-->
+		   <a class="item item-divider">
+                <div class="row text-center">
+                  <div class="col">交易类型</div>
+                  <div class="col">交易金额</div>
+                  <div class="col">交易日期</div>
+                </div>  
+            </a>
+            <a class="item pl0"   ng-repeat="page in items">
+                <div class="row text-center">
+                  <div class="col ml0">{{page.fundMode}}</div>
+                  <div class="col" ><i>{{page.income-page.spending}}</i>元</div>
+				  <div class="col">{{page.recordTime  | yyyyMMdd}}</div>
+                </div>  
+            </a>
+        </ion-list>   
+      <!--上拉更多 ng-if="moreDataCanBeLoaded()"-->
+      <ion-infinite-scroll
+        icon="ion-loading-c"
+        ng-if="moreDataCanBeLoaded()"
+        on-infinite="loadMore()"
+        distance="10%">
+      </ion-infinite-scroll>
+	 
+  </ion-content>
+</ion-view>

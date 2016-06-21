@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="register" extends="injectionInterceptor-0" namespace="/">
+		<global-results>
+			<result name="error">/500.jsp</result>
+		</global-results>
+		<global-exception-mappings>
+			<exception-mapping result="error" exception="java.lang.Exception"></exception-mapping>
+		</global-exception-mappings>
+	  <!-- 个人设置邮箱绑定发送 -->
+	  
+		<action name="bangdingemail" class="homeInfoSettingAction"
+			method="bangdingemail">
+			<result name="success">
+				/WEB-INF/page/front/wdzh-yxbd-index.jsp
+			</result>
+			<result name="login" type="redirect">userInit.mht</result>
+		</action>
+		<!--  输入注册码，绑定邮箱  -->
+		<action name="bangEmailByCode" class="homeInfoSettingAction"
+			method="bangEmailByCode">
+			<result name="success">
+				/WEB-INF/page/usercenter/security_center.jsp
+			</result>
+		</action>
+		<!--  超时清理session中的验证码，绑定邮箱  -->
+		<action name="removeEmailTime" class="homeInfoSettingAction"
+			method="removeEmailTime">
+			<result name="success">
+				/WEB-INF/page/usercenter/security_center.jsp
+			</result>
+		</action>
+		
+		<!-- 验证是否登录 -->
+		<action name="hasLogin"  class="frontLongRegisterAction"  method="hasLogin"></action>
+		
+		<action name="reg" class="frontLongRegisterAction"
+			method="regInit">
+			<result name="success">
+				<!-- /WEB-INF/page/front/zhuce.jsp -->
+				 /WEB-INF/page/front/register_step1.jsp
+			</result>
+			<result name="login" type="redirect">userInit.mht</result>
+			<result name="company">/WEB-INF/page/front/register_step1_company.jsp</result>
+		</action>
+		<action name="register" class="frontLongRegisterAction"
+			method="register">
+		</action>
+		<action name="registerOneWap" class="frontLongRegisterAction"
+            method="registerOneWap">
+        </action>
+		<action name="registerOne" class="frontLongRegisterAction"
+			method="registerOne">
+		</action>
+		<action name="registerTwoInit" class="frontLongRegisterAction"
+			method="registerTwoInit">
+			<result>/WEB-INF/page/front/register_step2.jsp</result>
+		</action>
+		<action name="registerTwo" class="frontLongRegisterAction"
+			method="registerTwo">
+		</action>
+		<action name="registerTwoWap" class="frontLongRegisterAction"
+            method="registerTwoWap">
+        </action>
+		<action name="registerThirdInit" class="frontLongRegisterAction"
+			method="registerThirdInit">
+			<result>/WEB-INF/page/front/register_step3.jsp</result>
+		</action>
+		<action name="registerOneTZ" class="frontLongRegisterAction"
+			method="registerOneTZ">
+			<result>/WEB-INF/page/front/register_step2.jsp</result>
+		</action>
+		<action name="registerTwoTZ" class="frontLongRegisterAction"
+			method="registerTwoTZ">
+			<result>/WEB-INF/page/front/register_step3.jsp</result>
+		</action>
+		<!-- !!! -->
+		<action name="login" class="frontLongRegisterAction"
+			method="loginInit">
+			<result name="success">
+				/WEB-INF/page/front/login.jsp
+			</result>
+			<result name="login" type="redirect">userInit.mht</result>
+			<result name="zhanghao" type="redirect">home.mht</result>
+		</action>
+		
+		<!-- QQ登录 -->
+		<action name="qqlogin"  class="oauthLoginAction"  method="qqlogin"></action>
+		<action name="afterLoginRedirect" class="oauthLoginAction"  method="afterLoginRedirect">
+			<!-- 已经登录过的，在平台有帐号信息的 -->
+			<result type="redirect" name="home">/home.mht</result>
+			<!-- 第一次授权此平台，需要注册的 -->
+			<result name="reg" type="redirect">/autoRegister.mht</result>
+			<!-- 授权失败的，重新回到登录平台 -->
+			<result name="error">/WEB-INF/page/front/oauth_login_error.jsp</result>
+		</action>
+		<action name="autoRegister"  class="oauthLoginAction"  method="autoRegister">
+			<result name="success">/WEB-INF/page/front/oauth_reg.jsp</result>
+			<result name="error">/WEB-INF/page/front/oauth_login_error.jsp</result>
+		</action>
+		<action name="relationAccount" class="oauthLoginAction"  method="relationAccount"></action>
+		<action name="registerOther" class="oauthLoginAction"  method="reg"></action>
+		<!-- 新浪登录 -->
+		
+		
+		
+		<!-- 用户登录处理Action -->
+	<action name="logining" class="frontLongRegisterAction" method="login">
+	      <result>/WEB-INF/page/front/success.jsp</result>
+	      <result name="input">/WEB-INF/page/front/login.jsp</result>
+		</action>
+		<!-- 用户从首页登录处理Action -->
+		<action name="logining1" class="frontLongRegisterAction" method="login1">
+	      <!--<result>/WEB-INF/page/front/index-list.jsp</result> -->
+		</action>
+		<!-- 用户注册时候用户名检测 -->
+		<action name="ajaxCheckRegister"  class="frontLongRegisterAction" method="ajaxCheckRegister">
+		</action>
+		<action name="ajaxNewCheckRegister"  class="frontLongRegisterAction" method="ajaxNewCheckRegister">
+		</action>
+		<!-- 用户注册时候短信验证码发送 -->
+		<action name="sendSMSReg"  class="frontLongRegisterAction" method="ajaxSendSMS">
+		</action>
+		<action name=""></action>
+		<!-- 用户找回密码时短信验证码发送 -->
+		<action name="ajaxSendSMS1"  class="frontLongRegisterAction" method="ajaxSendSMS1">
+		</action>
+		<!-- 获取注册的手机号 -->
+		<action name="getPhone"  class="frontLongRegisterAction"  method="getPhone"></action>
+		<!--add by houli 判断推荐人是否有效 queryValidRecommer -->
+		<action name="queryValidRecommer" class="frontLongRegisterAction"
+			method="queryValidRecommer">
+		</action>
+		<action name="ajaxCheckLog"  class="frontLongRegisterAction" method="ajaxChecklogin">
+		</action>
+		
+			<action name="userInit" class="frontUserAction" method="userInit">
+			<result name="success">index.jsp</result>
+		</action>
+		<!-- 邮箱验证 -->
+	 <action name="verificationEmial" class="frontLongRegisterAction" method="verificationEmial">
+	    <result>/WEB-INF/page/usercenter/usermassge.jsp</result>
+	 </action>
+	 <!-- 注册后的邮箱提示验证 -->
+	 	 <action name="msgtip" class="frontLongRegisterAction" method="tip">
+	    <result>/WEB-INF/page/usercenter/yxjihuo.jsp</result>
+	 </action>
+	 <!-- 重新发送激活邮件  -->
+	  <action name="reActivateEmail" class="frontLongRegisterAction" method="reActivateEmail">
+	    <result name="input" >index.jsp</result>
+	    <result name="success" type="redirectAction">reSend.mht?id=${r_userId}</result>
+	 </action>
+	 <!-- 从新发送邮件 -->
+	 	 <action name="reSend" class="frontLongRegisterAction" method="reSendEmail">
+	    <result>/WEB-INF/page/usercenter/yxjihuo.jsp</result>
+	 </action>
+	 <!-- 用户登录后跳转的页面 -->
+	   <action name="loginAfter" class="frontLongRegisterAction" method="jumpUser">
+	    <result>/WEB-INF/page/usercenter/user_infomation.jsp</result>
+	 </action>
+	 <!--   用户登录后跳转的页面
+	  <action name="loginAfter" class="frontLongRegisterAction" method="jumpUser">
+	    <result>/WEB-INF/page/usercenter/wdzh.jsp</result>
+	 </action>
+	 -->
+	 <!-- 忘记密码邮箱 -->
+	  <action name="forgetpassword" class="frontLongRegisterAction" method="forget">
+	   <result>/WEB-INF/page/usercenter/user_mima.jsp</result>
+	 </action>
+	 <!-- 忘记密码 手机-->
+	  <action name="forgetpasswordPhone" class="frontLongRegisterAction" method="forgetPhone">
+	   <result>/WEB-INF/page/usercenter/user_change_password_phone.jsp</result>
+	 </action>
+	   <action name="forgetpasswordsenEml" class="frontLongRegisterAction" method="forgetSendEMl">
+	 </action>
+	 <!-- 点击邮箱连接后修改密码 -->
+	 <action name="changePassword" class="frontLongRegisterAction" method="changePasswordfor">
+	    <result>/WEB-INF/page/usercenter/user_change_password.jsp</result>
+	    <result name="index">/WEB-INF/page/usercenter/user_mima.jsp</result>
+	 </action>
+	 <!-- 修改密码_邮箱 -->
+ 	 <action name="updatePassword" class="frontLongRegisterAction" method="updatechangePasswordfor">
+	    <result>/WEB-INF/page/usercenter/user_change_password.jsp</result>
+	    <result name="index" type="redirect">forgetpassword.mht</result>
+	 </action>
+	 
+	 <!-- 修改密码_手机 -->
+	  <action name="updatePasswordPhone" class="frontLongRegisterAction" method="updatechangePasswordforPhone">
+	    <result>/WEB-INF/page/usercenter/user_change_password_phone.jsp</result>
+	 </action>
+	</package>
+    <package name="logout" extends="injectionInterceptor-0" namespace="/">
+       <action name="logout" class="frontLongRegisterAction" method="logout"></action>
+   		<action name="noPermission" class="frontLongRegisterAction" method="noPermission">
+	   		<result>/WEB-INF/page/no_permission.jsp</result>
+       </action>
+    </package>
+    
+    <!-- 论坛 -->
+    <package name="bbs" extends="injectionInterceptor-0" namespace="/">
+       <action name="loginBBS" class="frontLongRegisterAction" method="loginBBS"></action>
+       <!--  PV UV统计 -->
+       <action name="pvuvStatistic" class="frontLongRegisterAction" method="pvuvStatistic">
+       </action>
+    </package>
+    
+</struts>

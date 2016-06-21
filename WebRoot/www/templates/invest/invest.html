@@ -1,0 +1,82 @@
+<ion-modal-view ng-controller="InvestCtrl">
+<ion-header-bar>
+  <h1 class="title">确定投资</h1>
+  <button class="button button-clear button-calm" ng-click="hideModal()">关闭</button>
+</ion-header-bar>
+<ion-content> 
+<form name="myForm"  ng-submit="investModal(myForm.$valid)"  novalidate>
+<div class="list list-inset">
+   <h4>剩余可投金额：{{map.investDetailMap.investNum}}元</h4>
+   <h4>账户可投金额：{{map.userMap2.usableSum}}元</h4>
+  <p class="assertive" ng-show="myForm.money.$dirty && myForm.money.$error.required">请输入投资金额</p>
+  <p class="assertive" ng-show="myForm.password.$dirty && myForm.password.$error.required">请输入交易密码</p>
+  <label class="item item-input">
+    <input type="number" placeholder="请输入投资金额，起投金额{{map.minTenderedSum}}元" name="money" ng-model="data.money" class="input-xlarge" ng-required="true">
+  </label>
+  <label class="item item-input">
+    <input type="password" placeholder="请输入交易密码" name="password"  ng-model="data.password"  class="input-xlarge search-query" ng-required="true">
+  </label>
+</div>
+<div class="row">
+  <div class="col"><button type="button"  class="button button-full  button-dark" ng-click="hideModal()">取消</button></div>
+  <div class="col"><button type="submit"  class="button button-full  button-calm" ng-disabled="myForm.$invalid">确定</button></div>
+</div>
+</form>
+</ion-content>
+</ion-modal-view>
+
+ 
+ <!--
+ <form class="form-horizontal">
+        <fieldset>
+          <div id="legend" class="">
+            <legend class="">确定投资</legend>
+          </div>
+        <div class="control-group">
+    
+              <label class="control-label" for="input01">投资金额</label>
+              <div class="controls">
+                <input type="number" placeholder="请输入投资金额" ng-model="data.money" class="input-xlarge">
+                <p class="help-block">只能输入大于0的整数</p>
+              </div>
+            </div>
+    
+        <div class="control-group">
+    
+              <label class="control-label">交易密码</label>
+              <div class="controls">
+                <input type="text" placeholder="请输入交易密码" ng-model="data.password"  class="input-xlarge search-query">
+                <p class="help-block">忘记交易密码?</p>
+              </div>
+            </div>
+        </fieldset>
+      </form>   
+  <script id="my-modal.html" type="text/ng-template">
+  <div class="modal">
+    <ion-header-bar>
+      <h1 class="title">我的模型标题</h1>
+    </ion-header-bar>
+    <ion-content>
+	     <div class="padding">
+    <div class="list">
+      <label class="item item-input">
+        <span class="input-label">First Name</span>
+        <input type="text" placeholder="">
+      </label>
+      <label class="item item-input">
+        <span class="input-label">Last Name</span>
+        <input type="text" placeholder="">
+      </label>
+      <label class="item item-input">
+        <span class="input-label">Email</span>
+        <input type="text" placeholder="">
+      </label>
+      <button class="button button-block button-positive" ng-click="hideModal()">Hide Modal</button>
+      <button class="button button-block button-positive" ng-click="removeModal()">Remove Modal</button>
+      <button class="button button-block button-positive" ng-click="openActionSheet()">ActionSheet</button>
+      <button class="button button-block button-positive" ng-click="openPopup()">Popup</button>
+    </div>
+  </div>
+    </ion-content>
+  </div>
+</script>-->

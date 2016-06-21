@@ -1,0 +1,47 @@
+<div class="left-part">
+	<span class="title font-size-28 color-title">
+		赎回
+	</span>
+	<div class="fund-name">
+		<span class="name color-title font-size-16">基金名称：</span>
+		<span class="desc color-title font-size-20">大华深证300指数增强型&nbsp;&nbsp;1456188</span>
+	</div>
+	<span class="buy-time font-size-14"><font class="color-title">预计到账时间：</font><font class="color-blue">11月30日</font></span>
+	<span class="fund-desc font-size-14">该基金为高风险基金，超出您保守风险承受能力，请谨慎投资！</span>
+</div>
+<div class="rigth-part">
+	<span class="buy-num">
+		<label class="font-size-14 color-title">赎回份额：</label><input type="text"  value="10000.00元" class="color-red font-size-16 text-input" style="padding-left: 15px;width: 223px;"/>
+	</span>
+	<span class="charge-way">
+		<label class="font-size-14 color-title">赎回方式：</label>
+		<span class="ways font-size-14"><input type="radio" name="redemptionWar" class="text-radio"/>&nbsp;普通赎回</span>
+		<span class="ways font-size-14"><input type="radio" name="redemptionWar" class="text-radio"/>&nbsp;快速赎回</span>
+	</span>
+	<span class="bank-card">
+		<span class="font-size-14 color-title info">赎回至：</span><span class="left-cards">
+			<span class="img-bank-common-block img-bank-zs img-bang-style"></span>
+			<span class="bank-name">招商银行</span>
+			<span class="bank-number">6177********1234</span>
+		</span>
+	</span>
+	<span class="charge-way" style="margin-top: -8px;">
+		<label class="font-size-14 color-title">出现巨额赎回：</label>
+		<span class="ways font-size-14"><input type="radio" name="largeRedemptionWar" class="text-radio"/>&nbsp;延迟赎回</span>
+		<span class="ways font-size-14"><input type="radio" name="largeRedemptionWar" class="text-radio"/>&nbsp;取消赎回</span>
+	</span>
+	<span class="btn-next" style="margin-top: 22px;">下一步</span>
+</div>
+<script type="text/javascript">
+	$(function(){
+		//下一步
+		$('.btn-next').on('click',function(){
+			//赎回确认
+			ss.getRequest({url:"REDEMPTION_CONFIRM",callback:function(data){
+				$("#buy_sum").children().remove();
+				$("#buy_sum").css("height","400px");
+				$("#buy_sum").append(data);
+			}});
+		})
+	});
+</script>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+    <bean id="schedulerFactoryBean"
+		class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="triggers">
+			<list>
+				<ref bean="triggerInTime" />
+				<ref bean="cronReportTriggerHour"/>
+				<ref bean="cronReportTriggerDay"/>
+				<ref bean="cronReportTriggerMonth"/>
+				<ref bean="cronReportTriggerDouble"/>
+				<ref bean="cronReportPayTreasure"/>
+				<ref bean="cronReportPayTreasureWeeked"/>
+				<ref bean="cronReportPayTreasureAuto"/>
+			</list>
+		</property>
+		<property name="configLocation" value="classpath:quartz.properties" />
+	</bean>
+	<!-- 时时任务 -->
+	<bean id="triggerInTime" class="org.springframework.scheduling.quartz.SimpleTriggerBean">
+		<property name="jobDetail" ref="jobInTime" />
+		<property name="startDelay" value="30000000" />
+		<property name="repeatInterval" value="30000000" />
+	</bean>
+	<bean id="jobInTime" class="org.springframework.scheduling.quartz.JobDetailBean">
+		<property name="jobClass" value="com.sp2p.task.JobInTimeTask"></property>
+	</bean>
+    <!-- 每日凌晨0点0分0秒启动定时器 -->
+	<bean id="cronReportTriggerDay" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail" ref="jobDayTask" />
+		<property name="cronExpression">
+			<value>0 0 0 * * ?</value>
+		</property>
+    </bean>
+    <bean id="jobDayTask" class="org.springframework.scheduling.quartz.JobDetailBean">
+		<property name="jobClass" value="com.sp2p.task.JobDayTask"></property>
+	</bean>
+	
+	<!-- 每月1号凌晨0点0分0秒启动定时器 -->
+	<bean id="cronReportTriggerMonth" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail" ref="jobMonthTask" />
+		<property name="cronExpression">
+			<value>0 0 0 1 * ?</value>
+		</property>
+    </bean>
+    <bean id="jobMonthTask" class="org.springframework.scheduling.quartz.JobDetailBean">
+		<property name="jobClass" value="com.sp2p.task.JobMonthTask"></property>
+	</bean>
+	
+	<!-- 每月每日12点0分0秒启动定时器(体验标自动还款) -->
+    <bean id="cronReportTriggerHour" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail" ref="jobHourTask" />
+        <property name="cronExpression">
+            <value>0 0 12 * * ?</value>
+        </property>
+    </bean>
+    
+    <!-- 每月每日13,21点0分0秒启动定时器(提醒今天有还款) -->
+    <bean id="cronReportTriggerDouble" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail" ref="jobDoubleTask" />
+        <property name="cronExpression">
+            <value>0 0 13,21 * * ?</value>
+        </property>
+    </bean>
+    
+    <!-- 周一至周五确定份额，发放收益 -->
+    <bean id="cronReportPayTreasure" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail" ref="jobTaskPayTreasure" />
+        <property name="cronExpression">
+            <value>0 0 15 ? * MON-FRI</value>
+        </property>
+    </bean>
+    
+    <!-- 周六周日发放收益涨薪宝收益 -->
+    <bean id="cronReportPayTreasureWeeked" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail" ref="jobTaskPayTreasureWeeked" />
+        <property name="cronExpression">
+            <value>0 0 15 ? * SAT,SUN</value>
+        </property>
+    </bean>
+    
+    <!-- 涨薪宝自动转入 -->
+    <bean id="cronReportPayTreasureAuto" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail" ref="jobTaskPayTreasureAuto" />
+        <property name="cronExpression">
+            <value>0 0 06 * * ?</value>
+        </property>
+    </bean>
+    
+    <bean id="jobTaskPayTreasureAuto" class="org.springframework.scheduling.quartz.JobDetailBean">
+        <property name="jobClass" value="com.sp2p.task.JobTaskPayTreasureAuto"></property>
+    </bean>
+    
+    <bean id="jobTaskPayTreasureWeeked" class="org.springframework.scheduling.quartz.JobDetailBean">
+        <property name="jobClass" value="com.sp2p.task.JobTaskPayTreasureWeeked"></property>
+    </bean>
+    
+    <bean id="jobTaskPayTreasure" class="org.springframework.scheduling.quartz.JobDetailBean">
+        <property name="jobClass" value="com.sp2p.task.JobTaskPayTreasure"></property>
+    </bean>
+    
+    <bean id="jobHourTask" class="org.springframework.scheduling.quartz.JobDetailBean">
+        <property name="jobClass" value="com.sp2p.task.JobHourTask"></property>
+    </bean>
+    <bean id="jobDoubleTask" class="org.springframework.scheduling.quartz.JobDetailBean">
+        <property name="jobClass" value="com.sp2p.task.JobDoubleTask"></property>
+    </bean>
+    
+</beans>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="keywordsConfig" extends="admin-default" namespace="/master">
+		<action name="queryKeywordsinit" class="keywordsConfigAction" method="queryKeywordsinit">
+			<result name="success">/WEB-INF/page/admin/keywords_index.jsp
+			</result>
+		</action>
+		<action name="queryKeywords" class="keywordsConfigAction" method="queryKeywords">
+			<result name="success">/WEB-INF/page/admin/keywords_index_list.jsp
+			</result>
+		</action>
+		<action name="addKeywordsinit" class="keywordsConfigAction" method="addKeywordsinit">
+			<result name="success">/WEB-INF/page/admin/keywords_add.jsp</result>
+		</action>
+		<action name="addKeywords" class="keywordsConfigAction" method="addKeywords">
+			<result name="success" type="redirect">queryKeywordsinit.mht</result>
+		</action>
+		<action name="updateKeywordsState" class="keywordsConfigAction" method="updateKeywordsState">
+			<result name="success" type="redirect">queryKeywordsinit.mht</result>
+		</action>
+	</package>
+</struts>

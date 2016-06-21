@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<!-- 不用登录 -->
+	<package name="myuserapp" extends="app-sign" namespace="/app">
+		<global-results>
+			<result name="error">/500.jsp</result>
+		</global-results>
+		<global-exception-mappings>
+			<exception-mapping result="error" exception="java.lang.Exception"></exception-mapping>
+		</global-exception-mappings>
+		<action name="login" class="userAppAction" method="login">
+		</action>
+
+		<action name="regist_identify_code" class="userAppAction" method="sendSMS">
+		</action>
+
+		<action name="regist" class="userAppAction" method="register">
+		</action>
+		
+		<action name="loginOrReg" class="userAppAction" method="loginOrReg">
+		</action>
+		
+		
+		<action name="find_login_pwd" class="userAppAction" method="resetLoginPwd">
+		</action>
+		
+		<action name="downApp" class="userAppAction"  method="downApp"></action>
+		
+		<action name="check_mobile" class="userAppAction"  method="check_Mobile"></action>
+		
+		<action name="check_app_version" class="userAppAction"  method="searchAppVersionInit"></action>
+	</package>
+	<!--验证以及TOKEN验证 -->
+	<package name="userapp" extends="app-default" namespace="/app">
+        
+           <action name="sendUpdatePwdSms"  class="userAppAction"  method="sendUpdatePwdSms"></action>
+        
+		<action name="resetDealPwd" class="userAppAction" method="updateLoginPwd">
+		</action>
+		
+		<action name="updateDeal" class="userAppAction" method="updateDeal">
+		</action>
+
+		<action name="updateDealPwd" class="userAppAction" method="updateDealPwd">
+		</action>
+
+		<action name="resetDealPwd" class="userAppAction" method="resetDealPwd">
+		</action>
+
+		<action name="updateUserBaseData" class="userAppAction"
+			method="updateUserBaseDataCheck">
+		</action>
+
+		<action name="addImages" class="userAppAction" method="addImage">
+		</action>
+
+		<action name="jumpPassDatapage" class="userAppAction" method="jumpPassDatapage">
+		</action>
+
+		<action name="addpastPicturdate" class="userAppAction" method="addpastPicturdate">
+		</action>
+
+		<action name="queryAllQuestionList" class="userAppAction"
+			method="queryAllQuestionList">
+		</action>
+		<action name="checkUserAnswer" class="userAppAction" method="checkUserAnswer">
+		</action>
+		<action name="getUserQuestion" class="userAppAction" method="getUserQuestion">
+		</action>
+		<action name="saveOrUpdatePwdAnswer" class="userAppAction" method="saveOrUpdatePwdAnswer">
+		</action>
+		<action name="getDbData" class="userAppAction" method="getDbData">
+		</action>
+		
+		<action name="autoLogin"  class="userAppAction"  method="autoLogin"></action>
+		
+		<action name="bind_mobile" class="userAppAction"  method="bind_mobile"></action>
+		
+		<!-- 需要登录的短信发送接口 -->
+		<action name="request_identify_code" class="userAppAction"  method="sendSmsNeedLogin"></action>
+		
+		<action name="revise_login_pwd" class="userAppAction" method="revise_login_pwd"></action>
+		<action name="revise_business_pwd" class="userAppAction" method="revise_business_pwd"></action>
+		
+		<action name="find_business_pwd" class="userAppAction" method="find_business_pwd"></action>
+		<action name="revise_head"  class="userAppAction"  method="homeupload"></action>
+		<action name="set_business_pwd"  class="userAppAction"  method="set_business_pwd"></action>
+		<!-- 退出 -->
+		<action name="logout" class="userAppAction"  method="logout"></action>
+		
+	</package>
+</struts>

@@ -1,0 +1,28 @@
+<ion-view title='轮播图片'>
+      <ion-content>
+        <ion-refresher on-refresh="loadMore()"></ion-refresher>
+      <p>
+      Hi, I'm some text before the list.
+      </p>
+      <div class="card full">
+        Hi, I'm a card before the list.
+      </div>
+      <ion-list>
+        <ion-item
+          class="item-avatar-left item-icon-right"
+          ng-click="alert(item)"
+          collection-repeat="item in items"
+          collection-item-height="85"
+          collection-item-width="'100%'"
+          ng-style="{height: '85px'}"
+          style="left: 0; right: 0;">
+          <h2>{{item.text}}</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis porttitor diam urna, vitae consectetur lectus aliquet quis.</p>
+        </ion-item>
+      </ion-list>
+      <ion-infinite-scroll on-infinite="loadMore()"></ion-infinite-scroll>
+      <div class="card full">
+        Hi, I'm a card after the list.
+      </div>
+    </ion-content>
+</ion-view>

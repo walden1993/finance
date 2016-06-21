@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+    
+    <package name="myinvestapp" extends="injectionInterceptor-0" namespace="/app">
+		<global-results>
+			<result name="error">/500.jsp</result>
+		</global-results>
+		<global-exception-mappings>
+			<exception-mapping result="error" exception="java.lang.Exception"></exception-mapping>
+		</global-exception-mappings>        		
+		<action name="queryBorrowDetail" class="investAppAction" method="queryBorrowDetail">
+		</action>
+		
+		<action name="queryBorrowAuthList" class="investAppAction" method="queryBorrowAuthList">
+		</action>
+		
+		<action name="queryRepayRecord" class="investAppAction" method="queryRepayRecord">
+		</action>
+		
+		<action name="queryBorrowInfo" class="investAppAction" method="queryBorrowInfo">
+		</action>
+		
+		<action name="queryInvestRecord" class="investAppAction" method="queryInvestRecord">
+		</action>
+		
+    </package>
+    
+	<package name="investapp" extends="app-default" namespace="/app">
+		<action name="queryInvestList" class="investAppAction" method="queryInvestList">
+		</action>
+
+		
+		<action name="focusOnBorrow" class="investAppAction" method="focusOnBorrow">
+		</action>
+		
+		<action name="focusOnUser" class="investAppAction" method="focusOnUser">
+		</action>
+		
+		<action name="addInvest" class="investAppAction" method="addInvest">
+		</action>
+		
+		<action name="queryBorrowerInfo" class="investAppAction" method="queryBorrowerInfo">
+		</action>
+		
+		<action name="get_investment_record" class="investAppAction" method="get_investment_record"></action>
+		
+		<action name="get_investment_detail" class="investAppAction" method="get_investment_detail"></action>
+		
+	</package>
+</struts>

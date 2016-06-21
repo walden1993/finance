@@ -1,0 +1,49 @@
+<div class="left-part">
+	<span class="title font-size-28 color-title">
+		购买金额
+	</span>
+	<div class="fund-name">
+		<span class="name color-title font-size-16">基金名称：</span>
+		<span class="desc color-title font-size-20">平安大华保本混合&nbsp;&nbsp;700004</span>
+	</div>
+	<span class="buy-time font-size-14"><font class="color-title">预计申购确认时间：</font><font class="color-blue">11月30日（星期六）</font></span>
+	<span class="fund-desc font-size-14">该基金为高风险基金，超出您保守风险承受能力，请谨慎投资！</span>
+</div>
+<div class="rigth-part">
+	<span class="buy-num">
+		<label class="font-size-14 color-title">申购金额：</label><input type="text"  class="font-size-16 text-input"/>
+	</span>
+	<span class="charge-way">
+		<label class="font-size-14 color-title">收费方式：</label>
+		<span class="ways font-size-14"><input type="radio" name="chargeWar" class="text-radio"/>&nbsp;前收费</span>
+		<span class="ways font-size-14"><input type="radio" name="chargeWar" class="text-radio"/>&nbsp;后收费</span>
+	</span>
+	<span class="bank-card">
+		<span class="font-size-14 color-title info">银行卡：</span><span class="left-cards">
+			<span class="img-bank-common-block img-bank-zs img-bang-style"></span>
+			<span class="bank-name">招商银行</span>
+			<span class="bank-number">6177********1234</span>
+		</span><!-- <span class="rigth-cards">
+			<span class="img-bank-common-block img-bank-gs img-bang-style"></span>
+			<span class="bank-name">工商银行</span>
+			<span class="bank-number">6225********5678</span>
+		</span> -->
+		<span class="bank-card-desc">
+			<span class="bank-card-desc-left">该卡当次限额50000.00元</span><!-- <span class="bank-card-desc-right">该卡当次限额50000.00元</span> -->
+		</span>
+	</span>
+	<span class="btn-next">下一步</span>
+</div>
+<script type="text/javascript">
+	$(function(){
+		//下一步
+		$('.btn-next').on('click',function(){
+			//购买确认
+			ss.getRequest({url:"BUY_CONFIRM",callback:function(data){
+				$("#buy_sum").children().remove();
+				$("#buy_sum").css("height","578px");
+				$("#buy_sum").append(data);
+			}});
+		})
+	});
+</script>

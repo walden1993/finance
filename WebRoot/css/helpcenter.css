@@ -1,0 +1,88 @@
+@charset "utf-8";
+/* CSS Document */
+.myhelpcenter {height:auto; margin:0 auto; padding:0px; }
+.seek{border:1px solid #dadada; width: 180px; height:43px; margin-bottom:10px; display:block;}
+.seek .logo{width:41px; height:43px; overflow:hidden; float:left; background: #fff}
+.seek p{width: 136px; height:43px; line-height:43px; padding-left: 30px; font-size:18px; color:#000; float:right; border-left:1px solid #dadada; background:#fff; }
+.myhelpcenter_left {width: 180px; height:auto;  border:1px solid #dadada; background:#fff;  }
+.myhelpcenter_right {width: 758px; height:auto; float:right; background:#fff;border:1px solid #dadada}
+.myhelpcenter01 {margin:0 auto; height:auto; padding:0 0 5px 0; clear:both;}
+.myhelpcenter01 h2 {padding:0px 10px 0 30px; margin-bottom:10px;margin-top:5px; font-weight:bold; float:left; font-size:16px; color:#192d84; height:18px; line-height:18px; clear:both;}
+.myhelpcenter01 ul {width:100%; height:auto; clear:both;}
+.myhelpcenter01 ul li { height:30px; line-height:30px; text-align:center; font-size:14px; font-weight:normal; color:#232323; clear:both; overflow:hidden; margin:0 auto;}
+.myhelpcenter01 ul a div{-webkit-transition:0.4s -webkit-transform ease; -o-transition:0.4s -o-transform ease; -moz-transition:0.4s -moz-transform ease; -ms-transition:0.4s -ms-transform ease;color:#232323; height:38px; width:132pxs; margin-left:30px; margin:0 auto;padding:0px; text-align:left; padding-left:50px; font-size:14px; font-weight:normal; color:#232323;line-height:38px;  }
+.myhelpcenter01 ul a .active {text-decoration:none; background:#e1e1e1;}
+.myhelpcenter01 ul a{display:block; }
+.myhelpcenter01 ul a img{-webkit-transition:0.4s -webkit-transform ease; -o-transition:0.4s -o-transform ease; -moz-transition:0.4s -moz-transform ease; -ms-transition:0.4s -ms-transform ease;}
+.myhelpcenter01 ul a:hover img{-webkit-transform:rotate(360deg); -o-transform:rotate(360deg); -moz-transform:rotate(360deg); -ms-transform:rotate(360deg);}
+.myhelpcenter01 ul a.lisize div {background:#FF6262; color:#fff;}
+.myhelpcenter01 ul li a {color:#232323; height:40px; margin:0 auto;padding:0px; width:182px}
+.myhelpcenter01 ul li a span {color:#232323; height:40px; margin:0 auto;padding:0 6px 6px 6px; }
+.myhelpcenter01 ul li a:hover span {text-decoration:none; background:#ccc;}
+.myhelpcenter01 ul li.lisize a{background:background:#ccc;padding:0 6px 6px 6px;}
+.myhelpcenter01 ul li.lisize a:hover {text-decoration:none;}
+.myhelpcenter01 ul li a:hover {text-decoration:none;}
+.myhelpcenter02 {width:528px; height:auto; padding:0 0 13px 0; clear:both;}
+.myhelpcenter03 {width:528px; height:50px; line-height:50px; border-bottom:1px solid #dadada; }
+.myhelpcenter03 span{border-bottom:2px solid red; height:50px; line-height: 48px;padding:0px 20px; float:left; font-size:20px;}
+.myhelpcenter_right .hjh{width:788px; padding: 0px 0px 30px 30px;_padding:0px 20px 30px 30px;}
+.myhelpcenter_right .hjh .left{ float:left; width:500px; overflow:hidden;}
+.myhelpcenter_right .hjh .left .seek_hot{width:494px; height:42px;overflow: hidden; margin-top:15px;}
+.myhelpcenter_right .hjh .left .seek_hot .m1{width:440px; background:none; border:none; padding:20px 0px 10px 10px;  height:23px; line-height:23px; float:left; font-size:15px; color:#000; transition: all 1s;}
+.myhelpcenter_right .hjh .left .seek_hot input:focus { outline: none; }
+.myhelpcenter_right .nunber{height:30px; line-height:30px; text-align:right; padding-right:4px; margin-top:10px;}
+.myhelpcenter_right .nunber font{color:#FF6262;}
+.myhelpcenter_right .hjh .left .seek_hot .m2{ float:right; background:url(../images/searchlogo.jpg) no-repeat; cursor: pointer; width:41px; height:43px; line-height:43px; border-top: none; border-right: none; border-bottom: none; border-left: 1px solid #dadada; }
+.myhelpcenter_right .hjh .title_list{ font-size:14px; color:#183086; height:28px; line-height:28px; font-size:14px; cursor:pointer; display:block;}
+.myhelpcenter_right .hjh .title_list font{font-family:Arial; color:#009;}
+.myhelpcenter_right .hjh .tt{height:28px; line-height:28px; border-bottom:1px solid #900; margin:10px 0px;}
+.myhelpcenter_right .hjh .redline{border-bottom:1px solid #900;}
+.myhelpcenter_right .hjh .tt h3{ height:28px; line-height:28px; font-size:14px; font-weight:bold;}
+.myhelpcenter_right .hjh .left .shd_jd{width:500px; margin-top:20px; }
+.myhelpcenter_right .hjh .left .shd_jd li p{background:#f2f2f2; height:30px; line-height:30px; color:#1a2e85; font-size:14px; padding-left:10px;}
+.myhelpcenter_right .hjh .left .ditu{background:#f2f2f2; height:30px; line-height:30px; color:#1a2e85; font-size:14px; padding-left:10px;}
+.myhelpcenter_right .hjh .left .shd_jd li{margin-bottom:26px;}
+.myhelpcenter_right .hjh .left .shd_jd li div{ padding:7px 7px 0px 10px;}
+.myhelpcenter_right .hjh .left .shd_jd li div span{height:18px; line-height:18px; font-size:14px; color:#7f7f7f; }
+.myhelpcenter_right .hjh .title_cy{color:#878995;margin-top:20px;}
+.myhelpcenter_right .hjh .title_cy a{color:#878995; padding:0px 10px; line-height:24px;}
+.myhelpcenter_right .hjh .left .shd_js{ width:530px;  margin-top:10px;}
+.myhelpcenter_right .hjh .left .line{margin-top:18px; border-bottom:1px dashed #CCC; overflow:hidden;}
+.myhelpcenter_right .hjh .left .shd_js a{width:119px; height:29px; line-height:29px; text-align:center;  background:#f2f2f2; color:#000; display:block; float:left; margin:0px 8px 7px 0px;  display:inline;  }
+.myhelpcenter_right .hjh .left .tz{color:#808080;  line-height:18px; margin-top:16px; background: #eee; padding: 10px; }
+.myhelpcenter_right .hjh .left .shd_js .active{width:119px; height:29px; line-height:29px; text-align:center;  background:url(../images/shd_jslist.jpg) no-repeat right bottom #f2f2f2; color:#1c2e82; display:block; float:left;  display:inline;  }
+.myhelpcenter_right .hjh .left .shd_sf{width:563px; border:1px solid #ccc; border-bottom:none;}
+.myhelpcenter_right .hjh .left .shd_sf ul .m{width:80px; border-right:1px solid #ccc;}
+.myhelpcenter_right .hjh .left .shd_sf ul li{ height:29px; line-height:30px; vertical-align:middle;  border-bottom:1px solid #ccc; padding:0px 62px 0px 46px;}
+.myhelpcenter_right .hjh .left .shd_sf ul .first{ background:#e0e0e0;}
+.myhelpcenter_right .hjh .left .shd_sf ul .last{ border-bottom:none;}
+.myhelpcenter_right .hjh .left .zcbtn{margin-bottom:16px;}
+.myhelpcenter_right .hjh .left .zcrz .p1{width:562px;  line-height:24px; margin-bottom:16px; color:#162d7d; font-size:14px;  text-align:left;  color:#1c2e82;}
+.myhelpcenter_right .hjh .left .zcrz p{ margin-bottom:24px;}
+.myhelpcenter_right .hjh .left .zcrz p img{ border:1px solid #ccc;}
+.myhelpcenter_right .hjh .left .zcrz .p1 span{ width:19px; height:19px; float:left; line-height:19px; background:url(../../images/static/ollist.jpg) no-repeat left 2px; padding-right:12px; color:#fff; padding-top:1px; text-align:center; display:block; }
+.myhelpcenter_right .hjh .left .zcrz .p1 a:hover{ text-decoration:underline;}
+.myhelpcenter_right .hjh .left .shd_zc .ljzc{background:#2249a8; width:230px; height:30px; cursor:pointer;  border:1px solid #0e3592; line-height:32px; text-align:center;   border-radius:2px; margin:0px auto;}
+.myhelpcenter_right .hjh .left .shd_zc .ljzc a{color:#fff;}
+.myhelpcenter_right .hjh .left .zcbtn a{width:85px; height:28px; line-height:28px; text-align:center; font-size:14px; color:#fff; float:left; margin-right:1px; display:inline; background:#d5d5d5; display:block;}
+.myhelpcenter_right .hjh .left .shd_zc .active{background:#FF6262;}
+.myhelpcenter_right .hjh .right{ width:188px; float:right; position: relative; top: -10px; right: 30px;}
+.myhelpcenter_right .hjh .rd {margin-bottom:32px;}
+.myhelpcenter_right .hjh .rd dt{ height:16px; line-height:16px; color:#2c2c2c; font-size:16px; margin-bottom:12px; font-weight:bold; border-left: 5px solid #162b7e; padding-left: 6px; }
+.myhelpcenter_right .hjh .rd dt img{ padding-right:6px;}
+.myhelpcenter_right .hjh .rd dd{ margin-top:14px; background:url(../../images/static/hotlist.jpg) no-repeat left 7px; padding-left:14px; }
+.myhelpcenter_right .hjh .rd dd a{ color:#30a5d0; font-size:14px; height:16px; line-height:16px; }
+.myhelpcenter_right .hjh .rd dd a:hover{text-decoration:underline;}
+.myhelpcenter_right .hjh .rd2 {margin-bottom:32px;}
+.myhelpcenter_right .hjh .rd2 dt{ height:16px; line-height:16px; color:#2c2c2c; font-size:16px; margin-bottom:12px; font-weight:bold; border-left: 5px solid #BA2B2B; padding-left: 6px; }
+.myhelpcenter_right .hjh .rd2 dt img{ padding-right:6px;}
+.myhelpcenter_right .hjh .rd2 .d1{color:#F00; font-size:16px; font-weight:bold;}
+.myhelpcenter_right .hjh .rd2 .d2 {  width:158px; height:24px; line-height:24px; }
+.myhelpcenter_right .hjh .rd2 .d3 { background: #DE4A4A; width:158px; height:26px; line-height:26px; margin-top:8px; text-align:center; border-radius:3px; }
+.myhelpcenter_right .hjh .rd2 .d3 a{color:#fff; font-size:14px; } 
+.myhelpcenter_right .hjh .rd3 dt img{ padding-right:6px;}
+.myhelpcenter_right .hjh .rd3 dt{ height:16px; line-height:16px; color:#2c2c2c; font-size:16px; margin:12px 0px 17px 0px; font-weight:bold; border-left: 5px solid #BA2B2B; padding-left: 6px;}
+.myhelpcenter_right .hjh .rd3 .d1{ background:#DE4A4A; width:158px; height:26px; line-height:26px; margin-top:8px; text-align:center; border-radius:3px; margin-bottom:11px;}
+.myhelpcenter_right .hjh .rd3 .d1 a{color:#fff; font-size:14px; position:relative;}
+.myhelpcenter_right .hjh .rd3 .d1 a img{position:relative;vertical-align:top;*vertical-align:-5px;*top:-3px;_vertical-align:-2px;_top:0px;} 
+.myhelpcenter_right .hjh .rd3 .d2{  height:32px; line-height:32px; font-size:14px; color:#828282;}

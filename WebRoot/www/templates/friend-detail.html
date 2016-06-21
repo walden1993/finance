@@ -1,0 +1,256 @@
+<div class="bar bar-header bar-assertive">
+	<a class="button button-icon" href="javascript:window.history.go(-1)">返回</a>
+	<h1 class="title">标的详情</h1>
+</div>
+<ion-view> <ion-content has-header="true"
+	style="background: #F6F8FA">
+<div class="ui-loading-wrap" ng-show="!show">
+	<p>加载中</p>
+	<i class="ui-loading"></i>
+</div>
+<div ng-show="show">
+	<div class="p10">
+		<div class="row pt10">
+			<div class="col">
+				<span class="f18">{{friend.borrowDetailMap.borrowTitle}}</span>
+			</div>
+		</div>
+		<div class="row pt10">
+			<div class="col">
+				<span class="ui-txt-muted mr10">借款总额</span>{{friend.borrowDetailMap.borrowSum}}元
+			</div>
+		</div>
+		<div class="row pt10">
+			<div class="col">
+				<span class="ui-txt-muted mr5">年收益率</span> <span class=" orange">{{friend.borrowDetailMap.annualRate}}%</span>
+			</div>
+		</div>
+		<div class="row pt10">
+			<div class="col">
+				<span class="ui-txt-muted mr10">借款期限</span>{{friend.borrowDetailMap.deadline}}<span
+					ng-switch on="friend.borrowDetailMap.isDayThe"><span
+					ng-switch-when="1">个月</span><span ng-switch-default>天</span> </span>
+			</div>
+		</div>
+		<div class="row pt10">
+			<div class="col">
+				<span class="ui-txt-muted mr10">还款方式</span> <span ng-switch
+					on="friend.borrowDetailMap.paymentMode"><span
+					ng-switch-when="1">按月付息,到期还本</span><span ng-switch-when="2">按月分期还款(等额本息还款)</span><span
+					ng-switch-when="3">秒还</span><span ng-switch-when="4">一次性还款</span> </span>
+			</div>
+		</div>
+		<div class="row pt10">
+			<div class="col">
+				<span class="ui-txt-muted mr10">安全保障</span>100%本息保障
+			</div>
+		</div>
+		<div class="row pt10">
+			<div class="col-0">
+				<div class="ui-txt-muted m5">借款进度</div>
+			</div>
+			<div class="col">
+				<div class="progress_bg_my">
+					<div class="progress_my"
+						style="width:{{friend.borrowDetailMap.schedules}}%"></div>
+				</div>
+				{{friend.borrowDetailMap.schedules}}%
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<span class="ui-txt-muted mr10">可投金额</span>{{friend.borrowDetailMap.investAmount}}元
+			</div>
+		</div>
+		<div class="row pt10" ng-switch
+			on="friend.borrowDetailMap.borrowStatus">
+			<div class="row ui-btn-wrap p5" ng-switch-when="1">
+				<button class="ui-btn-lg disabled">初审中</button>
+			</div>
+			<div class="row ui-btn-wrap p5" ng-switch-when="2">
+				<button class="ui-btn-lg ui-btn-danger"
+					ng-click="invest(friend.borrowDetailMap.id)"
+					ng-show="friend.borrowDetailMap.borrowShow==1">立即投标</button>
+				<button class="ui-btn-lg ui-btn-danger"
+					ng-show="friend.borrowDetailMap.borrowShow==2">立即认购</button>
+			</div>
+			<div class="row ui-btn-wrap p5" ng-switch-when="3">
+				<button class="ui-btn-lg disabled">复审中</button>
+			</div>
+			<div class="row ui-btn-wrap p5" ng-switch-when="4">
+				<button class="ui-btn-lg disabled"
+					ng-show="friend.borrowDetailMap.borrowShow==1">已满标</button>
+				<button class="ui-btn-lg disabled"
+					ng-show="friend.borrowDetailMap.borrowShow==2">回购中</button>
+			</div>
+			<div class="row ui-btn-wrap p5" ng-switch-when="5">
+				<button class="ui-btn-lg disabled">已还完</button>
+			</div>
+			<div class="row ui-btn-wrap p5" ng-switch-when="6">
+				<button class="ui-btn-lg disabled">流标</button>
+			</div>
+		</div>
+	</div>
+	<div></div>
+	<div id="accordion" class="h150">
+	<h3>查看借款方信息</h3>
+		<div ng-switch="friend.borrowDetailMap.userType">
+			<div ng-switch-when="1">
+			<table class="table table-bordered text-center">
+				<tr class=" item-divider">
+					<td>性别</td>
+					<td>年龄</td>
+				</tr>
+				<tr>
+					<td>{{friend.borrowUserMap.sex}}</td>
+					<td>{{friend.borrowUserMap.age}}</td>
+				</tr>
+				<tr class=" item-divider">
+					<td>婚姻状况</td>
+					<td>工作城市</td>
+				</tr>
+				<tr>
+					<td>{{friend.borrowUserMap.maritalStatus}}</td>
+					<td>{{friend.borrowUserMap.workCity}}</td>
+				</tr>
+				<tr class=" item-divider">
+					<td>公司行业</td>
+					<td>公司规模</td>
+				</tr>
+				<tr>
+					<td>{{friend.borrowUserMap.companyLine}}</td>
+					<td>{{friend.borrowUserMap.companyScale}}</td>
+				</tr>
+				<tr class=" item-divider">
+					<td>职位</td>
+					<td>毕业学校</td>
+				</tr>
+				<tr>
+					<td>{{friend.borrowUserMap.job}}</td>
+					<td>{{friend.borrowUserMap.school}}</td>
+				</tr>
+				<tr class=" item-divider">
+					<td>学历</td>
+					<td>入学年份</td>
+				</tr>
+				<tr>
+					<td>{{friend.borrowUserMap.highestEdu}}</td>
+					<td>{{friend.borrowUserMap.eduStartDay}}</td>
+				</tr>
+				<tr class=" item-divider">
+					<td>有无购房</td>
+					<td>有无购车</td>
+				</tr>
+				<tr>
+					<td>{{friend.borrowUserMap.hasHourse}}</td>
+					<td>{{friend.borrowUserMap.hasCar}}</td>
+				</tr>
+				<tr class=" item-divider">
+					<td>有无房贷</td>
+					<td>有无车贷</td>
+				</tr>
+				<tr>
+					<td>{{friend.borrowUserMap.hasHousrseLoan}}</td>
+					<td>{{friend.borrowUserMap.hasCarLoan}}</td>
+				</tr>
+			</table>
+			<div class="col">
+				<strong>借款说明</strong>
+			</div>
+			<div class="col" ng-bind-html="friend.borrowDetailMap.borrowInfo">
+			</div>
+			</div>
+			<div  ng-switch-when="2">
+				<div class="col" ng-bind-html="friend.borrowDetailMap.borrowInfo">
+				</div>
+			</div>
+		</div>
+		<h3>查看风控信息</h3>
+		<div>
+			<div>
+				<h4 style="border-bottom-style: dotted;border-bottom-color: #CECECE;">风控意见</h4>
+				<div ng-bind-html="friend.borrowDetailMap.auditOpinion"></div>
+			</div>
+			<div>
+				<h4  style="border-bottom-style: dotted;border-bottom-color: #CECECE;">担保信息</h4>
+				<p>担保方： {{friend.borrowDetailMap.agent}}</p>
+				<p>担保方式： {{friend.borrowDetailMap.agentWay}}</p>
+			</div>
+			<div>
+				<h4  style="border-bottom-style: dotted;border-bottom-color: #CECECE;">审核信息</h4>
+				<table class="table table-bordered text-center">
+				<tr class=" item-divider">
+					<td>审核项目</td>
+					<td>状态</td>
+					<td>通过日期</td>
+				</tr>
+				<tr ng-repeat="page in friend.list">
+					<td>{{page.name}}</td>
+					<td>审核通过</td>
+					<td>{{page.passTime}}</td>
+					<td><span ng-switch on="page.repayStatus"><span
+							ng-switch-when="1">未偿还</span><span ng-switch-when="2">已偿还</span><span
+							ng-switch-when="3">偿还中</span> </span>
+					</td>
+				</tr>
+				</table>
+			</div>
+		</div>
+		<!-- <h3>相关材料</h3>
+		<div>
+			<table class="table table-bordered text-center">
+				<tr class=" item-divider">
+					<td>还款日期</td>
+					<td>已还本息(元)</td>
+					<td>待还本息(元)</td>
+					<td>状态</td>
+				</tr>
+				<tr ng-repeat="page in friend.repayList">
+					<td>{{page.repayDate}}</td>
+					<td>{{page.hasPI}}</td>
+					<td>{{page.stillPI}}</td>
+					<td><span ng-switch on="page.repayStatus"><span
+							ng-switch-when="1">未偿还</span><span ng-switch-when="2">已偿还</span><span
+							ng-switch-when="3">偿还中</span> </span>
+					</td>
+				</tr>
+			</table>
+		</div> -->
+		<h3>查看投资记录</h3>
+		<div>
+			<table class="table table-bordered text-center">
+				<tr class=" item-divider">
+					<td>投标人</td>
+					<td>投标金额(元)</td>
+					<td>投标时间</td>
+				</tr>
+				<tr ng-repeat="page in friend.investList">
+					<td>{{page.username}}</td>
+					<td>{{page.investAmount}}</td>
+					<td>{{page.investTime}}</td>
+				</tr>
+			</table>
+		</div>
+		<h3>查看还款详情</h3>
+		<div>
+			<table class="table table-bordered text-center">
+				<tr class=" item-divider">
+					<td>还款日期</td>
+					<td>已还本息(元)</td>
+					<td>待还本息(元)</td>
+					<td>状态</td>
+				</tr>
+				<tr ng-repeat="page in friend.repayList">
+					<td>{{page.repayDate}}</td>
+					<td>{{page.hasPI}}</td>
+					<td>{{page.stillPI}}</td>
+					<td><span ng-switch on="page.repayStatus"><span
+							ng-switch-when="1">未偿还</span><span ng-switch-when="2">已偿还</span><span
+							ng-switch-when="3">偿还中</span> </span>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</div>
+</ion-content> </ion-view>

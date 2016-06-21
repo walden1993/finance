@@ -1,0 +1,13 @@
+/**移动端样式**/
+/*风险承受能力测试 */
+.risk-main-wrap{position: relative;overflow-y: auto;height: 100%;width: 100%;z-index: 1;background-color: #FFFFFF;text-align: left;}
+.risk-main-wrap .center-wrap{margin-left: 20px;margin-right: 14px;}
+.risk-main-wrap .center-wrap .tips-desc{display: inline-block;height: auto;font-size: 1.1em;color: #42413e;}
+.risk-main-wrap .center-wrap .risk-subject{position: relative;margin-bottom: 1.3em;}
+.risk-main-wrap .center-wrap .risk-subject li{display: flex;position: relative;line-height: 2.5em;display: inline-block;width: 100%;font-size: 1.1em;}
+.risk-main-wrap .center-wrap .risk-subject .subject-title{background-color: #e6f3f7;font-size: 1.25em;line-height: 1.8em;}
+.risk-main-wrap .center-wrap .risk-subject .subject-title .sequence{display: inline-block;width: 1.3em;height: 1.2em;line-height: 1.2em;text-align: center; background-color: #78b9e9;color: #FFFFFF;margin-right:0.5em;margin-left: 0.3em;}
+.risk-main-wrap .center-wrap .risk-subject .option input{height: 15px;margin-right: 15px;margin-left: 0.6em;float: left;}
+.risk-main-wrap .center-wrap .risk-subject .option{height: 15px;display: inline-block;line-height: 15px;}
+.risk-main-wrap .center-wrap .btn-div{width: 100%;height: auto;text-align: center;margin-bottom: 2em;}
+.risk-main-wrap .center-wrap .btn-div .submit-btn{display: inline-block; width: 14em; height: 2em;line-height: 2em;background-color: #78B9E9;border-radius:5px;text-align: center;color: #FFFFFF;font-size: 1.25em;margin-top: 1.25em;}

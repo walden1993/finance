@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="frontMessage" extends="injectionInterceptor-0" namespace="/">
+		<global-results>
+			<result name="error">/500.jsp</result>
+		</global-results>
+		<global-exception-mappings>
+			<exception-mapping result="error" exception="java.lang.Exception"></exception-mapping>
+		</global-exception-mappings>
+		<!-- 协议范本 -->
+		<action name="protocol_*" class="frontMessageAction">
+			<result name="success">/WEB-INF/page/protocol/protocol_{1}.jsp</result>
+		</action>
+		<!-- 根据信息管理的类型不同跳转到不同的页面 -->
+		<action name="queryAboutInfo" class="frontMessageAction" method="getMessageBytypeId">
+			<result name="zqjkxy">/WEB-INF/page/front/zqzr_index.jsp</result>
+			<result name="gsjj">/WEB-INF/page/front/gsjj_info.jsp</result>
+			<result name="ptyl">/WEB-INF/page/front/ptyl_info.jsp</result>
+		    <result name="gywm">/WEB-INF/page/front/aboutus_index.jsp</result>
+			<result name="flzc">/WEB-INF/page/front/flzc_info.jsp</result>
+			<result name="zfsm">/WEB-INF/page/front/zfsm_info.jsp</result>
+			<result name="lxwm">/WEB-INF/page/front/aboutus_index.jsp</result>
+			<result name="rhlc">/WEB-INF/page/front/rhlc-info.jsp</result>
+			<result name="bjbz">/WEB-INF/page/front/bjbz-index-info.jsp</result>
+			<result name="success">/WEB-INF/page/front/download_info.jsp</result>
+			<result name="jkxy">/WEB-INF/page/front/jkxy_index_load_show.jsp</result>
+			<result name="mtbd">/WEB-INF/page/front/mtbd_index.jsp</result>
+			<result name="gfgg">/WEB-INF/page/front/gfgg_index.jsp</result>
+			<result name="gywm">/WEB-INF/page/front/about.jsp</result><!-- 关于我们  99 -->
+			<result name="wzgg">/WEB-INF/page/front/notice.jsp</result><!-- 网站公告  100 -->
+			<result name="ptzx">/WEB-INF/page/front/hlwjr_news.jsp</result><!-- 平台咨询、互联网金融  101 -->
+			<result name="ptzx_detail">/WEB-INF/page/front/hlwjr_news_detail.jsp</result><!-- 资讯详情  102 -->
+			<result name="shd_news">/WEB-INF/page/front/shd_news.jsp</result><!-- 三好资本动态  103 -->
+			<result name="hzhb">/WEB-INF/page/front/partner.jsp</result><!-- 合作伙伴  104 -->
+			<result name="lxwm">/WEB-INF/page/front/contact.jsp</result><!-- 联系我们  105 -->
+			<result name="bzzx">/WEB-INF/page/helpcenter/help.jsp</result><!-- 帮助中心  106 -->
+			<result name="rczp">/WEB-INF/page/front/recruitment.jsp</result><!-- 人才招聘  107 -->
+			<result name="askaw">/WEB-INF/page/front/askAnswer.jsp</result><!-- 三好资本问答108 -->
+			<result name="tdjs">/WEB-INF/page/front/teamIntroduction.jsp</result><!-- 团队介绍109 -->
+			<result name="yyzt">/WEB-INF/page/front/operationMain.jsp</result><!-- 运营主体110 -->
+			<result name="xmms">/WEB-INF/page/front/productmodel.jsp</result><!-- 项目模式111 -->
+        </action>
+        
+        <action name="jg_*" class="frontMessageAction">
+			<result name="success">/WEB-INF/page/front/jg_{1}.jsp</result><!--机构详情 -->
+        </action>
+        
+        <!-- 招聘链接 -->
+        <action name="zhaopin" class="frontMessageAction" method="zhaopin">
+			<result name="rczp">/WEB-INF/page/front/recruitment.jsp</result><!-- 人才招聘  107 -->
+        </action>
+        <!-- 根据信息管理的类型不同跳转到不同的页面 -->
+		<action name="frontTeam" class="frontMessageAction" method="listTeamPage">
+			<result name="success">/WEB-INF/page/front/team_index.jsp</result>
+        </action>
+         <!-- 异步加载 -->
+		<action name="queryMessageDetail" class="frontMessageAction" method="qureygetMessageBytypeId">		
+        </action>
+ 		<!-- 首页滚动图片加载  add by X.kai-->
+		<action name="queryIndexRollImg" class="mediaReportAction" method="queryIndexRollImg">
+		    <result name="success">/WEB-INF/page/front/indexRollImg-info.jsp</result>        
+		</action>
+		
+		
+	</package>
+	
+	<package name="protocol" extends="login-default" namespace="/">
+		<action name="protocol" class="frontMessageAction" method="queryProtocol">
+			<result name="404">404.jsp</result>
+			<result name="zqjkxy">/WEB-INF/page/front/zqzr_index.jsp</result>
+			<result name="jkxy">/WEB-INF/page/front/jkxy_index_load_show.jsp</result>
+        </action>
+	</package>
+</struts>

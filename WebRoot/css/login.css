@@ -1,0 +1,100 @@
+@charset "utf-8";
+/* CSS Document */
+
+.wrap .login{
+	position: relative;
+	top: -360px;
+	left: 58.5%;
+	border: 1px solid #dcdcdc;
+	width: 395px;
+	height: 395px;
+	background-color:#FFF;
+}
+.wrap .login form{
+	padding:45px 45px;
+}
+.wrap .login form .ico{
+	background: url(../images/validator_default.png) no-repeat;
+	background-position:0 0;
+	width: 18px;
+    height: 16px;
+    overflow: hidden;
+	display:inline-block;
+	vertical-align:text-bottom;
+	margin-right:5px;#a0a0a0
+}
+.wrap .login form .msg{
+	color:#a0a0a0;
+	vertical-align: top;
+}
+.wrap .login form .username input{
+	width:300px;
+	height:44px;
+	padding:4px 5px 4px 55px;
+	background:url(../images/email.png) 10px  no-repeat #fff;
+	border:1px solid #dcdcdc;
+	font-size:14px;
+}
+.wrap .login form .password input{
+	width:300px;
+	height:44px;
+	padding:4px 5px 4px 55px;
+	background:url(../images/lock.png) 13px  no-repeat #fff;
+	border:1px solid #dcdcdc;
+	font-size:14px;	
+}
+
+.wrap .login form .code input{
+	width:120px;
+	height:44px;
+	padding:4px 0px 4px 15px;
+	border:1px solid #dcdcdc;
+	font-size:14px;
+	margin-right:8px;
+}
+.wrap .login form input:focus{ border-color: #51A7E8;box-shadow: 0 1px 2px rgba(0, 0, 0, 0.075) inset, 0 0 5px rgba(81, 167, 232, 0.5);}
+
+.wrap .login form .bottom {
+	height: 48px;
+	line-height: 48px;
+	color: #afafaf;
+	border-bottom-left-radius: 3px;
+	border-bottom-right-radius: 3px;
+	border-top: 1px solid #e2e2e2;
+	position: relative
+}
+
+.wrap .login form .bottom a.partner {
+	height: 20px;
+	background-image: url(../images/login_partner.png);
+	background-repeat: no-repeat;
+	position: absolute;
+	text-indent: -9999px
+}
+
+#partner-qq {
+	width: 20px;
+	background-position: 0 0;
+	top: 15px;
+	right: 45px
+}
+
+#partner-weibo {
+	width: 26px;
+	background-position: 100% 0;
+	right: 0;
+	top: 15px
+}
+
+#partner-qq:hover {
+	background-position: 0 -30px
+}
+
+#partner-weibo:hover {
+	background-position: 100% -30px
+}
+/*邮箱自动补全*/
+#AutoComplete{background:#fff;border:1px solid #dcdcdc;display:none;width:300px;font-size:14px; line-height:2.2;}
+#AutoComplete ul{list-style-type:none;margin:0;padding:0;}
+#AutoComplete li{color:#333;cursor:pointer;text-indent:5px;}
+#AutoComplete .hover{background:#f5f5f5;color:#2380cd;}

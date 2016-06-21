@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<!-- 对外的接口 -->
+	<package name="homeInfoSetting" extends="injectionInterceptor-0" namespace="/">
+		<global-results>
+			<result name="error">/500.jsp</result>
+		</global-results>
+		<global-exception-mappings>
+			<exception-mapping result="error" exception="java.lang.Exception"></exception-mapping>
+		</global-exception-mappings>		
+		<action name="queryRealName" class="homeInfoSettingAction" method="realNameInterface"></action>
+		<action name="hr_fund" class="homeInfoSettingAction" method="hr_fund"></action>
+	</package>
+</struts>

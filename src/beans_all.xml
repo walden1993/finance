@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="
+    http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+    http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+    http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
+    <import resource="beans_datasource.xml" />
+	<import resource="beans_dao.xml" />
+	<import resource="beans_service.xml" />
+    <import resource="beans_actions.xml" />
+    <import resource="beans_app_actions.xml" />
+    <import resource="job.xml" />
+    
+    <aop:config>
+      <aop:aspect id="sqlAspect" ref="projectAspect">  
+        <aop:pointcut id="businessService" expression="execution(* com.sp2p.service.*.*(..))" />  
+         <aop:around  pointcut-ref="businessService" method="doFilteSqlInfusionAround"/>  
+      </aop:aspect>
+    </aop:config>
+    <aop:config>
+      <aop:aspect id="sqlAspecta" ref="projectAspect">  
+        <aop:pointcut id="businessServicea" expression="execution(* com.sp2p.service.admin.*.*(..))" />  
+         <aop:around  pointcut-ref="businessServicea" method="doFilteSqlInfusionAround"/>  
+      </aop:aspect>
+    </aop:config>
+    <bean id="projectAspect" class="com.shove.util.ProjectAspect" />
+    
+</beans>

@@ -1,0 +1,63 @@
+<div class="left-part">
+	<span class="title font-size-28 color-title">
+		确认购买
+	</span>
+	<div class="fund-name">
+		<span class="name color-title font-size-16">基金名称：</span>
+		<span class="desc color-title font-size-20">平安大华保本混合&nbsp;&nbsp;700004</span>
+	</div>
+</div>
+<div class="rigth-part">
+	<span class="buy-num">
+		<label class="font-size-14 color-title">申购金额：</label><label class="font-size-16 color-red desc">10000.00元</label>
+	</span>
+	<span class="charge-way font-size-14">
+		<label class="color-title">收费方式：</label>
+		<label class="desc"> 前收费 | 预估手续费 </label><label class="color-red">50.00元</span>
+	</span>
+	<span class="charge-way font-size-14" style="border-bottom: solid 1px #e1e4e8;width: 616px;height: 31px;">
+		<label class="color-title">选择支付方式：</label>
+	</span>
+	<span class="remit">
+		<span class="font-size-14 color-title info"><input type="radio" class="paymentWay" name="paymentWay">自行汇款：</span>
+		<ul class="remit-info">
+			<li>
+				请在今天15：00之前汇款到如下账户：
+			</li><li>
+				账号：697355669
+			</li><li>
+				账户名：深圳市华融金融服务有限公司
+			</li><li>
+				开户行：中国民生银行深圳香蜜支行
+			</li>
+		</ul>	
+	</span>
+	<span class="font-size-14 color-title info"><input type="radio" class="paymentWay" name="paymentWay"> 银行卡：</span>
+	<span class="bank-card" style="width: 320px;">
+		<span class="left-cards" style="border: none;margin-left: 10px;">
+			<span class="img-bank-common-block img-bank-zs img-bang-style"></span>
+			<span class="bank-name">招商银行</span>
+			<span class="bank-number">6177********1234</span>
+		</span>
+	</span>
+	<span class="pwd">
+		<label class="font-size-14 color-title">交易密码：</label><input type="password" placeholder="请输入交易密码" class="text-input"/><p></p>
+	</span>
+	<span class="btn-confirm">确认</span>
+	<span class="tips">
+		<input type="checkbox" class="text-checkbox"/><label class="color-properties font-size-14">请仔细阅读《产品合同》和《产品风险揭示书》且同意接受条款</label>
+	</span>
+</div>
+<script type="text/javascript">
+	$(function(){
+		//确认
+		$('.btn-confirm').on('click',function(){
+			//申购成功
+			ss.getRequest({url:"APPLY_FOR_PURCHASE_SUCCESS",callback:function(data){
+				$("#buy_sum").children().remove();
+				$("#buy_sum").css("height","478px");
+				$("#buy_sum").append(data);
+			}});
+		})
+	});
+</script>

@@ -1,0 +1,65 @@
+<div class="bar bar-header bar-assertive">
+    <a class="button button-icon" ng-href="#/user/login">返回</a>
+    <h1 class="title">找回密码</h1>
+</div>
+<ion-view>
+    <ion-content>
+        <ion-toggle ng-model="email" class="energized" toggle-class="toggle-calm" ng-click="init()">
+            <div ng-show="email" class="text-center">
+                邮箱找回
+            </div>
+            <div ng-show="!email" class="text-center">
+                手机找回
+            </div>
+        </ion-toggle>
+        <div ng-show="email">
+            <div class="item item-input ui-form-item-r">
+                <input type="email" placeholder="请输入您绑定的邮箱" ng-minlength="6" maxlength="30" ng-model="paramMap.email" ng-required="true"><!-- 若按钮不可点击则添加 disabled 类 -->
+                <button type="button" class="ui-border-l" ng-click="sendMail()" ng-init="stop=false" ng-disabled="start">
+                    {{ codetime ||  '发送' }}
+                </button>
+            </div>
+        </div>
+        <div ng-show="!email">
+            <form ng-submit="updatePwd(myForm.$valid)" name="myForm" novalidate>
+                <div class="list">
+                    <label class="item item-input">
+                        <span class="input-label">手机号码</span>
+                        <input type="number" placeholder="请输入您绑定的手机号" ng-model="paramMap.phone" ng-minlength="6" maxlength="25" ng-required="true">
+                    </label>
+                    <div class="item item-input ui-form-item-r">
+                        <input type="text" placeholder="请输入手机验证码" ng-minlength="4" maxlength="4" ng-model="paramMap.cellcode" ng-required="true"><!-- 若按钮不可点击则添加 disabled 类 -->
+                        <button type="button" class="ui-border-l" ng-click="sendSms()" ng-init="stop=false" ng-disabled="start">
+                            {{ codetime ||  '发送' }}
+                        </button>
+                    </div>
+                    <div ng-show="ok_code">
+                        <label class="item item-input">
+                            <span class="input-label">登录密码</span>
+                            <input type="password" placeholder="密码长度6-25个字符" ng-model="paramMap.password" ng-minlength="6" maxlength="25" ng-required="true">
+                        </label>
+                        <label class="item item-input">
+                            <span class="input-label">确认密码</span>
+                            <input type="password" placeholder="请再次输入密码" maxlength="25" ng-model="paramMap.confirmPassword" ng-required="true">
+                        </label>
+                        <div><!--  ng-disabled="myForm.$invalid" -->
+                            <button class="button button-block button-calm" type="submit">
+                                确定
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="text-center" >
+            <p class="assertive">
+                {{errorInfo || ''}}
+            </p>
+        </div>
+		<div class="text-center" ng-show="ok_email" >
+            <p class="balanced">
+                邮件已经发送到你的邮箱,请<a href='http://{{paramMap.mailAddress}}'  target='_blank'><font color='red'> 登录</font></a>到你的邮箱验证
+            </p>
+        </div>
+    </ion-content>
+</ion-view>

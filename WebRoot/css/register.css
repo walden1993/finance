@@ -1,0 +1,134 @@
+@charset "utf-8";
+/* CSS Document */
+
+.wrap .reg{
+	position: relative;
+	top: -420px;
+	left: 62%;
+	border: 1px solid #dcdcdc;
+	width: 335px;
+	height: 540px;
+	background-color:#FFF;
+}
+.wrap .reg form{
+	padding:30px 40px;
+}
+.wrap .reg form .ico{
+	background: url(../images/validator_default.png) no-repeat;
+	background-position:0 0;
+	width: 18px;
+    height: 16px;
+    overflow: hidden;
+	display:inline-block;
+	vertical-align:text-bottom;
+	margin-right:5px;#a0a0a0
+}
+.wrap .reg form .msg{
+	color:#a0a0a0;
+}
+.wrap .reg form .username input{
+	width:250px;
+	height:38px;
+	padding:4px 5px 4px 55px;
+	background:url(../images/r2.png) 10px  no-repeat #fff;
+	border:1px solid #dcdcdc;
+}
+.wrap .reg form .password input{
+	width:250px;
+	height:38px;
+	padding:4px 5px 4px 55px;
+	background:url(../images/r3.png) 13.5px  no-repeat #fff;
+	border:1px solid #dcdcdc;
+}
+.wrap a:HOVER{text-decoration: none;color: red;}
+.wrap a:LINK{text-decoration: none;color: red;}
+.wrap a:ACTIVE{text-decoration: none;color: red;}
+.wrap a:VISITED{text-decoration: none;color: red;}
+
+.wrap .reg form .right-msg{
+    position: absolute;
+    left: 285px;
+    width: 150px;
+    margin-top: -45px;
+    display: none;
+}
+
+.wrap .reg form .email input{
+	width:250px;
+	height:38px;
+	padding:4px 5px 4px 55px;
+	background:url(../images/r1.png) 9.5px  no-repeat #fff;
+	border:1px solid #dcdcdc;
+}
+
+.wrap .reg form .mobilephone input{
+	width:250px;
+	height:38px;
+	padding:4px 5px 4px 55px;
+	background:url(../images/phone_h.png) 13.5px  no-repeat #fff;
+	border:1px solid #dcdcdc;
+}
+
+.wrap .reg form .reffere input{
+	width:250px;
+	height:38px;
+	padding:4px 5px 4px 55px;
+	background:url(../images/r2.png) 10px  no-repeat #fff;
+	border:1px solid #dcdcdc;
+}
+
+
+.wrap .reg form .code input{
+	width:108px;
+	height:38px;
+	padding:4px 0px 4px 15px;
+	border:1px solid #dcdcdc;
+	margin-right:8px;
+}
+.wrap .reg form input:focus{ border-color: #51A7E8;box-shadow: 0 1px 2px rgba(0, 0, 0, 0.075) inset, 0 0 5px rgba(81, 167, 232, 0.5);}
+.wrap table { background:#FFF;}
+.wrap table tbody tr td{ padding:20px 10px; height:50px;}
+.wrap table .bg { background:#DE4A4A;color:#FFF};
+
+
+/*-------news 注册--------*/
+.reg_img_bj{background:url(../images/reg_pic_img02.jpg) repeat-x left top; width:100%;height:7px;}
+.reg_matter{margin:13px auto 20px auto ;border:1px solid #eaeaea;padding:0 30px 50px 30px; background:#fff;}
+.step_one,.step_two,.step_three{background:url(../images/reg_pic_img.png) no-repeat;display:block;width:754px;height:78px;margin:35px auto 50px auto; text-indent:-999px;}
+.step_one{background-position:0 0;}
+.reg_matter .step_two{background-position:0 -108px;}
+.reg_matter .step_three{background-position:0 -214px;}
+.reg_matter .reg_tab{height:40px;width:450px;border-bottom:1px solid #c9c9c9;}
+.reg_matter .reg_tab ul{margin:0px;padding:0px; margin-left:60px;}
+.reg_matter .reg_tab li{font:18px/39px "microsoft yahei";color:#333;padding:0 20px;height:39px;text-align:center;float:left;cursor:pointer;border:1px solid #d1dfea;border-bottom:none;border-right:0;}
+.reg_matter .reg_con_info{width:455px;}
+.reg_matter .reg_tab li.hover{border:none;background:#fd5d6a;height:40px; line-height:40px;color:#fff;position:relative;}
+.reg_matter .cell{padding-bottom:15px;width:450px; font-size:14px; }
+.reg_matter .cell .bt01{ float:left; width:120px; text-align:right;line-height:30px;color:#666;}
+.reg_matter .cell .bt01 span{color:#ff0000;}
+.reg_matter .cell .info{float:left;text-align:left;width:325px;}
+.reg_matter .cell .ht{line-height:30px;}
+.reg_matter .cell .info p{font-size:14px;margin-top:3px;}
+.reg_matter .cell .info .text1{width:160px; height:30px; line-height:30px; border:1px solid #e1e1e1;padding:0 3px;}
+.reg_matter .cell .info .text{width:245px; height:30px; line-height:30px; border:1px solid #e1e1e1;padding:0 3px;}
+.reg_matter .cell .info .text2{width:100px; height:30px; line-height:30px; border:1px solid #e1e1e1;padding:0 3px;}
+.reg_matter .cell .info .reg_goon{background:#0099ff;display:inline-block;height:32px;line-height:32px;color:#fff;cursor:pointer; text-align:center;width:100px;}
+.reg_matter .cell .info .reg_goon:hover{background:#2eabff;}
+.reg_matter .cell .info .reg_wait{background:#c0c0c0;color:#fff; display:inline-block;height:32px;line-height:32px;text-align:center;width:100px;}
+.reg_blue{color:#0099ff}
+.reg_matter .reg_btn{background:url(../images/reg_pic_img.png) no-repeat;background-position:0 -339px;width:225px;height:32px;border:none; cursor:pointer;display:block;color:#fff;font-size:18px;}
+.reg_matter .reg_btn:hover{background-position:0 -376px;}
+.reg_matter .log_btn{background:url(../images/reg_pic_img.png) no-repeat;background-position:-239px -339px;width:115px;height:32px;border:none; cursor:pointer;display:block;color:#fff;font-size:18px;}
+.reg_matter .log_btn:hover{background-position:-239px -376px;}
+.reg_right_pic{background:url(../images/reg_pic.jpg) no-repeat right 60px;width:475px;height:459px;display:block;color:#fff;}
+.log_right_pic{background:url(../images/log_pic.jpg) no-repeat right 40px;width:472px;height:459px;display:block;color:#fff;}
+.reg_matter .cell .info .error{border:1px solid #ff0000;}
+.reg_matter .error_tip{color:#ff0000;}
+.reg_matter .jy_tit{background:#f7f7f7;line-height:25px;padding:10px;font-size:16px;color:#666; margin-top:30px;}
+.reg_matter .jy_notic{margin:35px 0;}
+.reg_matter .reg_log_btn{background:#fd5d6a;display:inline-block;height:24px; line-height:24px;color:#fff; border-radius:6px;padding:2px 10px;}
+.reg_matter .reg_success{color:#009907;height:42px; line-height:42px;}
+.reg_matter .reg_right{background:url(../images/reg_pic_img.png) no-repeat 0 -441px; display:inline-block;width:37px;height:38px;}
+/*-------news 注册--------*/
+.news_log_tit{padding:0 20px; margin:45px 0 30px 0;text-align:center;float:left;cursor:pointer;border-bottom:1px solid #ccc;width:100%;}
+.news_log_tit h3{font:18px/39px "microsoft yahei";color:#fd5d6a;height:39px;border:1px solid #ccc;border-bottom:none; width:160px; text-align:center;padding:0;}

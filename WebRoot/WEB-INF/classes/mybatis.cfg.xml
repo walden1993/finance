@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+ 
+<!DOCTYPE configuration PUBLIC   
+   "-//mybatis.org//DTD Config 3.0//EN"  
+   "http://mybatis.org/dtd/mybatis-3-config.dtd">  
+ 
+<configuration>  
+   <typeAliases>  
+       <typeAlias alias="UserInfo" type="com.sp2p.entity.User" />  
+    </typeAliases>  
+      
+    <mappers>  
+        <mapper resource="sqlmap-userinfo.xml" />
+        <mapper resource="sqlmap-advert.xml" />  
+        
+    </mappers>  
+ </configuration>  

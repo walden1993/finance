@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="rechargewithdrawapp" extends="app-default" namespace="/app">
+		<global-results>
+			<result name="error">/500.jsp</result>
+		</global-results>
+		<global-exception-mappings>
+			<exception-mapping result="error" exception="java.lang.Exception"></exception-mapping>
+		</global-exception-mappings>
+		<action name="queryWithdraw" class="rechargeWithdrawAppAction" method="queryWithdraw">
+		</action>
+		
+		<action name="withdraw_record" class="rechargeWithdrawAppAction" method="queryWithdrawList">
+		</action>
+		
+		<action name="withdraw" class="rechargeWithdrawAppAction" method="addWithdraw">
+		</action>
+		
+		<action name="withdraw_init" class="rechargeWithdrawAppAction" method="withdraw_init">
+		</action>
+		
+		<action name="cancel_withdraw" class="rechargeWithdrawAppAction" method="deleteWithdraw">
+		</action>
+		
+		<action name="account_outline" class="rechargeWithdrawAppAction" method="queryFundsRecodeList">
+		</action>
+		
+		<action name="get_withdraw_poundage" class="rechargeWithdrawAppAction"  method="get_withdraw_poundage"></action>
+		
+	</package>
+</struts>

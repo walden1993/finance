@@ -1,0 +1,67 @@
+<ion-view title='首页'> <ion-content padding="false">
+<div class="ui-loading-wrap" ng-show="!show">
+	<p>加载中</p>
+	<i class="ui-loading"></i>
+</div>
+<div ng-show="show">
+	<ion-slide-box class="hidden" show-pager="true" does-continue="true"
+		on-slide-changed="nextSlide($index)" auto-play="true"
+		slide-interval="3000" delegate-handle="banner-handle">
+	<ion-slide ng-repeat="item in map.bannerList"><a target="_blank" ng-href="{{UrlUtil.root}}{{item.companyURL}}"><img  style="height: 100px;max-width: 100%;"  ng-src="{{UrlUtil.root}}{{item.companyImg}}"
+		></a></ion-slide> </ion-slide-box>
+
+	<div class="row m0 p0 hidden">
+		<a class="col  m0 ui-border-r" href="#/tab/friends"><img class="response-img" src="img/wap_pic01.jpg"/></a>
+		<div class="col  m0 p0">
+			<a class="row m10 p0 ui-border-r  ui-border-b"><img class="response-img"  src="img/wap_pic02.jpg"/></a>
+			<a class="row m10 p0 ui-border-r"><img class="response-img"  src="img/wap_pic03.jpg"/></a>
+		</div>
+	</div>
+	
+	<div class="row m0 p0 text-center card">
+		<div class="col item item-text-wrap "><p style="font-size: 20px;font-weight: bold;">涨薪宝-<span style="color: #D9534F;">金秋一号</span></p><p>年利率<span style="font-weight: bold;font-size: 25px;">{{map.zxb.paytreasure.rate}}%</span></p><p>随存随取&nbsp;&nbsp;|&nbsp;&nbsp;每日计息&nbsp;&nbsp;|&nbsp;&nbsp;保本保息</p><a href="{{UrlUtil.root}}paytreasuredetail.mht" class="button button-outline button-small button-assertive">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;申请认购&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></div>
+	</div>
+
+	<div class="list m0">
+		<div class="item item-divider">优选项目</div>
+		<a class="item f14 p0" href="#/friend-detail/{{bean.id}}"
+			ng-repeat="bean in map.pageBeanBest  | limitTo:3">
+				<div class="row p0">
+				  <div class="col p0">
+				  	    <div class="row">
+				  	    	<div class="col">{{bean.borrowTitle}}</div>
+				  	    </div>
+		                <div class="row">
+		                  <div class="col">总额</div>
+		                  <div class="col">年利率</div>
+		                  <div class="col">期限</div>
+		                </div>  
+		                <div class="row">
+		                  <div class="col">{{bean.borrowAmount}}</div>
+		                  <div class="col orange">{{bean.annualRate | number:2}}%<!-- <b ng-switch on="bean.deadline" class="red"><b ng-switch-when="1">+0.2%</b><b ng-switch-default>+0.5%</b></b> --></div>
+		                  <div class="col">{{bean.deadline}}<b ng-switch on="bean.isDayThe"><b ng-switch-when="1">个月</b><b ng-switch-default>天</b></b></div>
+		                </div>      
+		                <div class="row">
+		                  <div class="col-89 mt5"><div class="progress_bg_my"><div class="progress_my" style="width:{{bean.schedules}}%"></div></div>{{bean.schedules}}%&nbsp;<span class="orange">查看</span></div>
+		                </div>  				  	
+				  </div>
+				</div>
+			</a>
+	</div>
+	<div class="row text-center p0" style="background: #fcfcfc;border-bottom: 1px solid #e5e5e5;">
+		<a class="col dark p10" style="border-left:1px solid #E5E5E5;border-right: 1px solid #E5E5E5;" href="#/consult/dynamic">
+			<div><img class="response-img"   src="img/wap_icon02.jpg"></div>
+			<div>三好贷动态</div>
+		</a>
+		<a class="col dark p10" href="#/consult/notice" class="" >
+			<div><img   class="response-img"  src="img/wap_icon03.jpg"></div>
+			<div>公告</div>
+		</a>
+	</div>
+	
+	<div class="text-center mt15 mb30">
+		<a href="tel:4006000583" class="f20 dark"><i class="ion-ios-telephone mr5"></i>400-600-0583</a>  
+	</div>
+	
+</div>
+</ion-content> </ion-view>

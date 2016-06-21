@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="ming" extends="default" namespace="/">
+		
+		<global-exception-mappings>
+			<exception-mapping result="error" exception="java.lang.Exception"></exception-mapping>
+		</global-exception-mappings>
+		
+		<action name="validateMing" class="MingAction"
+            method="validateMingOne">     
+        </action>
+        
+        <action name="mingLogin" class="MingAction"
+            method="mingLogin">     
+            <result name="success" type="redirect">/</result>
+            <result name="error">/WEB-INF/page/ming/loginerror.jsp</result>
+        </action>
+		
+		<!--<action name="minghome" class="MingAction"
+            method="minghome">     
+            <result name="success">
+                /WEB-INF/page/ming/home.jsp
+            </result>
+        </action>
+        <action name="mingBorrowDetail" class="MingAction"
+            method="mingBorrowDetail">     
+            <result name="success">
+                /WEB-INF/page/ming/borrowdetail.jsp
+            </result>
+        </action>
+        <action name="minguserAcount" class="MingAction"
+            method="init">     
+            <result name="success">
+                /WEB-INF/page/ming/acount.jsp
+            </result>
+        </action>
+        <action name="mingrechargeInit" class="MingAction"
+            method="init">     
+            <result name="success">
+                /WEB-INF/page/ming/recharge.jsp
+            </result>
+        </action>
+        <action name="mingwithdrawInit" class="MingAction"
+            method="init">     
+            <result name="success">
+                /WEB-INF/page/ming/withdraw.jsp
+            </result>
+        </action>
+        <action name="mingrealNameInit" class="MingAction"
+            method="init">     
+            <result name="success">
+                /WEB-INF/page/ming/realName.jsp
+            </result>
+        </action>
+        <action name="mingbindCard" class="MingAction"
+            method="init">     
+            <result name="success">
+                /WEB-INF/page/ming/bindCard.jsp
+            </result>
+        </action>-->
+	</package>
+</struts>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="compayData" extends="login-default" namespace="/">
+		<global-results>
+			<result name="error">/500.jsp</result>
+		</global-results>
+		<global-exception-mappings>
+			<exception-mapping result="error" exception="java.lang.Exception"></exception-mapping>
+		</global-exception-mappings>
+		
+		<action name="queryCompayData" class="frontCompanyDateAction" method="queryCompayData">
+			<result name="addCompany">
+				/WEB-INF/page/usercenter/user_infomation_qiye.jsp
+			</result>
+			<result name="updateCompany" >
+				/WEB-INF/page/usercenter/user_infomation_qiye_update.jsp
+			</result>			
+        </action>
+        
+        <action name="queryCompayData1" class="frontCompanyDateAction" method="queryCompayData1">
+			<result name="addCompany1">
+				/WEB-INF/page/front/wdzh-qysz-index.jsp
+			</result>
+			<result name="updateCompany1" >
+				/WEB-INF/page/front/wdzh-qysz-index_update.jsp
+			</result>
+			
+        </action>
+        <!-- 友情链接列表 -->
+		<action name="addUserCompanyData" class="frontCompanyDateAction" method="addUserCompanyData">
+        </action>
+        
+        <action name="updateUserCompanyData" class="frontCompanyDateAction" method="updateUserCompanyData">
+        </action>
+        
+        <action name="companyPictureDate" class="frontCompanyDateAction" method="jumpPassDatapage">
+          <result name="success" >
+				/WEB-INF/page/usercenter/user_company_pictureData.jsp
+			</result>
+			<result name="jumpOther" type="chain">
+			   <param name="adminUser">/</param>
+			   <param name="actionName">borrowOther</param>
+			</result>
+			<result name="queryCompayData" type="chain">
+		       <param name="adminUser">/</param>
+			   <param name="actionName">queryCompayData</param>
+		    </result>
+		    <result name="quervipData" type="chain">
+		       <param name="adminUser">/</param>
+			   <param name="actionName">quervipData</param>
+		    </result>
+		    <result name="login">index.jsp</result>
+        </action>
+        
+       
+
+	</package>
+</struts>

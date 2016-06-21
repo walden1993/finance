@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+ 
+<!DOCTYPE mapper PUBLIC   
+   "-//mybatis.org//DTD Mapper 3.0//EN"  
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+ 
+<mapper namespace="User">  
+   <select id="selectUser" parameterType="int" resultType="UserInfo">  
+   <![CDATA[  
+        select * from t_user where id = #{id}  
+    ]]>  
+    </select>
+    <select id="selectUserByAccount" parameterType="String" resultType="UserInfo">  
+    select * from t_user a where a.username=#{userName} or a.email=#{userName} or a.mobilePhone=#{userName}
+    </select>
+    <select id="selectUserById" parameterType="int" resultType="UserInfo">  
+    select * from t_user a where id = #{id} order by id desc
+    </select>
+    
+    <update id="updateUserLoginInfo" parameterType="java.util.HashMap">  
+    UPDATE t_user a SET a.loginErrorCount=#{loginErrorCount}, a.isLoginLimit=#{isLoginLimit} where a.id=#{id} 
+    </update>
+    
+    <select id="queryUserByUserName" parameterType="string" resultType="map">  
+	SELECT * FROM t_user a WHERE a.username=#{userName} OR a.email=#{userName} OR a.mobilePhone=#{userName}
+    </select>
+    <select id="queryUserById" parameterType="int" resultType="map">  
+    select * from t_user a where id = #{id} order by id desc
+    </select>
+    
+    <update id="updateUserState" parameterType="java.util.HashMap">  
+    UPDATE t_user a SET  a.loginErrorCount=#{loginErrorCount}, a.lastDate=#{lastDate}  WHERE a.id=#{id} 
+    </update>
+    
+    <select id="p_user_login" statementType="CALLABLE">
+	<![CDATA[
+	    {call p_user_login (#{userName,mode=IN,jdbcType=VARCHAR},#{password,mode=IN,jdbcType=VARCHAR}, #{lastIP,mode=IN,jdbcType=VARCHAR},#{code,mode=OUT,jdbcType=BIGINT},#{desc,mode=OUT,jdbcType=VARCHAR}   ) }
+	]]>
+	</select>
+    <select id="selectUserFromView" parameterType="int" resultType="UserInfo">  
+   <![CDATA[  
+        select * from v_t_user_loginsession_user where id = #{id}  
+    ]]>  
+    </select>
+    <select id="queryUeserByUserName" parameterType="String" resultType="UserInfo">  
+    select * from t_user a where a.username=#{leader}
+    </select>
+</mapper>

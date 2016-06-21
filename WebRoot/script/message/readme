@@ -1,0 +1,12 @@
+message: 消息的文本
+type: info, error or success 消息的三种类型
+theme: 主题
+id: 唯一标识
+singleton:单例模式
+actions: 跳转链接
+hideAfter: 多久后隐藏
+hideOnNavigate: 滚动的时候隐藏
+showCloseButton: 是否显示关闭按钮
+closeButtonText: 关闭按钮的文字
+extraClasses:样式，显示位置
+maxMessages:字符最长

@@ -1,0 +1,35 @@
+<ion-view view-title="提现">
+    <ion-content>
+        <ul class="list">
+            <label class="item item-input item-select">
+			    <div class="input-label">
+			      	提现银行卡：
+			    </div>
+			    <select>
+			      <option value="bank.id" ng-repeat="bank in map.banks">
+                    <div class="row">
+                        <div class="col"> {{bank.bankName}}</div>
+                        <div class="col"> 尾号:{{bank.cardNo}}</div>
+                    </div>
+			      </option>
+			    </select>
+		    </label>
+            <li class="item">
+                <span class="ui-txt-info">可用余额：{{map.usableSum}}</span>
+            </li>
+            <label class="item item-input">
+			    <span class="input-label ui-txt-info">提现金额：</span>
+			    <input class="input" type="number">
+			 </label>
+            <li class="item">
+               <span class="ui-txt-info">提现手续费：{{map.name}}</span>
+            </li>
+            <li class="item">
+                <span class="ui-txt-info">实际到账：{{map.name}}</span>
+            </li>
+			 <li class="item">{{map}}
+                <span class="ui-txt-info">预计到账： 1~2个工作日之内到账</span>
+            </li>
+        </ul>
+    </ion-content>
+</ion-view>

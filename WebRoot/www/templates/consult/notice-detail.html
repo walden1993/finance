@@ -1,0 +1,30 @@
+ <ion-header-bar class="bar-assertive">
+   <a class="button button-clear" href="#/consult/notice">返回</a>
+   <h1 class="title">公告详情</h1>
+ </ion-header-bar>
+<ion-view> <ion-content has-header="true"
+	style="background: #F6F8FA">
+<div class="ui-loading-wrap" ng-show="!show">
+	<p>加载中</p>
+	<i class="ui-loading"></i>
+</div>
+<div ng-show="show">
+<div class="col">
+	<div class="row  text-center">
+		<div class="col h4">{{noticeDetail.paramMap.title}}</div>
+	</div>
+	<div class="row">
+		<div class="col  pt10 pb10 ui-txt-info"  ng-bind-html="noticeDetail.paramMap.content"></div>
+	</div>
+	<div class="row">
+		<div class="col-66 text-left ui-txt-info">发布时间：{{noticeDetail.paramMap.publishTime}}</div>
+		<div class="col-33 text-right ui-txt-info">浏览次数：{{noticeDetail.paramMap.visits}}</div>
+	</div>
+	<div class="row">
+		<a href="#/notice-detail/{{noticeDetail.lastDate.id}}" ng-show="noticeDetail.lastDate" class="col text-left p0 mt10">上一篇</a>
+		<a href="#/notice-detail/{{noticeDetail.previousDate.id}}" ng-show="noticeDetail.previousDate"  class="col text-right p0 mt10">下一篇</a>
+	</div>
+</div>
+</div>
+
+</ion-content> </ion-view>

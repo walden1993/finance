@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="paytreasure" extends="injectionInterceptor-0" namespace="/">
+		
+		<global-exception-mappings>
+			<exception-mapping result="error" exception="java.lang.Exception"></exception-mapping>
+		</global-exception-mappings>
+		
+		<action name="paytreasuredetail" class="frontPayTreasureAction"  method="paytreasuredetail">
+			<result name="success">/WEB-INF/page/paytreasure/paytreasure-detail.jsp</result>
+			<result name="mobile">/WEB-INF/page/ming/paytreasure_detail.jsp</result>
+		</action>
+		
+	</package>
+	
+	<package name="intopaytreasure" extends="login-default" namespace="/">
+		<action name="intoPayTreasureMobile" method="intoPayTreasureMobile" class="frontPayTreasureAction">
+			<result name="success">/WEB-INF/page/ming/paytreasure_into.jsp</result>
+		</action>
+		<action name="profitRecordInit" class="frontPayTreasureAction" method="profitRecordInit">
+			<result name="success">/WEB-INF/page/ming/paytreasure_profit.jsp</result>
+		</action>
+		<action name="intoPayTreasure" method="intoPayTreasure" class="frontPayTreasureAction"></action>
+		<action name="outPayTreasureInit" method="outPayTreasureInit" class="frontPayTreasureAction">
+			<result name="success">/WEB-INF/page/paytreasure/outpaytreasure.jsp</result>
+			<result name="mobile">/WEB-INF/page/ming/paytreasure_out.jsp</result>
+		</action>
+		<action name="outPayTreasure" method="outPayTreasure" class="frontPayTreasureAction"></action>
+		<action name="myPayTreasure" method="mypaytreasure" class="frontPayTreasureAction">
+		<result name="success">/WEB-INF/page/paytreasure/paytreasurecenter.jsp</result>
+		</action>
+		<action name="payInvestRecord" method="payInvestRecord" class="frontPayTreasureAction">
+		<result name="success">/WEB-INF/page/paytreasure/payInvestRecord.jsp</result>
+		</action>
+		<action name="profitRecord" method="profitRecord" class="frontPayTreasureAction">
+		<result name="success">/WEB-INF/page/paytreasure/profitRecord.jsp</result>
+		<result name="mobile">/WEB-INF/page/ming/paytreasure_profitlist.jsp</result>
+		</action>
+		<action name="autoIntoPayTreasure" method="autoIntoPayTreasure" class="frontPayTreasureAction"></action>
+		<action name="autoOutPayTreasure" method="autoOutPayTreasure" class="frontPayTreasureAction"></action>
+		<action name="payTreasureSetting" method="payTreasureSetting" class="frontPayTreasureAction">
+		<result name="success">/WEB-INF/page/paytreasure/paytreasure-setting.jsp</result>
+		</action>
+		<action name="payTreasureSettingSave" method="payTreasureSettingSave" class="frontPayTreasureAction"></action>
+		<action name="payTreasureProtocol" method="payTreasureProtocol" class="frontPayTreasureAction">
+		<result>/WEB-INF/page/protocol/protocol_zxb_pay.jsp</result>
+		</action>
+	</package>
+	
+</struts>

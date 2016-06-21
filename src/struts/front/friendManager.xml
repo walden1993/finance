@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="friendManager" extends="login-default" namespace="/">
+		<global-results>
+			<result name="error">/500.jsp</result>
+		</global-results>
+		<global-exception-mappings>
+			<exception-mapping result="error" exception="java.lang.Exception"></exception-mapping>
+		</global-exception-mappings>	
+		<action name="friendManagerInit" class="friendManagerAction"
+			method="FriendManagerInit">
+			<result name="success">
+				/WEB-INF/page/front/wdzh-hygl-index.jsp
+			</result>
+			<result name="successmobile">
+				/WEB-INF/page/ming/wdzh-hygl-index.jsp
+			</result>
+		</action>
+		
+		<action name="friendManagerList" class="friendManagerAction"
+			method="FriendManagerList">
+			<result name="success">
+				/WEB-INF/page/front/wdzh-hygl-list.jsp
+			</result>
+		</action>
+		
+		
+		
+		<action name="fillRecommentPage" class="friendManagerAction" method="fillRecommentPage">
+		<result name="success">/WEB-INF/page/front/friendRecommentFill.jsp</result>
+		</action>
+		<!-- 推荐人补录 -->
+		<action name="fillRecomment" class="friendManagerAction" method="fillRecomment">
+		</action>
+		
+		<action name="financialManager" class="friendManagerAction" method="financialManager">
+		<result name="success">/WEB-INF/page/front/financialManager.jsp</result>
+		</action>
+		
+		<action name="applyFinance" class="friendManagerAction" method="applyFinance">
+		</action>
+	</package>
+</struts>

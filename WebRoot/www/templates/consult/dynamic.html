@@ -1,0 +1,32 @@
+        <ion-view>
+        <ion-content has-header="true">
+            	  <!--下拉刷新-->
+      <ion-refresher
+        pulling-text="下拉刷新"
+        pulling-icon="ion-loading-c"
+        refreshing-text="刷新成功"
+        refreshing-icon="ion-loading-c"
+        on-refresh="doRefresh()">
+      </ion-refresher>
+		<ion-list><!--href="#/consult-detail/{{page.id}}"-->
+		    <a class="item item-thumbnail-left" href="#/consult-detail/{{page.id}}"  ng-repeat="page in items">
+		      <img ng-src="{{UrlUtil.root}}{{page.imgPath}}">
+		      <h2>{{page.title}}</h2>
+		      <p class="ui-nowrap-multi" ng-bind-html="page.content"></p>
+		      <p>发布时间：{{page.publishTime | date:"yyyy-MM-dd hh:mm:ss"}}</p>
+    		</a>
+			<a class="item text-center" ng-hide="moreDataCanBeLoaded()">
+				<div class="ui-tips ui-tips-info">
+				    <i></i>没有更多数据了
+				</div>
+			</a>
+		</ion-list>	  
+      <!--上拉更多 ng-if="moreDataCanBeLoaded()"-->
+      <ion-infinite-scroll
+        icon="ion-loading-c"
+		ng-if="moreDataCanBeLoaded()"
+        on-infinite="loadMore()"
+        distance="10%">
+      </ion-infinite-scroll>
+        </ion-content>
+        </ion-view>

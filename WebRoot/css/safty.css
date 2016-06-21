@@ -1,0 +1,69 @@
+@charset "utf-8";
+/* CSS Document */
+.crumb-nav{ line-height: 40px; color: #999; font-size: 14px; }
+.bd-inner{margin: 0 auto; background:#fff;padding:0 40px;}
+.crumb-nav a, .crumb-nav span{ color: #999; font-size: 12px;}
+.bt1{ border-bottom: 1px solid #e6e6e6;}
+.mode .tt{ height: 40px; line-height: 40px; text-align:center; padding:25px 0;}
+.mode .tt h2{ font-size: 30px; color: #666; font-weight: bold;}
+.mode .tt .more{ float: right; color: #e25353; font-size: 14px;}
+.mode .tt .more:hover{ text-decoration: underline;}
+.mode .cn{ position: relative; height: 350px; margin-top: 50px; overflow: hidden; *z-index:-1;}
+.mode .cn p{ font-size: 14px; width: 500px; line-height: 35px; color: #666; margin-top: 27px; overflow:hidden;}
+.mode .cn p strong{ font-size: 18px; margin-bottom: 10px; font-weight: normal;}
+.mode .cn a{display:block; width:216px; height:41px; line-height:41px; border:2px solid #e4e4e4; color:#666; text-align:center; font-size:18px; background:#fff; font-weight:bold; margin-top: 22px;}
+.mode .cn a:hover{transition: all .2s ease-in-out; color:#e25353; background:#f6f6f6;}
+.mode .cn .cnPic1{ position: absolute; top: 9px; right:27px; width: 383px; height: 269px;}
+.mode .cn .cnPic2{ position: absolute; top: 12px; left:24px; width: 319px; height: 286px;}
+.mode .cn .cnPic3{ position: absolute; top: 51px; right:35px; width: 322px; height: 204px;}
+.mode .cn .cnPic4{ position: absolute; top: 50px; left:21px; width: 249px; height: 206px;}
+.mode .cn .cnPic5{ position: absolute; top: 87px; right:46px; width: 287px; height: 153px;}
+.mode .cn .cnPic6{ position: absolute; top: 17px; right:17px; width: 376px; height: 267px;}
+.mode .cn .cnPic7{ position: absolute; top: 45px; left:53px; width: 302px; height: 212px;}
+.mode .cn .cnPic8{ position: absolute; top: 40px; right:54px; width: 237px; height: 183px;}
+.mode .cn .cnPic9{ position: absolute; top: 48px; left:48px; width: 298px; height: 205px;}
+
+.mode .cn .cnPic10{ position: absolute; top: 25px; left:0; width: 240px; height: 250px;}
+.mode .cn .cnPic11{ position: absolute; top: 66px; right:41px; width: 249px; height: 155px;}
+.mode .cn .cnPic12{ position: absolute; top: 40px; left:36px; width: 244px; height: 229px;}
+.mode .cn .cnPic13{ position: absolute; top: 47px; right:87px; width: 229px; height: 223px;}
+.mode .cn .cnPic14{ position: absolute; top: 71px; left:64px; width: 213px; height: 169px;}
+.mode .cn .cnPic15{ position: absolute; top: 62px; right:113px; width: 179px; height: 174px;}
+.mode .cn .cnPic16{ position: absolute; top: 64px; left:74px; width: 180px; height: 188px;}
+.mode .cn .cnPic17{ position: absolute; top: 60px; left:31px; width: 265px; height: 197px;}
+
+/*安全保障*/
+.bg_gray, .bg_gray_bot, .bg_white { width: 100%; min-width: 1000px; border-bottom: 1px solid #dfdfdf;height: 410px; position: relative }
+.bg_gray, .bg_gray_bot { background: #fdfdfd;border-top:1px solid #dfdfdf;}
+.bg_white { background: #fff;}
+.indent{text-indent:2em;}
+.bg_gray_bot { height: 330px }
+.sec_banner{ background:url(../images/aqbz_pic01.jpg) no-repeat center top;width:100%;height:324px; display:block;}
+.x_security { min-width:1000px; height:auto; background:#fff;font-size:15px;}
+.x_security .bg_gray,.x_security .bg_white{ height:auto}
+.x_security .sec_con { width: 1000px; margin: 0 auto; position: relative}
+.x_security .review{ height:520px; background:url(../images/aqbz_pic02.jpg) no-repeat 0 150px}
+.x_security .zuo{ height:450px; background:url(../images/aqbz_pic06.jpg) no-repeat 0 150px}
+.x_security .zjdl{height:450px; background:url(../images/aqbz_pic07.jpg) no-repeat 0 150px}
+.x_security .money{height:645px; background:url(../images/aqbz_pic02.jpg) no-repeat 0 125px}
+.x_security .xizi{height:450px; background:url(../images/aqbz_pic08.jpg) no-repeat right 145px}
+.x_security .law{height:500px; background:url(../images/aqbz_pic09.jpg) no-repeat 0 145px}
+.xizi .cont{padding:0 410px 0 0;line-height:30px;}
+.x_security .website{ height:280px}
+.review .cont,.money .cont{ padding-left:470px}
+.zuo .cont,.zjdl .cont,.law .cont{padding:80px 0 0 470px; line-height:30px;}
+.review .cont ul{ margin-bottom:20px;}
+.review h3,.money h3,.website h3{ margin-bottom:15px;line-height:36px; font-size:20px; color:#ee484d;}
+.review li,.money li,.business li,.agencies li p{ padding-left:20px; line-height:24px; font-size:15px; background:url(../images/aqbz_pic0.png) no-repeat 0 7px}
+.money h3{ margin-bottom:25px; width:230px}
+.x_security h2{ padding:45px 0; width:100%; font-size:32px; text-align:center}
+.x_security h2 em{ font-weight:normal}
+.x_security .agencies{height:540px; background:url(../images/aqbz_pic03.jpg) no-repeat 0 320px}
+.business li,.agencies li{ float:left;font-size:14px;margin-right:20px;  width:290px; line-height:22px; background:url(../images/point.png) no-repeat 0 5px}
+.business li,.agencies li h4{ margin-bottom:15px;line-height:36px; font-size:20px; color:#ee484d;}
+
+.x_list_button{background:#d52d18;width:228px;height:42px;font-size:18px;display:block;color:#fff;line-height:42px; text-align:center; cursor:pointer; text-align:center; border-radius:6px;}
+.x_list_button:hover{color:#fff;background:#e63a45}
+
+
+

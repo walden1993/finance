@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="gopayinfo" extends="pay-default" namespace="/">
+		
+		<action name="gopayPayment" class="goPaymentAction" method="gopayPayment">
+			<result name="input" type="redirect">voucherCenterInit.mht</result>
+			<result name="noLogin" type="redirect">login.mht</result>
+		</action>
+		
+	</package>
+	<package name="gopaybackinfo" extends="front-default" namespace="/">
+		<action name="frontMerUrl" class="goPaymentAction" method="frontMerUrl">
+			<result name="success" type="redirectAction">rechargeInit.mht</result>
+		</action>
+		<action name="backgroundMerUrl" class="goPaymentAction" method="backgroundMerUrl">
+		</action>
+		<action name="merUrl" class="goPaymentAction" method="merUrl">
+		</action>
+	</package>
+</struts>
+
+

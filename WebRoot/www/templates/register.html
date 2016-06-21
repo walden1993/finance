@@ -1,0 +1,136 @@
+<div class="bar bar-header bar-assertive">
+	<a class="button button-icon" href="#/user/login">返回</a>
+	<h1 class="title">注册</h1>
+</div>
+<ion-view> <ion-content> <!-- <form  class="form-horizontal w5c-form demo-form" role="form"  w5c-form-validate="vm.validateOptions" ng-submit="register(myForm.$valid)" name="myForm" novalidate>
+            <div class="list">
+                <label class="item item-input">
+                    <span class="input-label">手机号码<i></i></span>
+                    <input type="number"  name="cellphone" placeholder="请输入手机号码" ng-minlength=11 ng-maxlength=11 ng-model="paramMap.cellphone" required>
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">用户名</span>
+                    <input type="text" name="userName" placeholder="用户名长度2-20个字符" ng-model="paramMap.userName" maxlength="20" ng-minlength="2" ng-required="true">
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">密码</span>
+                    <input type="password" name="password" placeholder="密码长度6-25个字符" ng-model="paramMap.password" ng-minlength="6" maxlength="25" ng-required="true">
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">确认密码</span>
+                    <input type="password" name="confirmPassword" placeholder="请再次输入密码" maxlength="25" ng-model="paramMap.confirmPassword" ng-required="true">
+                </label>
+                <li class="item item-toggle" for="hasFriend">
+                    好友邀请
+                    <label class="toggle toggle-calm">
+                        <input type="checkbox"  ng-model="refferee">
+                        <div class="track">
+                            <div class="handle">
+                            </div>
+                        </div>
+                    </label>
+                </li>
+                <label class="item item-input" ng-show="refferee">
+                    <span class="input-label">邀请人</span>
+                    <input type="text" placeholder="请输入邀请人用户名" ng-model="paramMap.refferee">
+                </label>
+		        <div class="item item-input   item-button-right"  >
+		           	<input type="number" maxlength="4" style="width:100px;" placeholder="请输入验证码" autocomplete="false" name="code" ng-model="paramMap.code" required><img class="button button-clear" ng-click="switchCode();" id="code"  ng-src="{{UrlUtil.root}}admin/imageCode.do?pageId=userreg" />
+		        </div>				
+                <div class="item item-checkbox">
+                    <li class="checkbox" ng-init="protocol=true">
+                        <input type="checkbox" name="protocol" style="margin-left:0px;" ng-model="protocol" ng-required="true">
+                    </li>我已经阅读并同意<a href="#/reg_terms_of_use"> 使用条款 </a>和<a href="#/reg_terms_and_conditions"> 隐私条款 </a>
+                </div>
+            </div>
+            <div class="text-center " ng-show="error">
+            	<p class="assertive">{{errorInfo || ''}}</p>
+            </div>
+            <div ng-messages="myForm.cellphone.$error && myForm.cellphone.$dirty">
+                <div ng-message="required">请输入手机号码</div>
+                <div ng-message="minlength">手机号码长度必须为11位</div>
+                <div ng-message="maxlength">手机号码长度必须为11位</div>
+            </div>
+            <div ng-messages="myForm.userName.$error && myForm.cellphone.$dirty">
+                <div ng-message="required">请输入用户名</div>
+                <div ng-message="minlength">用户名长度最少2位字符</div>
+                <div ng-message="maxlength">用户名长度最长20位字符</div>
+            </div>
+            <div ng-messages="myForm.password.$error && myForm.cellphone.$dirty">
+                <div ng-message="required">请输入密码</div>
+                <div ng-message="minlength">密码长度最少6位字符</div>
+                <div ng-message="maxlength">密码长度最长25位字符</div>
+            </div>
+            <div ng-messages="myForm.confirmPassword.$error && myForm.cellphone.$dirty">
+                <div ng-message="required">请输入确认密码</div>
+                <div ng-message="minlength">确认长度最少6位字符</div>
+                <div ng-message="maxlength">确认长度最长25位字符</div>
+            </div>
+            <div ng-messages="myForm.protocol.$error && myForm.cellphone.$dirty">
+                <div ng-message="required">请同意三好贷注册协议</div>
+            </div>
+            <div>
+                <button class="button button-block button-assertive" type="submit" ng-disabled="myForm.$invalid || !protocol">
+                    下一步
+                </button>
+            </div>
+            <div class="row f0 m0">
+                <div class="col text-right">
+                    已有帐号,<a href="#/login">立即登录>></a>
+                </div>
+            </div>
+        </form> -->
+<form role="form" w5c-form-validate="vm.validateOptions" novalidate
+	name="myForm">
+	<div class="item item-input">
+		<label class="input-label">手机号码</label> <input name="phone"
+			ng-pattern="/^(0|86|17951)?(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$/"
+			ng-model="paramMap.cellphone" required="" placeholder="请输入手机号码">
+	</div>
+	<div class="item item-input">
+		<label class="input-label">用户名</label> <input required ng-maxlength=20
+			ng-minlength=2 	ng-model="paramMap.userName"
+			name="username" placeholder="用户名长度2-20个字符">
+	</div>
+	<!-- w5c-unique-check="{url:'{{UrlUtil.root}}ajaxCheckRegister.do?paramMap.userName='+paramMap.userName}" -->
+	<div class="item item-input">
+		<label class="input-label">密码</label> <input type="password"
+			required="" ng-model="paramMap.password" name="password"
+			ng-minlength="6" ng-maxlength="25" placeholder="密码长度6-25个字符">
+	</div>
+	<div class="item item-input">
+		<label class=" input-label">重复密码</label> <input type="password"
+			required="" w5c-repeat="password" ng-model="paramMap.confirmPassword"
+			name="repeatPassword" placeholder="请再次输入密码">
+	</div>
+	<label class="item item-input" > <span
+		class="input-label">邀请人</span> <input type="text"
+		placeholder="请输入邀请人用户名,可不填" ng-model="paramMap.refferee"> </label>
+	<div class="item item-input   item-button-right">
+		<input type="text" maxlength="4" style="width:100px;"
+			placeholder="请输入验证码" autocomplete="false" name="code"
+			ng-model="paramMap.code" required><img
+			class="button button-clear"  src="{{UrlUtil.root}}admin/imageCode.mht?pageId=userlogin&d={{timenow}}"  ng-click="switchCode();" id="code"
+			ng-init="switchCode();" />
+	</div>
+	<div class="item item-checkbox">
+		<li class="checkbox" ng-init="protocol=true"><input
+			type="checkbox" name="protocol" style="margin-left:0px;"
+			ng-model="protocol" ng-required="true"></li>
+			<span class="f12">我已经阅读并同意<a
+			href="#/user/reg_terms_of_use"> 使用条款 </a>和<a
+			href="#/user/reg_terms_and_conditions"> 隐私条款 </a></span>
+	</div>
+	<div class="text-center " ng-show="error">
+		<p class="assertive">{{errorInfo || ''}}</p>
+	</div>
+	<div>
+		<button class="button button-block button-assertive" ng-disabled="!protocol" w5c-form-submit="register(myForm.$valid)" type="submit">下一步</button>
+	</div>
+	<div class="row f0 m0">
+		<div class="col text-right">
+			已有帐号,<a href="#/user/login">立即登录>></a>
+		</div>
+	</div>
+</form>
+</ion-content> </ion-view>

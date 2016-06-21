@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="bankOfUser" extends="admin-default" namespace="/master">
+		<global-results>
+			<result name="error">/500.jsp</result>
+		</global-results>
+		<global-exception-mappings>
+			<exception-mapping result="error" exception="java.lang.Exception"></exception-mapping>
+		</global-exception-mappings>		
+		<action name="queryUserBankInit" class="userBankAction" method="queryUserBankInit">
+			<result name="success">/WEB-INF/page/admin/user-bankCard-manager-index.jsp</result>
+		</action>
+		
+		<!-- 查询未审核的银行卡 -->
+		<action name="queryNoAuditBank" class="userBankAction" method="queryUserBankInit">
+			<result name="success">/WEB-INF/page/admin/user-bankCard-manager-audit.jsp</result>
+		</action>
+		<action name="queryUserBankList" class="userBankAction" method="queryUserBankList">
+			<result name="success">/WEB-INF/page/admin/user-bankCard-manager-list.jsp</result>
+		</action>
+		<action name="exportUserBankList" class="userBankAction" method="exportUserBankList">
+		</action>
+		
+		<action name="queryUserBankList2" class="userBankAction" method="queryUserBankList">
+			<result name="success">/WEB-INF/page/admin/user-bankCard-manager-list2.jsp</result>
+		</action>
+		
+		<action name="queryOneBankCardInfo" class="userBankAction" method="queryOneBankCardInfo">
+			  <result name="success">/WEB-INF/page/admin/user-bankCard-manager-show.jsp</result>
+			<!--<result name="input">/WEB-INF/page/admin/user-bankCard-manager-show.jsp</result>-->
+		</action>
+		
+		<action name="queryBankCardInfo" class="userBankAction" method="queryOneBankCardInfo">
+			  <result name="success">/WEB-INF/page/admin/user-bankCard-manager-check.jsp</result>
+		</action>
+		
+		<action name="updateUserBankInfo" class="userBankAction" method="updateUserBankInfo">
+		   <result name="input">/WEB-INF/page/admin/user-bankCard-manager-check.jsp</result>
+		   <result name="success" type="redirect">queryNoAuditBank.mht</result>
+		</action>
+		
+		<action name="ajaxqueryRegion"  class="userBankAction"  method="ajaxqueryRegion"></action>
+		
+		<!-- 批量审核银行卡 -->
+		<action name="batchUpdateUserBankInfo"  class="userBankAction"  method="batchUpdateUserBankInfo"></action>
+		
+		<action name="queryModifyBankInit" class="userBankAction" method="queryUserBankInit">
+			  <result name="success">/WEB-INF/page/admin/user-bankCard-modify-index.jsp</result>
+		</action>
+		
+		<action name="queryUserModifiyBankList" class="userBankAction" method="queryUserModifiyBankList">
+			  <result name="success">/WEB-INF/page/admin/user-bankCard-modify-list.jsp</result>
+		</action>
+		
+		<action name="queryModifyBankInfo" class="userBankAction" method="queryModifyBankInfo">
+			  <result name="success">/WEB-INF/page/admin/user-bankCard-modify-check.jsp</result>
+		</action>
+		
+		<action name="updateUserModifyBank" class="userBankAction" method="updateUserModifyBank">
+		     <result name="input">/WEB-INF/page/admin/user-bankCard-modify-check.jsp</result>
+			 <result name="success"  type="redirect">queryModifyBankInit.mht</result>
+		</action>
+		<!-- 修改银行卡信息 -->
+		<action name="updateBankInfo" class="userBankAction" method="updateBankInfo">
+		</action>
+		
+	</package>
+</struts>

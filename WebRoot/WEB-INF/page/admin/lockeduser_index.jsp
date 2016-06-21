@@ -1,0 +1,167 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ include file="/include/taglib.jsp"%>
+<html>
+	<head>
+		<title>管理首页</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="pragma" content="no-cache" />
+		<meta http-equiv="cache-control" content="no-cache" />
+		<meta http-equiv="expires" content="0" />
+		<meta http-equiv="keywords" content="keyword1,keyword2,keyword3" />
+		<meta http-equiv="description" content="This is my page" />
+		<link href="../css/admin/admin_css.css" rel="stylesheet" type="text/css" />
+		
+		<script type="text/javascript" src="../script/jquery-2.0.js"></script>
+		<script type="text/javascript" src="../script/jquery.dispatch.js"></script>
+		<script type="text/javascript" src="../My97DatePicker/WdatePicker.js"></script>
+		<script type="text/javascript" language="javascript">
+	    $(function(){
+	    	param["pageBean.pageNum"]=1;
+		    initListInfo(param);
+		  	
+		    $("#search").click(function(){
+		    param["pageBean.pageNum"] = 1;
+				initListInfo(param);
+		    });
+		    
+		    $("#excel").click(function(){
+				 $("#excel").attr("disabled",true);
+				    window.location.href=encodeURI(encodeURI("exportLockedUsersInfo.mht?userName="+$("#userName").val()+"&&realName="+$("#realName").val()+"&&startTime="+$("#startTime").val()+"&&endTime="+$("#endTime").val()));
+				setTimeout("test()",3000);
+			});
+		   
+	    });
+	    
+	    function test(){
+			   $("#excel").attr("disabled",false);
+		}
+			
+	    //加载留言信息
+	   function initListInfo(praData) {
+		    param["paramMap.username"] = $("#userName").val();
+		    param["paramMap.realName"] = $("#realName").val();
+		    param["paramMap.userType"] = $("#userType").val();
+		    param["paramMap.orgName"] = $("#orgName").val();
+		    param["paramMap.startTime"] = $("#startTime").val();
+		    param["paramMap.endTime"] = $("#endTime").val();
+	   		$.dispatchPost("queryLockedUsersInfo.mht",praData,initCallBack);
+   		}
+   		
+   		function initCallBack(data){
+		 	$("#dataInfo").html(data);
+   		}
+   		
+   		//分页
+   		function pageInfo(pageId){
+   			param["pageBean.pageNum"] = pageId;
+   			initListInfo(param);
+   		}
+   		
+   		//删除单个
+   		function deleteById(ids){
+	 		if(window.confirm("确定要启用吗?")){
+	 			window.location.href = "unLockedUsers.mht?id="+ids;
+	 		}
+   		}
+   		
+   		//判断是否有选中项
+   		function checked(str){
+   			var c = 0;
+   			$(".adminId").each( function(i, n){
+				if(n.checked){
+					c = 1;
+				}
+			});
+			if(c==0){
+				alert("请先选中您要"+str+"的项！");
+				return false;
+			}
+			return true;
+   		}
+   		
+   		//删除多个选中项
+   		function deleteAll(){
+   			if(!checked("启用")){
+   				return;
+   			}
+	 		if(!window.confirm("确定要启用所有选中记录?")){
+	 			return;
+	 		}
+	 		var ids = "";
+			$(".adminId").each( function(i, n){
+				if(n.checked){
+					ids += n.value+",";
+				}
+			});
+			ids = ids.substring(0,ids.lastIndexOf(","));
+		 	window.location.href = "unLockedUsers.mht?id="+ids;
+   		}
+
+   		//全选
+   		function checkAll(e){
+	   		if(e.checked){
+	   			$(".adminId").attr("checked","checked");
+	   		}else{
+	   			$(".adminId").removeAttr("checked");
+	   		}
+   		}
+	</script>
+
+	</head>
+	<body>
+		<div id="right">
+			<div style="padding: 15px 10px 0px 10px;">
+				<div>
+					<table  border="0" cellspacing="0" cellpadding="0">
+							<tr>
+							<td width="100" height="28"  class="main_alll_h2">
+									<a href="#">锁定用户列表</a>
+								</td>
+								<td width="2px">
+									&nbsp;
+								</td>
+								<td width="100" height="28"  class="xxk_all_a">
+									<a href="queryLockingUsersInit.mht">添加锁定用户列表</a>
+								</td>
+								<td>
+									&nbsp;
+								</td>
+						</tr>
+						</table>
+				</div>
+				<div
+					style="padding-right: 10px; padding-left: 10px; padding-bottom: 10px; width: 1120px; padding-top: 10px; background-color: #fff;">
+					<table style="margin-bottom: 8px;" cellspacing="0" cellpadding="0"
+						width="100%" border="0">
+						<tbody>
+							<tr>
+								<td class="f66" align="left" width="100%" height="36px">
+									&nbsp;&nbsp;&nbsp;用户名：
+									<s:textfield id="userName"  name="userName" theme="simple" ></s:textfield>&nbsp;&nbsp;&nbsp;
+									真实姓名：
+									<s:textfield id="realName"  name="realName" theme="simple" ></s:textfield>&nbsp;&nbsp;&nbsp;
+									用户类型：
+									<s:select list="#{-1:'--全部--',1:'个人',2:'企业'}" id="userType"></s:select>
+									&nbsp;&nbsp;
+								</td>
+							</tr>
+							<tr>
+								<td class="f66" align="left" width="100%" height="36px">
+									企业全称：
+									<input id="orgName" name="paramMap.orgName" type="text"/>&nbsp;&nbsp;&nbsp;
+									锁定时间：
+									<s:textfield id="startTime" onclick="WdatePicker()" readonly="true" name="startTime" theme="simple" ></s:textfield>
+										--
+									<s:textfield id="endTime" onclick="WdatePicker()" readonly="true" name="endTime" theme="simple" ></s:textfield>&nbsp;&nbsp;&nbsp;
+									<input id="search" type="button" value="查找" name="search" />&nbsp;&nbsp;&nbsp;
+								    <input id="excel" type="button" value="导出Excel" name="excel" />
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<span id="dataInfo"> </span>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

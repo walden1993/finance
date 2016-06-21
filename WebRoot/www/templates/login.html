@@ -1,0 +1,37 @@
+<div class="bar bar-header bar-assertive">
+	<a  class="button button-icon" ng-click="goback()">返回</a>
+	<h1 class="title">登录</h1>
+	<a href="#/user/register/" class="button button-icon">注册</a>
+</div>      
+<ion-view>
+  <ion-content padding="true"  >
+
+    <form ng-submit="signup()" name="myForm" novalidate>
+      <div class="list">
+        <p class="has-error"><span class="help-block">{{loginData.usernameError}}</span></p>
+          <p class="has-error"><span class="help-block" ng-show="myForm.username.$error.required && myForm.username.$dirty">请输入你的用户名</span></p>
+        <div class="item item-input">
+          <input type="text" placeholder="用户名/手机/邮箱" autocomplete="false" name="username" ng-model="loginData.username" maxlength="25" class="input" required>
+        </div>
+		<p class="has-error"><span class="help-block">{{loginData.passwordError}}</span></p>
+          <p class="has-error"><span class="help-block" ng-show="myForm.password.$error.required  && myForm.password.$dirty">请输入你的登录密码</span></p>
+        <div class="item item-input">
+          <input type="password" placeholder="请输入密码" autocomplete="false" name="password" ng-model="loginData.password" maxlength="25" required>
+        </div>
+		<p class="has-error"><span class="help-block">{{loginData.codeError}}</span>
+          <p class="has-error"><span class="help-block" ng-show="myForm.code.$error.required   && myForm.code.$dirty">请输入验证码</span></p>
+        <div class="item item-input  item-button-right">
+          <input type="text" maxlength="4" placeholder="请输入验证码" autocomplete="false" name="code" ng-model="loginData.code" required><img class="button button-clear" src="{{UrlUtil.root}}admin/imageCode.mht?pageId=userlogin&d={{timenow}}" ng-click="switchCode();" id="code"  ng-init="switchCode();" />
+        </div>
+		<p class="has-error"><span class="help-block">{{loginData.loginError}}</span></p>
+        <div>
+          <button class="button button-block button-assertive" type="submit" ng-disabled="myForm.$invalid">登录</button>
+        </div>
+        <div class="row f0 m0">
+             <div class="col"><a href="#/user/register/">立即注册</a></div>
+			 <div class="col text-right"><a  href="#/user/forgetPwd" >忘记密码?</a></div>
+        </div>
+      </div>
+	  </form>
+  </ion-content>
+</ion-view>

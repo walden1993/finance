@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="financial" extends="admin-default"
+		namespace="/master">
+		<global-results>
+			<result name="error">/500.jsp</result>
+		</global-results>
+		<global-exception-mappings>
+			<exception-mapping result="error" exception="java.lang.Exception"></exception-mapping>
+		</global-exception-mappings>
+		<action name="rechargeecordsInit" class="financialAction"
+			method="rechargeecordsInit">
+			<result name="success">
+				/WEB-INF/page/admin/user_index.jsp
+			</result>
+		</action>
+  <!-- 
+		<action name="rechargeecordsInfo" class="financialAction"
+			method="rechargeecordsInfo">
+			<result name="success">
+				/WEB-INF/page/admin/financial_index_info.jsp
+			</result>
+		</action>
+ -->
+ 
+ 	<action name="rechargeecordsInf" class="validateAction"
+			method="queryUserCredit">
+			<result name="SUCCESS1">
+				/WEB-INF/page/admin/user_index_info.jsp
+			</result>
+			<result name="SUCCESS2">
+				/WEB-INF/page/admin/user_index_org_info.jsp
+			</result>
+			<result name="404">
+				404.jsp
+			</result>
+		</action>
+
+		<!-- 后台审核 -->
+		<action name="userBaseDataCheck" class="userAction"
+			method="updateUserBaseDataCheck">
+		</action>
+		<!-- 后台的新用户审核列表 -->
+	
+		<!-- 后台用户的审核时候显示的详细信息 -->
+		<action name="adminBase" class="userAction"
+			method="queryAdminBasecMessage">
+			<result name="SUCCESS1">/WEB-INF/page/admin/user_baseInf_admin.jsp</result>
+			<result name="SUCCESS2">/WEB-INF/page/admin/org_baseInf_admin.jsp</result>
+			<result name="404">/404.jsp</result>
+		</action>
+		
+		
+		<!-- 理财师申请 -->
+		<action name="financeAudit" class="financialAction" method="financeAudit">
+			<result name="success">/WEB-INF/page/admin/financeAudit_index.jsp</result>
+		</action>
+		<action name="queryFinanceAudit" class="financialAction" method="queryFinanceAudit">
+			<result name="success">/WEB-INF/page/admin/financeAudit_list.jsp</result>
+		</action>
+		<action name="queryAuditCondition" class="financialAction" method="queryAuditCondition">
+			<result name="success">/WEB-INF/page/admin/financeAudit_condition.jsp</result>
+		</action>
+		<action name="auditFinancial" class="financialAction" method="auditFinancial">
+		</action>
+	</package>
+</struts>

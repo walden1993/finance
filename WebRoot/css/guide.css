@@ -1,0 +1,71 @@
+@charset "utf-8";
+/* shortcut */
+*{margin:0;padding:0;list-style-type:none;}
+a,img{border:0;}
+.shortcut{position:fixed;top:0;left:0;z-index:9999;width:100%;}
+*html,*html body /* 修正IE6振动bug */{background-image:url(about:blank);background-attachment:fixed;}
+*html .shortcut{position:absolute;top:expression(eval(document.documentElement.scrollTop));}
+.shortcut{height:28px;line-height:28px;font-size:12px;background:#EEEEEE;text-transform:uppercase;box-shadow:1px 0px 2px rgba(0,0,0,0.2);border-bottom:1px solid #DDDDDD;}
+.shortcut h1{font-size:14px;font-family:"微软雅黑","宋体";}
+.shortcut a,.shortcut h1{padding:0px 10px;letter-spacing:1px;color:#333;text-shadow:0px 1px 1px #fff;display:block;float:left;}
+.shortcut a:hover{background:#fff;}
+.shortcut span.right{float:right;}
+.shortcut span.right a{float:left;display:block;color:#ff6600;font-weight:800;}
+.adv960x90{width:960px;height:90px;overflow:hidden;border:solid 1px #E6E6E6;margin:0 auto;}
+.adv728x90{width:728px;height:90px;overflow:hidden;border:solid 1px #E6E6E6;margin:0 auto;}
+#guide-step{width:1010px;margin:0px auto;position:relative;}
+/* tipbar */
+.tipSwitch,.tipbox,.tipword,.guide_progress li,.tipbar .arrow,.tipBarword{background:url(../images/guidebg.png) no-repeat;}
+#searchTip{overflow:hidden;}
+.tipbox{width:357px;position:relative;height:205px;display:none;background-position:0 0;}
+.tipbox .tipboxBtn{position:absolute;display:inline-block;width:31px;height:31px;left:298px;top:10px;cursor:pointer;}
+.tipboxNextbtn{background:url(../images/guidebg.png) no-repeat -425px -12px;position:absolute;display:inline-block;width:25px;height:23px;left:209px;top:127px;cursor:pointer;}
+.guide_progress{position:absolute;left:120px;top:136px;width:60px;height:9px;line-height:9px;font-size:0px;}
+.guide_progress li{float:left;width:9px;height:9px;margin-right:6px;font-size:0px;background-position:-442px -65px;}
+.guide_progress .on{background-position:-431px -65px;}
+.tipword{position:absolute;}
+#step1{z-index:1005;}
+#step2{z-index:1004;}
+#step3{z-index:1003;}
+#step4{z-index:1002;}
+#step5{z-index:1001;}
+
+#step0 .tipword{width:271px;height:87px;left:30px;top:35px;background-position:0 -262px;}
+#step1 .tipword{width:271px;height:87px;left:30px;top:35px;background-position:0 -262px;}
+#step2 .tipword{width:271px;height:87px;left:30px;top:35px;background-position:-282px -262px;}
+#step3 .tipword{width:271px;height:87px;left:30px;top:35px;background-position:0px -355px;}
+#step4 .tipword{width:271px;height:87px;left:30px;top:35px;background-position:-282px -355px;}
+#step5 .tipword{width:271px;height:87px;left:30px;top:35px;background-position:0px -451px;}
+
+#step5{background-position:0px 0;}
+#step5 .tipboxNextbtn{left:84px;top:119px;background:url(../images/guidebg.png) no-repeat -90px -206px;width:78px;height:28px; display:block;}
+
+.tipbarwrap{position:absolute;width:100%;height:1px;left:0px;top:0px;z-index:1000;background-color:transparent;}
+.tipbardiv{position:relative;width:900px;height:1px;margin:0px auto;}
+.tipbar{display:none;position:absolute;z-index:1000;}
+.tipbarInner{position:relative;}
+.tipbar .arrow{width:70px;height:46px;background-position:100% 0;position:absolute;}
+.tipBarword{position:absolute;}
+
+#tipbar0{background:url(../images/stepflow-pic.png) no-repeat 0px 0px;width:218px;height:43px;left:-50px;top:250px;border:2px solid #fff;}
+#tipbar0 .arrow{left:284px;top:-42px;}
+
+#tipbar1{background:url(../images/stepflow-pic.png) no-repeat 0 -84px;width:230px;height:40px;left:-49px;top:376px;border:2px solid #fff;}
+#tipbar1 .arrow{left:284px;top:-42px;}
+
+#tipbar2{background:url(../images/stepflow-pic.png) no-repeat 0 -159px;width:491px;height:346px;top:290px;left:255px;}
+#tipbar2 .arrow{left:284px;top:-42px;}
+#tipbar2 .tipBarword{width:62px;height:24px;left:355px;top:-41px;background-position:-156px -192px;}
+
+.clear{font-size:0px;line-height:0px;height:0px;overflow:hidden;}
+#tipbar3{background:url(../images/stepflow-pic.png) no-repeat 0px -518px;width:116px;height:46px;left:395px;top:590px;border:2px solid #fff;}
+#tipbar3 .arrow{left:30px;top:-35px;}
+
+#tipbar1 .tipbarInner{width:500px;height:61px;}
+#tipbar2 .tipbarInner{width:300px;height:50px;}
+#tipbar3 .tipbarInner{width:500px;height:280px;}
+#tipbar4 .tipbarInner{width:500px;height:280px;}
+.notip{position:absolute;left:175px;top:122px;}
+#notip{vertical-align:middle;}
+.notip label{vertical-align:middle;color:#0c5685;}
+.tipSwitch{width:80px;height:26px;cursor:pointer;background-position:0 -206px;cursor:pointer;position:absolute;top:15px;right:30px;}

@@ -1,0 +1,18 @@
+ <ion-header-bar class="bar-assertive">
+   <button class="button button-clear" ng-click="back()">返回</button>
+   <h1 class="title">{{title}}</h1>
+ </ion-header-bar>
+<ion-tabs class="tabs-icon-top tabs-color-active-positive">
+  <ion-tab title="三好贷动态"  href="#/consult/dynamic"  icon="ion-ios-paper" >
+         <ion-nav-view name="consult-dynamic">
+        </ion-nav-view>
+  </ion-tab>
+  <ion-tab title="互联网金融"  href="#/consult/finance" icon="ion-ios-list">
+        <ion-nav-view name="consult-finance">
+        </ion-nav-view>
+  </ion-tab>
+  <ion-tab title="公告"   href="#/consult/notice" icon="icon ion-volume-high" >
+        <ion-nav-view name="consult-notice">
+        </ion-nav-view>
+  </ion-tab>
+</ion-tabs>

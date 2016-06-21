@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
+        <title>风险承受能力测试</title>
+        <meta content="yes" name="apple-mobile-web-app-capable">
+        <meta content="yes" name="apple-touch-fullscreen">
+        <meta name="data-spm" content="a215s">
+        <meta content="telephone=no,email=no" name="format-detection">
+        <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+        <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+        <link rel="stylesheet" type="text/css" href="../../../css/mobile/base.css">
+        <link rel="stylesheet" type="text/css" href="../../../css/mobile/mobile.css">
+        <script type="text/javascript" src="../../../js/mobile/zepto.min.js" ></script>
+        <script type="text/javascript" src="../../../js/mobile/fastclick.js" ></script>
+        <script type="text/javascript" src="../../../js/mobile/doT.js" ></script>
+        <script type="text/javascript" src="../../../js/mobile/util0607.js" ></script>
+	</head>
+	<body>
+		<div class="risk-main-wrap">
+			<div class="center-wrap">
+				<span class="tips-desc" style="margin-top:1.2em">
+					为贯彻落实中国证监会颁发的《证券投资基金销售适用性指导意见》，规范基金网上基金销售行为，确保基金和相关产品销售的适用性，切实保障基金投资人的权益，请及时评估您的风险承受能力。
+				</span><span class="tips-desc" style="margin-top:2.5em;margin-bottom: 1.2em;">
+					请仔细阅读下面的十二个题目，选出每个题目中最适合您的选项。<input type="text" id="abc"/>
+				</span>
+				<script type="text/template" id="list-tpl">
+					{{~ it : value : index}}
+					{{~ value : val : inx}}
+					<ul class="risk-subject" param="{{=inx+1}}">
+						<li class="subject-title">
+							<span class="sequence">{{=inx+1}}</span>{{=val.title}}
+						</li>{{~ val.answers : anVal : anInx}}<li>
+							<span class="option"><input name="checkbox" type="checkbox"/>{{=anVal.content}}</span>
+						</li>{{~}}
+					</ul>
+					{{~}}
+					{{~}}
+				</script>
+				<div class="btn-div">
+					<span class="submit-btn">
+						提 交
+					</span>
+				</div>
+			</div>
+		</div>		
+	</body>
+	<script type="text/javascript">
+		$(function(){
+			var answer = new Object();
+			var getConfigParam = {
+				url:ss.centerURLMapping['HR_FUND'],
+				param:{"method":ss.centerURLMapping['QUESTIONS'],"ticket":""},
+				callback:function(data){
+					var code = data.code;
+					if(code == "0"){
+						var data = data.data;
+						for(var i=1;i<=data.items.length;i++){
+							answer[i]=-1;
+						}
+						var _dot = doT.template($("#list-tpl").html());
+						$(".btn-div").before(_dot([data.items]));
+					}
+				},
+		        errCallback: function () {
+		        	var msg = "获取信息错误，请重新进入";
+		        	ss.showPageDialog({msg: msg});
+		        }
+			}
+			ss.postRequest(getConfigParam);
+			
+			/*提交**/
+			$(".submit-btn").on('click',function(){
+				var answers = "";
+				$.each(answer, function(inx,data) {
+					if(data ==-1){
+						var errorMsg = '请完善 '+inx+' 题答案！';
+						ss.showPageDialog({msg: errorMsg});
+						return false;
+					}
+					answers += data+",";
+				});
+				answers = answers.substring(0,answers.lastIndexOf(","));
+				var getConfigParamScore = {
+						url:ss.centerURLMapping['HR_FUND'],
+						param:{"method":ss.centerURLMapping['QUESTIONS_SCORE'],"ticket":"","[answers]":answers},
+						callback:function(data){
+							var code = data.code;
+							if(code == "0"){
+								var data = data.data;
+								localStorage.setItem("QUESTIONS_SCORE",data);
+								var msg = "您的风险承受能力评估为 "+data.riskTolerLevel+" 级 "+data.riskTolerLevelDesc;
+					        	ss.showPageDialog({msg: msg});
+							}
+						},
+				        errCallback: function () {
+				        	var msg = "获取信息错误，请重新进入";
+				        	ss.showPageDialog({msg: msg});
+				        }
+					}
+				ss.postRequest(getConfigParamScore);
+			})
+			
+			/*选题*/
+			$("li").click(function(event){
+				var e = event.target.type;
+				var isChecked = $(this).find("input[name=checkbox]").prop('checked');
+				var ulObj = $(this).parents();
+				var currentInx = $(this).index();
+				if('checkbox' != e){
+					if(isChecked){
+						$(this).find('input').prop('checked',false);
+					}else{
+						$(this).find('input').prop('checked',true);
+					}
+				}
+				$.each($(this).siblings(),function(index,data){
+					$(data).find('input').prop('checked',false);
+				})
+				var subjectId = $(ulObj).attr('param');
+				currentInx = isChecked == false ? -1:currentInx;
+				answer[subjectId] = currentInx;
+			})
+		})
+	</script>
+</html>

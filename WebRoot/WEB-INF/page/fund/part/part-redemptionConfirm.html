@@ -1,0 +1,44 @@
+<div class="left-part">
+	<span class="title font-size-28 color-title">
+		赎回确认
+	</span>
+	<div class="fund-name">
+		<span class="name color-title font-size-16">基金名称：</span>
+		<span class="desc color-title font-size-20">大华深证300指数增强型&nbsp;&nbsp;1456188</span>
+	</div>
+	<span class="buy-time font-size-14"><font class="color-title">预计申购确认时间：</font><font class="color-blue">12月8日</font></span>
+	<span class="fund-desc font-size-14">该基金为高风险基金，超出您保守风险承受能力，请谨慎投资！</span>
+</div>
+<div class="rigth-part">
+	<span class="buy-num">
+		<label class="font-size-14 color-title">赎回份额：</label><label class="font-size-16 color-red desc">10000份</label>
+	</span>
+	<span class="charge-way font-size-14">
+		<label class="color-title">收费方式：</label>
+		<label class="desc">普通赎回</span>
+	</span>
+	<span class="bank-card" style="height: 95px;">
+		<span class="font-size-14 color-title info">赎回至：</span><span class="left-cards">
+			<span class="img-bank-common-block img-bank-zs img-bang-style"></span>
+			<span class="bank-name">招商银行</span>
+			<span class="bank-number">6177********1234</span>
+		</span>
+	</span>
+	<span class="pwd" style="margin-top: 0;">
+		<label class="font-size-14 color-title">交易密码：</label><input type="password" placeholder="请输入交易密码" class="text-input"/><p></p>
+	</span>
+	<span class="btn-confirm" style="margin-top: 23px;">确认</span>
+</div>
+<script type="text/javascript">
+	$(function(){
+		//确认
+		$('.btn-confirm').on('click',function(){
+			//赎回确认
+			ss.getRequest({url:"REDEMPTION_SUCCESS",callback:function(data){
+				$("#buy_sum").children().remove();
+				$("#buy_sum").css("height","478px");
+				$("#buy_sum").append(data);
+			}});
+		})
+	});
+</script>

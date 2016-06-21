@@ -1,0 +1,92 @@
+<ion-view view-title="Playlist">
+  <ion-content>
+    <div class="list">
+    <a class="item item-avatar  item-icon-left  item-icon-right" target="_blank" ng-href="{{UrlUtil.root}}securityCent.do?isOn=1">
+      <i class="icon ion-checkmark-circled"></i>
+      <h2>登录密码</h2>
+      <p>定期更换密码可以让你的账户更加安全</p>
+	  <i class="icon ion-compose"></i>
+    </a>
+    <a class="item item-avatar  item-icon-left  item-icon-right"  target="_blank" href="{{UrlUtil.root}}securityCent.do?isOn=2">
+      <i class="icon ion-checkmark-circled" ng-show="map.dealpwd!=''"></i><i class="icon ion-close-circled" ng-show="map.dealpwd==''"></i>
+      <h2>交易密码</h2>
+      <p>投资或提现时输入，保护账户资金安全</p>
+	  <i class="icon ion-compose"></i>
+    </a><!-- target="_blank" href="{{UrlUtil.root}}securityCent.do?isOn=3" -->
+    <a class="item item-avatar  item-icon-left  item-icon-right" >
+      <i class="icon ion-checkmark-circled" ng-show="map.authCardName==0"></i><i class="icon ion-close-circled" ng-show="map.authCardName!=0"></i>
+      <h2>实名认证</h2>
+	  <p ng-show="map.authCardName!=0" >您尚未实名认证</p>
+      <p ng-show="map.authCardName==0" >您已通过实名认证&nbsp;&nbsp;{{map.realName}}&nbsp;&nbsp;{{map.idNo}}</p><!-- ng-click="startRealName()" -->
+	  <i class="icon ion-compose" ng-show="map.authCardName!=0"  ng-click="startRealName()" ></i>
+    </a>
+    <a class="item item-avatar  item-icon-left  item-icon-right"  target="_blank" href="{{UrlUtil.root}}securityCent.do?isOn=4">
+      <i class="icon ion-checkmark-circled" ng-show="map.mobilePhone!=''"></i><i class="icon ion-close-circled" ng-show="map.mobilePhone==''"></i>
+      <h2>绑定手机</h2>
+      <p>您当前绑定的手机： {{map.mobilePhone}}</p>
+	  <i class="icon ion-compose"></i>
+    </a><!--   target="_blank" href="{{UrlUtil.root}}securityCent.do?isOn=5" -->
+    <a class="item item-avatar  item-icon-left  item-icon-right"  target="_blank" href="{{UrlUtil.root}}securityCent.do?isOn=5" >
+      <i class="icon ion-checkmark-circled" ng-show="map.email!=''"></i><i class="icon ion-close-circled" ng-show="map.email==''"></i>
+      <h2>绑定邮箱</h2>
+      <p ng-show="map.email==''" >您尚未绑定的邮箱</p>
+      <p ng-show="map.email!=''" >您当前绑定的邮箱： {{map.email}}</p>
+	  <i class="icon ion-compose"  ></i>
+    </a>
+</div>
+  </ion-content>
+</ion-view>
+<!-- 实名认证 -->
+<script  id="realname.html" type="text/ng-template">
+<ion-modal-view>
+<ion-header-bar>
+  <h1 class="title">实名认证</h1>
+  <button class="button button-clear button-calm" ng-click="hideRealName()">关闭</button>
+</ion-header-bar>
+<ion-content>
+<form name="myForm"  ng-submit="identifier(myForm.$valid)"  novalidate>
+	<ion-spinner icon="spiral"></ion-spinner>
+<div class="list list-inset">
+   <p class="assertive" ng-show="myForm.money.$dirty && myForm.money.$error.required">请输入投资金额</p>
+   <label class="item item-input">
+    <input type="text" placeholder="请输入真实姓名" name="realName"  ng-model="data.realName" maxlength="10"  class="input-xlarge search-query" ng-required="true">
+  </label>
+  <label class="item item-input">
+    <input type="text" placeholder="请输入身份证号码" name="cardNo" ng-model="data.cardNo" maxlength="18" ng-minlength="15"   class="input-xlarge" ng-required="true">
+  </label>
+</div>
+<div class="row">
+  <div class="col"><button type="button"  class="button button-full  button-dark" ng-click="hideRealName()">取消</button></div>
+  <div class="col"><button type="submit"  class="button button-full  button-calm" ng-disabled="myForm.$invalid">确定</button></div>
+</div>
+</form>
+</ion-content>
+</ion-modal-view>
+</script>
+<!-- 绑定邮箱 -->
+<script  id="bindMail.html" type="text/ng-template">
+<ion-modal-view>
+<ion-header-bar>
+  <h1 class="title">邮箱绑定</h1>
+  <button class="button button-clear button-calm" ng-click="hideRealName()">关闭</button>
+</ion-header-bar>
+<ion-content>
+<form name="myForm"  ng-submit="identifier(myForm.$valid)"  novalidate>
+	<ion-spinner icon="spiral"></ion-spinner>
+<div class="list list-inset">
+   <p class="assertive" ng-show="myForm.money.$dirty && myForm.money.$error.required">请输入投资金额</p>
+   <label class="item item-input">
+    <input type="text" placeholder="请输入真实姓名" name="realName"  ng-model="data.realName" maxlength="10"  class="input-xlarge search-query" ng-required="true">
+  </label>
+  <label class="item item-input">
+    <input type="text" placeholder="请输入身份证号码" name="cardNo" ng-model="data.cardNo" maxlength="18" ng-minlength="15"   class="input-xlarge" ng-required="true">
+  </label>
+</div>
+<div class="row">
+  <div class="col"><button type="button"  class="button button-full  button-dark" ng-click="hideRealName()">取消</button></div>
+  <div class="col"><button type="submit"  class="button button-full  button-calm" ng-disabled="myForm.$invalid">确定</button></div>
+</div>
+</form>
+</ion-content>
+</ion-modal-view>
+</script>

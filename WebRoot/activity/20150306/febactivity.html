@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>不用戳破屏，不用摇断手，刮红包，包包有料！</title>
+<script src="./images/jquery.js" type="text/javascript"></script>
+<script src="./images/wScratchPad.js" type="text/javascript"></script>
+<link href="./images/other.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<div class="w720 bj">
+  <div class="pl20 pt25"><img src="images/wx_logo.png" width="432" height="80" /></div>
+  <div class="tc pt30"><img src="images/wx_pic01.png" width="694" height="172" /></div>
+  <div class="guajiang">     
+    <div class="for">
+      <div id="wScratchPad3" class="list_one"></div>
+      <div class="list_two">
+          <h3 class="mt50 f30 red">30元</h3>
+          <a href="javascript:;" class="btn">点击领取</a>
+      </div>
+      <div class=" clearfix" style="position:absolute;top:170px; text-align:center;width:320px;color:#e83234;font-size:16px;font-weight:bold;">刮开涂层，有机会赢取1-1000元</div>
+    </div>
+    <script type="text/javascript">
+        $("#wScratchPad3").wScratchPad({
+            cursor:'./images/scratchpad_bg.png',
+            scratchMove: function(e, percent)
+            {
+				if(percent>1){
+					if(confirm('登录后才可以刮大奖哦!!!')){
+						window.location.href='login.do';
+					}else{
+						window.location.reload();
+					}
+				}
+                if(percent > 20)
+                this.clear();
+            }
+        });
+    </script>
+  </div>
+</div>
+<div class="wrapcontent">
+    <div class="cont_one">
+       <h2>活动内容</h2>
+       <div class="info">
+          <h3><span>惊喜活动一：</span>刮红包！！1000现金大奖任性到底！</h3>
+<p>新用户刮现金红包，刮到注册并完成实名认证，红包即时到账<br/>
+刮红包奖金为：现金2元、5元、10元、50元、100元、500元、1000元</p>
+<h3><span>惊喜活动二：</span>推荐就给利</h3>
+<p>活动期间分享活动邀请好友注册成功并完成实名认证，再送刮红包机会<br/>
+成功注册一位，送一次刮奖机会；成功注册二位，送二次刮奖机会；以此类推<br/>
+刮红包奖金为：谢谢参与，1元、2元、3元、10元、50元、100元、500元、1000元
+到底！</p></div></div>
+    <div class="cont_two">
+       <h2>动规则容</h2>
+       <div class="info">
+       1、活动时间：2015年3月6日10:00到3月31日18:00<br/>
+          2、通过三好资本网站平台、微信公众号推广，扫三好资本二维码，关注微信公众号，进入刮红包活动，点击刮奖，注册账户，奖金到账；
+<br/>3、	新用户成功注册并完成实名认证，100%中奖率，红包奖励金额直接划入三好资本平台账户，投资后方可提现；
+<br/>4、邀请好友注册成功并完成实名认证，送刮奖。红包奖励金额直接划入三好资本平台账户，投资后方可提现；
+<br/>5、红包奖励在活动期间内有效，在有效期内投资100元及以上，即可提现，逾期奖金将视为无效；
+<br/>6、活动作弊者，一经发现，扣除所有奖励所得；
+<br/>7、本活动最终解释权归深圳市易付通金融信息技术有限公司所有。
+
+       </div>
+    </div>
+</div>
+</body>
+</html>

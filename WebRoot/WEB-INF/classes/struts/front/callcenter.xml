@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="callcenter" extends="injectionInterceptor-0" namespace="/">
+		<global-results>
+			<result name="error">/500.jsp</result>
+		</global-results>
+		<global-exception-mappings>
+			<exception-mapping result="error" exception="java.lang.Exception"></exception-mapping>
+		</global-exception-mappings>
+		<action name="callcenter" class="callCenterAction"
+			method="callCenterInit">
+			<result name="success">
+				/WEB-INF/page/front/kfzx-index.jsp
+			</result>
+			<result name="info">/WEB-INF/page/front/kfzx-info.jsp</result>
+		</action>
+		
+		<action name="callkfs" class="callCenterAction" method="callKfsInit">
+			<result name="success">/WEB-INF/page/front/kfzx-info.jsp</result>
+		</action>
+		
+		<action name="callcenterList" class="callCenterAction" method="queryCallCenterInit">
+			<result name="success">/WEB-INF/page/helpcenter/help_right.jsp</result>
+		</action>
+		
+		<action name="callcenterAnswer" class="callCenterAction" method="queryCallCenterAnswer">
+			<result name="success">/WEB-INF/page/helpcenter/help_right.jsp</result>
+		</action>
+		
+		<action name="callcenterSearch" class="callCenterAction" method="callcenterSearch">
+			<result name="success">/WEB-INF/page/helpcenter/help_search.jsp</result>
+		</action>
+		
+		<action name="callcenterAnswerMore" class="callCenterAction" method="init">
+			<result name="success">/WEB-INF/page/helpcenter/help_more.jsp</result>
+		</action>
+	</package>
+</struts>

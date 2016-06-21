@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="channelMsg" extends="admin-default" namespace="/master">
+		<global-results>
+			<result name="error">/500.jsp</result>
+		</global-results>
+		<global-exception-mappings>
+			<exception-mapping result="error" exception="java.lang.Exception"></exception-mapping>
+		</global-exception-mappings>
+		
+	  <!-- 渠道管理 -->
+	  <action name="channelMsg">			
+         <result name="success">/WEB-INF/page/admin/channelMsg_index.jsp</result>
+      </action>
+      <action name="channelMsgList" class="channelMsgAction" method="channelMsgList">
+         <result name="success">/WEB-INF/page/admin/channelMsg_list.jsp</result>
+      </action>
+      
+      <action name="channelMsgGotoAdd" class="channelMsgAction" method="channelMsgGotoAdd">
+         <result name="success">/WEB-INF/page/admin/channelMsg_add.jsp</result>
+      </action>
+      <action name="channelMsgAdd" class="channelMsgAction" method="channelMsgAdd">
+         <result name="success">/WEB-INF/page/admin/channelMsg_add.jsp</result>
+      </action>
+      
+      <!-- 页面管理 -->
+      <action name="advertPage" >
+         <result name="success">/WEB-INF/page/admin/channelPage_index.jsp</result>
+      </action>
+      <action name="gotoAdvertPage" class="channelMsgAction" method="gotoAdvertPage">
+         <result name="success">/WEB-INF/page/admin/channelPage_add.jsp</result>
+      </action>
+      <action name="addAdvertPage" class="channelMsgAction" method="addAdvertPage">
+         <result name="success">/WEB-INF/page/admin/channelPage_index.jsp</result>
+      </action>
+      <action name="advertPageList" class="channelMsgAction" method="advertPageList">
+         <result name="success">/WEB-INF/page/admin/channelPage_list.jsp</result>
+      </action>
+      <action name="gotoChannelPageEdit" class="channelMsgAction" method="gotoChannelPageEdit">
+         <result name="success">/WEB-INF/page/admin/channelPage_edit.jsp</result>
+      </action>
+      <action name="editAdvertPage" class="channelMsgAction" method="editAdvertPage">
+         <result name="success">/WEB-INF/page/admin/channelPage_index.jsp</result>
+      </action>
+      
+      
+      <!-- 广告管理 -->
+      <action name="advertInfoMsg" >
+         <result name="success">/WEB-INF/page/admin/channelAdvertInfo_index.jsp</result>
+      </action>
+      
+      <action name="advertInfoGotoAdd" class="channelMsgAction" method="advertInfoGotoAdd">
+         <result name="success">/WEB-INF/page/admin/channelAdvertInfo_add.jsp</result>
+      </action>
+      
+      <action name="pageInfoAdd" class="channelMsgAction" method="pageInfoAdd">
+      </action>
+
+      
+	</package>
+</struts>

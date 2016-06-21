@@ -1,0 +1,17 @@
+<ion-view view-title="银行卡管理"> <ion-content>
+<div class="ui-loading-wrap" ng-show="!show">
+	<p>加载中</p>
+	<i class="ui-loading"></i>
+</div>
+<div  ng-show="show" class="list card">
+  <a href="" class="item item-icon-left"  ng-repeat="page in item">
+   	<i class="icon ion-card"></i>
+    <div class="row">
+    	<span class="col text-left">{{page.bankName}}</span>
+    	<span class="col">尾号{{page.cardNo}}</span>
+    	<span class="col calm text-right" onClick="deleteCard('{{page.cardId}}')">删除</span>
+    </div>
+  </a>
+</div>
+
+</ion-content> </ion-view>

@@ -1,0 +1,72 @@
+TRUNCATE TABLE t_article_manage;
+TRUNCATE TABLE t_assignment_debt;
+TRUNCATE TABLE t_auction_debt;
+TRUNCATE TABLE t_automaticbid;
+TRUNCATE TABLE t_automaticbid_user;
+TRUNCATE TABLE t_automaticbid_user;
+TRUNCATE TABLE t_award;
+TRUNCATE TABLE t_award_detail;
+TRUNCATE TABLE t_award_level4;
+TRUNCATE TABLE t_award_moth;
+TRUNCATE TABLE t_borrow;
+TRUNCATE TABLE t_bankcard;
+TRUNCATE TABLE t_collection;
+TRUNCATE TABLE t_concern;
+TRUNCATE TABLE t_creditinfo;
+TRUNCATE TABLE t_crediting;
+TRUNCATE TABLE t_education_cost;
+TRUNCATE TABLE t_feedback;
+TRUNCATE TABLE t_flow_repayment;
+TRUNCATE TABLE t_fund_messageboard;
+TRUNCATE TABLE t_fundrecord;
+TRUNCATE TABLE t_intention_fund;
+TRUNCATE TABLE t_invest;
+TRUNCATE TABLE t_invest_history;
+TRUNCATE TABLE t_invest_repayment;
+TRUNCATE TABLE t_mail;
+TRUNCATE TABLE t_materialimagedetal;
+TRUNCATE TABLE t_materialsauth;
+TRUNCATE TABLE t_money;
+TRUNCATE TABLE t_msgboard;
+TRUNCATE TABLE t_notice;
+TRUNCATE TABLE t_notice_msg;
+TRUNCATE TABLE t_notice_task;
+TRUNCATE TABLE t_notice_task_log;
+TRUNCATE TABLE t_noticecon;
+TRUNCATE TABLE t_operation_log;
+TRUNCATE TABLE t_person;
+TRUNCATE TABLE t_phone_binding_info;
+TRUNCATE TABLE t_pre_repayment;
+TRUNCATE TABLE t_recharge;
+TRUNCATE TABLE t_recharge_detail;
+TRUNCATE TABLE t_recharge_info;
+TRUNCATE TABLE t_recharge_withdraw_info;
+TRUNCATE TABLE t_rechargenumberlist;
+TRUNCATE TABLE t_recommend_user;
+TRUNCATE TABLE t_relation;
+TRUNCATE TABLE t_repayment;
+TRUNCATE TABLE t_repayment_service;
+TRUNCATE TABLE t_report;
+TRUNCATE TABLE t_risk_detail;
+TRUNCATE TABLE t_sendsms;
+TRUNCATE TABLE t_user;
+TRUNCATE TABLE t_user_check;
+TRUNCATE TABLE t_user_recorelist;
+TRUNCATE TABLE t_userintegraldetail;
+TRUNCATE TABLE t_vipsum;
+TRUNCATE TABLE t_withdraw;
+TRUNCATE TABLE t_workauth;
+TRUNCATE TABLE user_login_log; 
+
+
+TRUNCATE TABLE t_links;#清除友情链接
+TRUNCATE TABLE t_news;#清除公告
+TRUNCATE TABLE t_mediareport;#清除媒体报道
+TRUNCATE TABLE t_user_kefu;#清除客服
+TRUNCATE TABLE t_team;#清除团队介绍
+TRUNCATE TABLE t_download;#清除下载专区
+UPDATE t_message set content = '' where id in(1,2,4,17,18,20,21,23,24);#清除关于我们下面的文案
+
+ 
+DELETE FROM t_role_rights where roleId <> -1;
+DELETE FROM t_admin where id > 0

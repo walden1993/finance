@@ -1,0 +1,35 @@
+<ion-view title="回款中">
+  <ion-content  has-header="false"  style="background: #F6F8FA" >
+  	<!--下拉刷新-->
+      <ion-refresher
+        pulling-text="下拉刷新"
+        pulling-icon="ion-loading-c"
+        refreshing-text="刷新成功"
+        refreshing-icon="ion-loading-c"
+        on-refresh="doRefresh()">
+      </ion-refresher>
+        <ion-list><!--href="#/tab/friend/{{page.id}}"-->
+		   <a class="item item-divider">
+                <div class="row text-center">
+                  <div class="col">借款标题</div>
+                  <div class="col">投资金额</div>
+                  <div class="col">年化利率</div>
+                </div>  
+            </a>
+            <a class="item pl0"   ng-repeat="page in items">
+                <div class="row text-center">
+                  <div class="col ml0 ui-nowrap">{{page.borrowTitle}}</div>
+                  <div class="col" ><i>{{page.investAmount}}</i>元</div>
+				  <div class="col">{{page.annualRate}}%</div>
+                </div>  
+            </a>
+        </ion-list>   
+      <!--上拉更多 ng-if="moreDataCanBeLoaded()"-->
+      <ion-infinite-scroll
+        icon="ion-loading-c"
+        ng-if="moreDataCanBeLoaded()"
+        on-infinite="loadMore()"
+        distance="10%">
+      </ion-infinite-scroll>
+  </ion-content>
+</ion-view>

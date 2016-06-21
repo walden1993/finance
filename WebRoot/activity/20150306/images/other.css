@@ -1,0 +1,30 @@
+@charset "utf-8";
+/* CSS Document */
+html, body, h1, h4, h5, h6, blockquote,ol, ul, li, dl, dt, dd, form, fieldset, legend, button, input, textarea, pre, code, th, td{margin:0; padding:0;font-family:"Microsoft Yahei";font-family:"微软雅黑"; background:#db1315;}img{border:none;}
+ul, ol, li{list-style:none;}
+.clearfix:after {content:"\200B";display:block;height:0;clear:both;}
+.clearfix {*zoom:1;}
+a{ text-decoration:none;}
+.clear{clear:both;line-height:0;}
+.fr{float:right;}.fl{float:left;}.red{color:#ff000a;}.tc{ text-align:center;}.f24{ font-size:20px;}.f30{font-size:30px;}.f50{font-size:50px;}
+.pt25{padding-top:25px;}.pt30{padding-top:35px;}.pl20{padding-left:20px;}.pl8{padding-left:8px;}.mt50{margin-top:50px;}.mt70{margin-top:70px;}
+/**/
+.wrapcontent{background:#e83234;width:720px;padding:0;margin:0 auto;}
+.w720{width:720px; margin:0 auto;}.red{color:#dc0b27;}
+.bj{background:url(../images/wx_bj.png) no-repeat left top;height:777px; width:720px;}
+.guajiang{ background:url(../images/wx_pic02.png) no-repeat top center;width:684px;height:351px; margin:0px 0 0 20px;}
+.for{position:relative; left:63px;top:73px;}
+.list_one{display:inline-block;position:absolute;z-index:2;}
+.list_two{display:inline-block; position:absolute;z-index:1;width:574px;height:235px;text-align:center; background:url(tc.png) repeat left}
+.btn{background:#cf2b2d;color:#fff;border:none;padding:8px 20px;margin:0 auto;max-width:250px;display:block;cursor:pointer;font-size:20px;}
+.cont_one{padding:30px 20px;}.cont_two{padding:0 20px 20px 20px;}
+.cont_one  h2,.cont_two h2{font-size:30px;color:#000; margin:0;background: url(wx_pic03.png) no-repeat;padding-left:15px;width:184px;}
+.cont_one .info,.cont_two .info{border:1px dashed #fff;padding:16px;color:#fff; line-height:26px;font-size:16px;}
+.cont_one .info h3{font-size:20px; margin:10px 0 0 0 ;}
+.cont_one .info h3 span{color:#ffea00;}
+.hidden{display:none;}
+
+.login{ background:#d92426;min-width:200px;font-size:26px;text-align:center;color:#fff;padding:5px 0; margin:20px 10px 0 0; display:block;}
+.login a{color:#fff;}
+.fuzhi{text-align: left;color: #fff;font-size:40px;padding:20px 0;width:680px;margin:0 auto;background:#db1315; display:block;border-bottom:2px solid #be0608;font-size:40px;}
+.fuzhi:hover{background:#db1315;}
