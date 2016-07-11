@@ -16,10 +16,6 @@ import org.apache.axis.client.Service;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.json.JSONException;
-import org.json.JSONObject;
-import org.json.XML;
-import com.allinpay.ets.client.StringUtil;
 import com.shove.Convert;
 import com.shove.data.DataSet;
 import com.shove.data.dao.MySQL;
@@ -133,7 +129,7 @@ public class SMSUtil{
 		try
 		{
 			String condition = "status=1 and isMarket=0 and id!=4";
-			if (!StringUtil.isEmpty(pathtype)){
+			if (!StringUtils.isEmpty(pathtype)){
 				condition = " isMarket=1 AND status=1 ";
 			}
 			Dao.Tables.t_sms tsms = new Dao().new Tables().new t_sms();
